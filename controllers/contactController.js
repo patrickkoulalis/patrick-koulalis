@@ -16,7 +16,7 @@ exports.contactPost = (req, res) => {
 	});
 	// setup email data with unicode symbols
 	let mailOptions = {
-			from: 'noreply@patrickkoulalis.com', // sender address
+			from: `${req.body.contactEmail}`, // sender address
 	    to: 'hello@patrickkoulalis.com', // list of receivers
 			subject: `✅ patrickkoulalis.com | ${req.body.contactName} | ${req.body.contactEmail}`, // Subject line
 			text: req.body.contactMsg, // plain text body
