@@ -16,9 +16,9 @@ exports.contactPost = (req, res) => {
 	});
 	// setup email data with unicode symbols
 	let mailOptions = {
-	    from: 'PK Contact 👻', // sender address
+			from: 'noreply@patrickkoulalis.com', // sender address
 	    to: 'hello@patrickkoulalis.com', // list of receivers
-	    subject: `✅ PK Contact Form | ${req.body.contactName} | ${req.body.contactEmail}`, // Subject line
+			subject: `✅ patrickkoulalis.com | ${req.body.contactName} | ${req.body.contactEmail}`, // Subject line
 			text: req.body.contactMsg, // plain text body
 			html:
 				`<p>Name: ${req.body.contactName}</p>` +
@@ -33,7 +33,6 @@ exports.contactPost = (req, res) => {
 	transporter.sendMail(mailOptions, (error) => {
 		if(error) {
 			res.redirect('/');
-			return console.log(error);
 		} else {
 			res.redirect('/');
 		}
