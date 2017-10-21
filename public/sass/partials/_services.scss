@@ -1,0 +1,54 @@
+
+.services{
+  &__grid {
+    display: grid;
+    max-width: 1440px;
+    margin: 0 auto;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
+  }
+}
+
+.service-card {
+  grid-column: auto / span 4;
+
+  position: relative;
+
+  border-radius: 10px;
+  border: solid 5px $blue;
+  background: white;
+  box-shadow: 0 2px 4px #000;
+  padding: 20px 20px 120px 20px;
+  @media all and (max-width: 1024px) {
+    grid-column: auto / span 6;
+  }
+  @media all and (max-width: 640px) {
+    grid-column: auto / span 12;
+  }
+  &__title {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  &__button {
+    position: absolute;
+    color: #555;
+    bottom: -5px;
+    right: -5px;
+    padding: 30px 10px;
+    border-radius: 5px;
+    border: solid 5px $blue;
+    transition: color .3s ease-out, padding .2s ease-out, background .3s ease-out;
+    &:hover {
+      background: $pink;
+      color: white;
+      padding: 35px 15px;
+    }
+  }
+}

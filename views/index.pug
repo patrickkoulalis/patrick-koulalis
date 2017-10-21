@@ -1,0 +1,73 @@
+extends layout.pug
+
+block masthead
+	div.masthead
+		.masthead__inner
+			h1.masthead__title Hello.
+			p.masthead__text My Name is Patrick. I’m  a web designer and developer in Boston, MA.
+		if(page !== 'contact')
+			//- a(class="button button__solid__green" href="/contact") Lets Work Together!
+		a(href="#contact").masthead__cta
+			span Let's Get Started
+
+block content
+	main(role="main" aria-label="Main Content")
+
+		section.services.section
+			div.services__grid
+				div.section__title-wrap
+					h2.section__title.section__title--pink
+						|Level Up Your Business
+				div.service-card
+					h3.service-card__title Strategy
+					ul.service-card__list
+						li Startup Consulting
+						li Information Architecture
+						li User Experience
+						li Wireframes
+						li Brand Strategy
+					a.service-card__button(href="#contact") Get Started
+				div.service-card
+					h3.service-card__title Design
+					ul.service-card__list
+						li Responsive Website Design
+						li Logo Design &amp; Branding
+						li Mobile App Design
+						li Print Design
+					a.service-card__button(href="#contact") Get Started
+				div.service-card
+					h3.service-card__title Development
+					ul.service-card__list
+						li Website Development
+						li Mobile Development
+						li eCommerce Websites
+						li Content Management System
+						li CMS and e-Commerce Integration
+						li Installation &amp; Setup
+						li Website Maintenance
+					a.service-card__button(href="#contact") Get Started
+
+		section#contact.contact.section
+			div.grid
+				div.section__title-wrap
+					h2.section__title.section__title--blue.section__title--text-white Let's Talk
+				form(class="contact-form" action="/contact" method="POST" role="form")
+					div.contact-form__section
+						h3.contact-form__section-title The Basics
+						label(for="contactName") Your Name
+						input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
+						label(for="contactEmail") Your Email
+						input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
+						label(for="contactMsg")
+						textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
+					div.contact-form__section
+						h3.contact-form__section-title Optional Stuff
+						label(for="contactBudget") Estimated Budget - eg. $1500
+						input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
+						label(for="contactCompanyName") Company Name
+						input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
+						label(for="contactWebsiteUrl") Website URL
+						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
+						label(for="contactPhoneNumber") Phone Number
+						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+						button.contact-form__send Ready. Set. Send!

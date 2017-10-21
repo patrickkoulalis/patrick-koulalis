@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title= `${page}`
+		link(rel="stylesheet" href="/dist/styles.css")
+	body
+
+		div.site-wrap
+			block header
+				header(class="top" role="banner" aria-label="Header")
+					nav(class="nav" role="navigation")
+						a(class="logo-wrap" href="/"): img(class="logo" src="/images/pk_logo.svg" alt="Patrick Koulalis Logo")
+						div.nav-button
+							span.nav-button__bar
+							span.nav-button__bar
+							span.nav-button__bar
+						.nav__menu
+							a(href="/" class="nav__menu-link") Home
+							a(href="/services/" class="nav__menu-link") Services
+							a(href="/web-design/" class="nav__menu-link") Web Design
+							a(href="/web-development/" class="nav__menu-link") Web Development
+							a(href="/contact/" class="nav__menu-link") Contact
+							a(href="/contact/" class="nav__menu-link") Twitter
+							a(href="/contact/" class="nav__menu-link") Instagram
+							a(href="/contact/" class="nav__menu-link") Facebook
+							a(href="/contact/" class="nav__menu-link") Github
+							a(href="/contact/" class="nav__menu-link") Codepen
+					block masthead
+
+			block content
+
+			block footer
+		//-site-wrap
+		block scripts
+			script( src="/dist/main.bundle.js")

@@ -1,0 +1,51 @@
+.contact {
+	background:
+		linear-gradient(rgba(red($pink), green($pink), blue($pink), .80), rgba(red($pink), green($pink), blue($pink), .80)),
+		url("../images/sunglasses-cat.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+.contact-form {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	grid-column: auto / span 12;
+	grid-row: 2 / span 3;
+	&__send {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		color: white;
+		border: 5px solid $blue;
+		padding: 10px;
+		&:after {
+			content: "";
+			border-top: 15px solid transparent;
+			border-bottom: 15px solid transparent;
+			border-left: 15px solid $blue;
+			width: 0;
+			height: 0;
+			margin-left: 1vw;
+			display: block;
+		}
+	}
+}
+
+.contact-form__section {
+	flex: 1 1 50%;
+	padding: 2vw;
+	@media all and (max-width: 768px) {
+		flex: 1 1 100%;
+	}
+}
+
+.contact-form__section-title {
+	color: white;
+	margin-bottom: 2vh;
+}

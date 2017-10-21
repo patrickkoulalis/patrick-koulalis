@@ -1,0 +1,26 @@
+label {
+	display: none;
+}
+select, input, textarea {
+	padding: 20px;
+	width: 100%;
+	display: block;
+	outline: none;
+
+	font-size: 1rem;
+	color: white;
+	border: solid 2px #f1f1f1;
+	background: transparent;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	&::placeholder {
+		color: white;
+	}
+	&:focus {
+		border: solid 2px $blue;
+	}
+}
+
+input[required], textarea[required]  {
+	// border-left: none;
+}

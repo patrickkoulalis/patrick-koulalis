@@ -1,0 +1,148 @@
+.top {
+  @media all and (min-width: 1920px) {
+    display: flex;
+  }
+}
+
+.nav {
+	position: absolute;
+	top: 0%;
+  width: 100vw;
+  height: 10vh;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+  justify-content: space-between;
+  @media all and (min-width: 1920px) {
+    flex-basis: 34vw;
+    position: static;
+    order: 2;
+	}
+	&__menu {
+		display: none;
+		background: white;
+		width: 100vw;
+		height: auto;
+		z-index: 9999;
+		&--active {
+			display: block;
+			animation: slideInDown .2s;
+		}
+	}
+	&__menu-link {
+		display: block;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 20px;
+	}
+}
+
+.logo-wrap {
+	height: 100%;
+}
+.logo {
+  display: block;
+	height: 100%;
+	opacity: .35;
+	transition: opacity .3s;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.nav-button {
+	display: none;
+	width: 45px;
+	cursor: pointer;
+	opacity: .35;
+	transition: opacity .3s;
+	&__bar {
+		display: block;
+		height: 6px;
+		border-radius: 2px;
+		background: $blue;
+		margin-bottom: 6px;
+	}
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.masthead {
+	background:
+		linear-gradient(rgba(21, 39, 52, .55), rgba(21, 39, 52, .55)),
+		url(../images/laptop.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	border-bottom: solid 1vh $blue;
+
+  height: 95vh;
+  width: 100vw;
+	padding: 0 140px;
+	overflow: hidden;
+
+	order: 2;
+	display: flex;
+	flex-wrap: wrap;
+  align-items: center;
+  @media all and (max-width: 768px) {
+    padding: 0 10px;
+  }
+  @media all and (min-width: 1920px) {
+    flex-basis: 66vw;
+    order: 1;
+  }
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	&__title {
+		border: solid 10px $blue;
+		padding: 2vw;
+		border-radius: 10px;
+		margin: 0;
+		color: white;
+		// flex: 0;
+		margin-bottom: 20px;
+		animation: slideInLeft .5s;
+	}
+	&__text {
+		border: solid 5px $pink;
+		padding: 2vw;
+		border-radius: 10px;
+		font-size: 2em;
+		margin: 0;
+		color: white;
+		flex: 1 1 100%;
+		animation: slideInUp .5s;
+	}
+	&__cta{
+		font-size: 2em;
+		color: white;
+		width: 100%;
+		text-align: center;
+		animation: bounceInUp 1s;
+		&:after {
+			content: "";
+			border-top: 20px solid $pink;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			display: block;
+			width: 0;
+			height: 0;
+			margin: 0 auto;
+		}
+	}
+	&--web-design {
+		background: linear-gradient(rgba(21, 39, 52, .55), rgba(21, 39, 52, .55)),
+		url(../images/web-design-2-small.jpg);
+		background-size: cover;
+	}
+	&--404 {
+		height: 100vh;
+		background: linear-gradient(rgba(21, 39, 52, .75), rgba(21, 39, 52, .75)),
+		url(../images/404.jpg) top left / cover;
+	}
+}

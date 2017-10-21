@@ -1,0 +1,41 @@
+a.button {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.button {
+	padding: 15px;
+	border-radius: 5px;
+	min-width: 150px;
+	text-align: center;
+	font-size: 1rem;
+	color: #555;
+	border: none;
+	cursor: pointer;
+	&--text-white {
+		color: white;
+	}
+}
+
+.button__solid {
+	color: #fff;
+	&--blue {
+		background: $blue;
+	}
+	&--green {
+		background: $green;
+	}
+	&--pink {
+		background: $pink;
+	}
+}
+
+.button__outline {
+	background: transparent;
+	&--pink {
+		border: solid 5px $pink;
+	}
+	&--blue {
+		border: solid 5px $blue;
+	}
+}

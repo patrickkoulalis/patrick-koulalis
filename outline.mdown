@@ -1,0 +1,42 @@
+##Navigation
+    About
+    contact
+    blog/writing
+    speaking?(none so far)
+    Focus/Goals
+    Services
+    Skills?
+
+##Focus/Goals/Specialization
+    Performance(Speedometer)
+        Speed
+        Mobile Web
+    Accessibility (Key/Open Lock)
+        Visually impared.
+        Screen Readers.
+    Usability(Hand using a device?)
+        Better User Expereince through Visiual Design
+        A site should tell a story and a good story pushes a reader in the right direction. 
+    Quality(Checkmark, Thumbs Up, Gold Seal)
+        Doing things right the first time is the goal. Taking shortcuts for no reaosn other than to have a quick turn around is not what I a all about. Doing things right the first time saves time and money and allows me to deliver a higher quality product to the end user. 
+
+
+##Services(What I offer my clients)
+    Site Update (Performance, Usablity, Accessibility)
+        Freshen up your site.
+        Poorly designed/developed site.
+        Slow Site?
+        Accessibility Compliance
+    Setup
+    Troublshooting/Fixes
+    Design
+    Development
+    Mockups
+
+##Process
+    Research and Discovery
+    Design(Mockup/Revisions/Final)
+    Development(HTML, CSS, JavaScript)
+
+
+
