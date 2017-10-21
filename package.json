@@ -2,7 +2,9 @@
   "name": "patrickkoulalis",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "now": {
+    "dotenv": "variables.env.now"
+  },
   "scripts": {
     "start": "node ./index.js",
     "dev": "nodemon ./index.js --ignore public/ & npm run webpack",
