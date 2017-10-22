@@ -1,9 +1,3 @@
-.top {
-  @media all and (min-width: 1920px) {
-    display: flex;
-  }
-}
-
 .nav {
 	position: absolute;
 	top: 0%;
@@ -14,11 +8,6 @@
 	flex-wrap: wrap;
 	align-items: center;
   justify-content: space-between;
-  @media all and (min-width: 1920px) {
-    flex-basis: 34vw;
-    position: static;
-    order: 2;
-	}
 	&__menu {
 		display: none;
 		background: white;
@@ -88,10 +77,6 @@
   align-items: center;
   @media all and (max-width: 768px) {
     padding: 0 10px;
-  }
-  @media all and (min-width: 1920px) {
-    flex-basis: 66vw;
-    order: 1;
   }
 	&__inner {
 		display: flex;
