@@ -24,7 +24,7 @@ app.all('*', function (req, res, next) {
 	if(process.env.NODE_ENV === 'development') {
 		res.redirect(`https://localhost:${process.env.HTTP_PORT}${req.url}`);
 	} else {
-		res.redirect(`https://${req.hostname}:${process.env.HTTPS_PORT}${req.url}`);
+		res.redirect(`https://${req.hostname}${req.url}`);
 	}
 });
 app.use('/', routes)
