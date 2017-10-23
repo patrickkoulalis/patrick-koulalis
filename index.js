@@ -17,22 +17,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Secure traffic only
-// app.all('*', function (req, res, next) {
-// 	if(req.secure) {
-// 		return next();
-// 	};
-// 	if(process.env.NODE_ENV === 'development') {
-// 		res.redirect(`https://localhost:${process.env.HTTP_PORT}${req.url}`);
-// 	} else {
-// 		res.redirect(`https://${req.hostname}${req.url}`);
-// 	}
-// });
+app.all('*', function (req, res, next) {
+	if(req.secure) {
+		return next();
+	};
+	if(process.env.NODE_ENV === 'development') {
+		res.redirect(`https://localhost:${process.env.HTTP_PORT}${req.url}`);
+	} else {
+		res.redirect(`https://${req.hostname}${req.url}`);
+	}
+});
 app.use('/', routes)
 app.set(`port_https`, process.env.HTTPS_PORT);
 
-// http.createServer(app).listen(process.env.HTTP_PORT || 80, () => {
-// 	console.log(`Server Running on Port ${process.env.HTTP_PORT}`);
-// });
+http.createServer(app).listen(process.env.HTTP_PORT || 80, () => {
+	console.log(`Server Running on Port ${process.env.HTTP_PORT}`);
+});
 
 const httpsOptions = {
 	ca: fs.readFileSync('certs/ca_bundle.crt'),
