@@ -1,0 +1,55 @@
+.super {
+  background: whitesmoke;
+  position: relative;
+  &__inner {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+  &__title {
+    text-align: center;
+    &--small {
+      font-size: 2em;
+    }
+    &--white {
+      color: white;
+    }
+  }
+  &__content {
+    text-align: center;
+  }
+  &:after {
+    content: "";
+    border-top: 20px solid whitesmoke;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1000;
+  }
+  &--blue {
+    background: $blue;
+    color: white;
+    &:after {
+      border-top: 20px solid $blue;
+    }
+  }
+  &--dark-blue{
+    background: $darkBlue;
+    color: white;
+    &:after {
+      border-top: 20px solid $darkBlue;
+    }
+  }
+  &--pink {
+    background: $pink;
+    color: white;
+    &:after {
+      border-top: 20px solid $pink;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.counter {
+  display: none;
+  padding: $sectionPadding;
+  background: $blue;
+  &__inner{
+    display: flex;
+  }
+  &__stat {
+    width: 25%;
+    text-align: center;
+  }
+  &__icon {
+    height: 120px;
+    & * {
+      height: 100%;
+    }
+  }
+  &__count {
+    font-size: 2.5rem;
+  }
+  &__name {
+  }
+}

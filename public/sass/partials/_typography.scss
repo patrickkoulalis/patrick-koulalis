@@ -26,3 +26,11 @@ a {
 a:hover {
 //  color: whitesmoke;
 }
+
+.link {
+	color: #555;
+	text-decoration: underline;
+	&--text-white {
+		color: white;
+	}
+}

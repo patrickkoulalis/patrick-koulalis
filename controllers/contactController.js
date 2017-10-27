@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 exports.contactPage = (req, res) => {
-	res.render('contact.pug', {page: 'Patrick Koulalis - Contact'});
+	res.render('contact.pug', {page: 'Contact'});
 }
 
 exports.contactPost = (req, res) => {
@@ -16,7 +16,7 @@ exports.contactPost = (req, res) => {
 	});
 	// setup email data with unicode symbols
 	let mailOptions = {
-			from: `${req.body.contactEmail}`, // sender address
+			from: 'noreply@patrickkoulalis.com', // sender address
 	    to: 'hello@patrickkoulalis.com', // list of receivers
 			subject: `✅ patrickkoulalis.com | ${req.body.contactName} | ${req.body.contactEmail}`, // Subject line
 			text: req.body.contactMsg, // plain text body
@@ -32,7 +32,8 @@ exports.contactPost = (req, res) => {
 
 	transporter.sendMail(mailOptions, (error) => {
 		if(error) {
-			res.redirect('/');
+			res.render('contact.pug', {contact_err: true, contact_status_msg: "Message failed to send please try again.", page: 'contact'});
+			return console.log(error);
 		} else {
 			res.redirect('/');
 		}

@@ -1,0 +1,37 @@
+extends layout.pug
+
+block content
+
+	//- Contact Lead In
+	section.super.super--blue.section
+		div.super__inner
+			h2.super__title.super__title--white
+				|Built in Boston. Shared with the world.
+			p.super__content <span>Email</span> #[a.link.link--text-white(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
+			p.super__content <span>Phone</span> #[a.link.link--text-white(href="tel:5083671837")| 508-367-1837]
+
+	if(contact_status_msg)
+		p #{contact_status_msg}
+	section#contact.contact.section
+		h2.section__title.section__title--blue.section__title--text-white Let's Talk
+		div.grid
+			form(class="contact-form" action="/contact" method="POST" role="form")
+				div.contact-form__section
+					h3.contact-form__section-title The Basics
+					label(for="contactName") Your Name
+					input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
+					label(for="contactEmail") Your Email
+					input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
+					label(for="contactMsg")
+					textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
+				div.contact-form__section
+					h3.contact-form__section-title Optional Stuff
+					label(for="contactBudget") Estimated Budget - eg. $1500
+					input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
+					label(for="contactCompanyName") Company Name
+					input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
+					label(for="contactWebsiteUrl") Website URL
+					input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
+					label(for="contactPhoneNumber") Phone Number
+					input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+					button.button.contact-form__send Ready. Set. Send!

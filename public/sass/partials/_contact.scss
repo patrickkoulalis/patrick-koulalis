@@ -1,6 +1,6 @@
 .contact {
 	background:
-		linear-gradient(rgba(red($pink), green($pink), blue($pink), .80), rgba(red($pink), green($pink), blue($pink), .80)),
+		linear-gradient(rgba(red($pink), green($pink), blue($pink), .9), rgba(red($pink), green($pink), blue($pink), .9)),
 		url("../images/sunglasses-cat.jpg");
 	background-size: cover;
 	background-attachment: fixed;
@@ -48,4 +48,5 @@
 .contact-form__section-title {
 	color: white;
 	margin-bottom: 2vh;
+	font-size: 1.5rem;
 }

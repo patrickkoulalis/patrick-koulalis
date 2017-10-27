@@ -1,6 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 10px;
   margin: 0 auto;
   max-width: $width;
 }

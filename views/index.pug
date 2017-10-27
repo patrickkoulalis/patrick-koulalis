@@ -1,73 +1,166 @@
 extends layout.pug
 
-block masthead
-	div.masthead
-		.masthead__inner
-			h1.masthead__title Hello.
-			p.masthead__text My Name is Patrick. I’m  a web designer and developer in Boston, MA.
-		if(page !== 'contact')
-			//- a(class="button button__solid__green" href="/contact") Lets Work Together!
-		a(href="#contact").masthead__cta
-			span Let's Get Started
+block header
+	div.site-wrap.site-wrap--no-padding
+		header(class="top" role="banner" aria-label="Header")
+			nav(class="nav nav--home" role="navigation")
+				a(class="logo-wrap" href="/")
+					img(class="logo" src="/images/logo-white.svg" alt="Patrick Koulalis Logo")
+					//- span #{page}
+				div.nav-button
+					span.nav-button__label Menu
+					span.nav-button__bar
+					span.nav-button__bar
+					span.nav-button__bar
+				.nav__menu
+					a(href="/" class="nav__menu-link") Home
+					a(href="/work/" class="nav__menu-link") Work
+					a(href="/contact/" class="nav__menu-link") Contact
+		block masthead
+			div.masthead
+				.masthead__inner
+					h1.masthead__title Hello.
+					p.masthead__text My Name is Patrick. I’m  a web designer and developer in Boston, MA.
+				if(page !== 'contact')
+					//- a(class="button button__solid__green" href="/contact") Lets Work Together!
+				a(href="#contact").masthead__cta
+					span Let's Get Started
 
-block content
-	main(role="main" aria-label="Main Content")
+		block content
+		main(role="main" aria-label="Main Content")
 
-		section.services.section
-			div.services__grid
-				div.section__title-wrap
-					h2.section__title.section__title--pink
-						|Level Up Your Business
-				div.service-card
-					h3.service-card__title Strategy
-					ul.service-card__list
-						li Startup Consulting
-						li Information Architecture
-						li User Experience
-						li Wireframes
-						li Brand Strategy
-					a.service-card__button(href="#contact") Get Started
-				div.service-card
-					h3.service-card__title Design
-					ul.service-card__list
-						li Responsive Website Design
-						li Logo Design &amp; Branding
-						li Mobile App Design
-						li Print Design
-					a.service-card__button(href="#contact") Get Started
-				div.service-card
-					h3.service-card__title Development
-					ul.service-card__list
-						li Website Development
-						li Mobile Development
-						li eCommerce Websites
-						li Content Management System
-						li CMS and e-Commerce Integration
-						li Installation &amp; Setup
-						li Website Maintenance
-					a.service-card__button(href="#contact") Get Started
+			section.super.super--dark-blue.section
+				div.super__inner
+					h2.super__title.super__title--white
+						|Be proud of your website.
+					div.super__content
+						p You put your heart and soul into your business, I'll do the same for your website.
+						a(href="/work/").button.button--text-white.button__outline.button__outline--blue See More Work
 
-		section#contact.contact.section
-			div.grid
-				div.section__title-wrap
-					h2.section__title.section__title--blue.section__title--text-white Let's Talk
-				form(class="contact-form" action="/" method="POST" role="form")
-					div.contact-form__section
-						h3.contact-form__section-title The Basics
-						label(for="contactName") Your Name
-						input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
-						label(for="contactEmail") Your Email
-						input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
-						label(for="contactMsg")
-						textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
-					div.contact-form__section
-						h3.contact-form__section-title Optional Stuff
-						label(for="contactBudget") Estimated Budget - eg. $1500
-						input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
-						label(for="contactCompanyName") Company Name
-						input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
-						label(for="contactWebsiteUrl") Website URL
-						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
-						label(for="contactPhoneNumber") Phone Number
-						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
-						button.contact-form__send Ready. Set. Send!
+			section.section
+				.grid
+					.work
+						img(src="/images/site-mockups/kenosis-foundation.jpg", alt="Image of work")
+						.work__inner
+							h3.work__title Kenosis Foundation
+							div.work__role Design &amp; Development
+							a(href="https://kenosisfoundationindia.org/").button.button__outline.button__outline--pink Visit Site
+					.work
+						img(src="/images/site-mockups/visiblemsp.png", alt="Image of work")
+						.work__inner
+							h3.work__title Visible LLC
+							div.work__role Design &amp; Development
+							a(href="http://visiblemsp.com/").button.button__outline.button__outline--pink Visit Site
+					.work
+						img(src="/images/site-mockups/mazza_smith_home.png", alt="Image of work")
+						.work__inner
+							h3.work__title Mazza-Smith Dance
+							div.work__role Design &amp; Development
+							a(href="https://www.mazzasmithdance.com/").button.button__outline.button__outline--pink Visit Site
+
+			section.super.super--pink.section
+				div.super__inner
+					h2.super__title.super__title--white
+						|Take your business to the next level
+					div.super__content
+						p
+						a(href="/contact/").button.button--text-white.button__outline.button__outline--blue Contact Me
+
+			section.services.section
+				div.services__grid
+					div.service-card
+						h3.service-card__title Strategy
+						ul.service-card__list
+							li Startup Consulting
+							li Information Architecture
+							li User Experience
+							li Wireframes
+							li Brand Strategy
+						a.service-card__button(href="/contact/") Get Started
+					div.service-card
+						h3.service-card__title Web Design
+						ul.service-card__list
+							li Design and Development
+							li Landing Pages
+							li Microsites
+							li Mobile Web Design
+							li CMS Integration
+							li Logo Design &amp; Branding
+							li Email Templates
+						a.service-card__button(href="/contact/") Get Started
+					div.service-card
+						h3.service-card__title Development
+						ul.service-card__list
+							li Website Development
+							li Mobile Development
+							li eCommerce Websites
+							li Content Management System
+							li CMS and e-Commerce Integration
+							li Installation &amp; Setup
+							li Website Maintenance
+						a.service-card__button(href="/contact/") Get Started
+
+			section.section.section--latest-posts
+				h2.section__title.section__title--pink.section__title--text-white Hot Articles, Videos and Tutorials
+				.grid
+					.post-previews
+						div.post-previews__post
+							div.categories
+								span.cat.cat--video Video
+							a(href="#" class="post-previews__title") Not All Blank Cassettes Are Created Equal Blank Cassettes
+						div.post-previews__post
+							div.categories
+								span.cat.cat--tutorial Tutorial
+							a(href="#" class="post-previews__title") Not All Blank Cassettes Are Created Equal
+						div.post-previews__post
+							div.categories
+								span.cat.cat--article Article
+							a(href="#" class="post-previews__title") Created Equal Blank Cassettes
+						div.post-previews__post
+							div.categories
+								span.cat.cat--announcement Announcement
+							a(href="#" class="post-previews__title") Created Equal Blank Cassettes
+
+
+			//- Random Stats Counter
+			section.counter
+				.counter__inner
+					//- coffee consumed
+					.counter__stat
+						div.counter__icon
+							include ../public/images/icons/coffee.svg
+						div.counter__count
+							span.value 17,015
+							span  ml
+						div.counter__name Caffine Consumed
+
+			//- Contact Lead In
+			section#contact.super.super--blue.section
+				div.super__inner
+					h2.super__title.super__title--white
+						|Lets Talk.
+					p.super__content Send me a message below. If that's not your thing you can always email me directly at #[a(href="mailto:hello@patrickkoulalis.com" class="link link--text-white")|hello@patrickkoulalis.com]
+
+			//- Contact
+			section.contact.section
+				div.grid
+					form(class="contact-form" action="/contact" method="POST" role="form")
+						div.contact-form__section
+							h3.contact-form__section-title The Basics
+							label(for="contactName") Your Name
+							input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
+							label(for="contactEmail") Your Email
+							input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
+							label(for="contactMsg")
+							textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
+						div.contact-form__section
+							h3.contact-form__section-title Optional Stuff
+							label(for="contactBudget") Estimated Budget - eg. $1500
+							input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
+							label(for="contactCompanyName") Company Name
+							input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
+							label(for="contactWebsiteUrl") Website URL
+							input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
+							label(for="contactPhoneNumber") Phone Number
+							input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+							button.button.contact-form__send Ready. Set. Send!

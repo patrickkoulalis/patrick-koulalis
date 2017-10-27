@@ -17,4 +17,23 @@ body, .wrapper {
 	min-height: 100vh;
 	font-family: 'Lato', sans-serif;
 	background: white;
+	font-size: 1.2rem;
+}
+
+.site-wrap {
+	padding-top: 4rem;
+	&--no-padding{
+		padding-top: 0;
+	}
+	// &--active {
+	// 	left: -350px;
+	// 	position: absolute;
+	// 	width: 100vw;
+	// 	@media all and (max-width: 425px) {
+	// 		left: -310px;
+	// 	}
+	// 	@media all and (max-width: 385px) {
+	// 		left: 0;
+	// 	}
+	// }
 }

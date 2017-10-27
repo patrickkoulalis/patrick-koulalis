@@ -12,6 +12,10 @@ a.button {
 	color: #555;
 	border: none;
 	cursor: pointer;
+	transition: transform .2s;
+	&:hover {
+		transform: scale(1.1);
+	}
 	&--text-white {
 		color: white;
 	}

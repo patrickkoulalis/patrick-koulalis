@@ -1,40 +1,39 @@
 doctype html
 html(lang="en")
+
 	head
 		script(async src="https://www.googletagmanager.com/gtag/js?id=UA-53026829-1")
-		script
-			include ../public/javascript/gtag.js
+		if(process.env.NODE_ENV == 'production')
+			script
+				include ../public/javascript/gtag.js
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
-		title= `${page}`
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		title= `Patrick Koulalis - Web Design and Development`
 		link(rel="stylesheet" href="/dist/styles.css")
-		<meta name="description" content="Patrick Koulalis is a Boston based Web Designer and Developer offering custom website solutions that don't suck.">
-		<meta name="keywords" content="Boston Web Design, Boston Web Design Company, Web Design, Web Development, Internet Marketing, Social Media, WordPress Websites, Custom Websites, Custom Web Design, Web Designer, Web Design Company, Boston Web Development, Boston Web Development Company, Boston Print Design, Boston Graphic Design">
-		<meta name="robots" content="index, follow" >
-		<meta name="author" content="Patrick Koulalis Web Designer and Developer" />
-	body
+		meta(name="description" content="Patrick Koulalis is a Boston based Web Designer and Developer offering custom website solutions that don't suck.")
+		meta(name="keywords" content="Boston Web Design, Boston Web Design Company, Web Design, Website Design, Webdesign, Web Development, Internet Marketing, Social Media, WordPress Websites, Custom Websites, Custom Web Design, Web Designer, Web Design Company, Boston Web Development, Boston Web Development Company, Boston Print Design, Boston Graphic Design, Ecommerce Website Design")
+		meta(name="robots" content="index, follow")
+		meta(name="author" content="Patrick Koulalis Web Developer")
 
-		div.site-wrap
-			block header
+	body
+		block header
+			div.site-wrap
 				header(class="top" role="banner" aria-label="Header")
 					nav(class="nav" role="navigation")
-						a(class="logo-wrap" href="/"): img(class="logo" src="/images/pk_logo.svg" alt="Patrick Koulalis Logo")
+						a(class="logo-wrap" href="/")
+							img(class="logo" src="/images/logo.svg" alt="Patrick Koulalis Logo")
+							//- span #{page}
 						div.nav-button
+							span.nav-button__label Menu
 							span.nav-button__bar
 							span.nav-button__bar
 							span.nav-button__bar
 						.nav__menu
 							a(href="/" class="nav__menu-link") Home
-							a(href="/services/" class="nav__menu-link") Services
-							a(href="/web-design/" class="nav__menu-link") Web Design
-							a(href="/web-development/" class="nav__menu-link") Web Development
+							a(href="/work/" class="nav__menu-link") Work
 							a(href="/contact/" class="nav__menu-link") Contact
-							a(href="/contact/" class="nav__menu-link") Twitter
-							a(href="/contact/" class="nav__menu-link") Instagram
-							a(href="/contact/" class="nav__menu-link") Facebook
-							a(href="/contact/" class="nav__menu-link") Github
-							a(href="/contact/" class="nav__menu-link") Codepen
-					block masthead
+				block masthead
 
 			block content
 
