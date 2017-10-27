@@ -126,7 +126,7 @@
 .masthead {
 	position: relative;
 	background:
-		linear-gradient(rgba(21, 39, 52, .55), rgba(21, 39, 52, .55)),
+		linear-gradient(rgba(21, 39, 52, .95), rgba(21, 39, 52, .95)),
 		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
@@ -152,7 +152,7 @@
 	}
 	&__title {
 		border: solid 10px $blue;
-		padding: 2vw;
+		padding: 2rem;
 		border-radius: 10px;
 		margin: 0;
 		color: white;
@@ -162,7 +162,7 @@
 	}
 	&__text {
 		border: solid 5px $pink;
-		padding: 2vw;
+		padding: 2rem;
 		border-radius: 10px;
 		font-size: 2em;
 		margin: 0;
