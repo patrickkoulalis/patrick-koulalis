@@ -156,6 +156,7 @@
 		border-radius: 10px;
 		margin: 0;
 		color: white;
+		font-size: 4rem;
 		// flex: 0;
 		margin-bottom: 20px;
 		animation: slideInLeft .5s;
@@ -164,11 +165,17 @@
 		border: solid 5px $pink;
 		padding: 2rem;
 		border-radius: 10px;
-		font-size: 2em;
+		font-size: 2rem;
 		margin: 0;
 		color: white;
 		flex: 1 1 100%;
 		animation: slideInUp .5s;
+		& h1 {
+			font-size: 2rem;
+			color: white;
+			display: inline;
+			font-weight: 400;
+		}
 	}
 	&__cta{
 		position: absolute;

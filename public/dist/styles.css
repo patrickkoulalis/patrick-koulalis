@@ -614,6 +614,7 @@ body, .wrapper {
     border-radius: 10px;
     margin: 0;
     color: white;
+    font-size: 4rem;
     margin-bottom: 20px;
     -webkit-animation: slideInLeft .5s;
             animation: slideInLeft .5s; }
@@ -621,7 +622,7 @@ body, .wrapper {
     border: solid 5px #F4346F;
     padding: 2rem;
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 2rem;
     margin: 0;
     color: white;
     -webkit-box-flex: 1;
@@ -629,6 +630,11 @@ body, .wrapper {
             flex: 1 1 100%;
     -webkit-animation: slideInUp .5s;
             animation: slideInUp .5s; }
+    .masthead__text h1 {
+      font-size: 2rem;
+      color: white;
+      display: inline;
+      font-weight: 400; }
   .masthead__cta {
     position: absolute;
     bottom: 2rem;
