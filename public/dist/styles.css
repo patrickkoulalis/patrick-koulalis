@@ -473,43 +473,34 @@ body, .wrapper {
     -webkit-box-shadow: none;
             box-shadow: none; }
   .nav--active {
-    position: fixed;
-    left: -350px; }
-    @media all and (max-width: 425px) {
-      .nav--active {
-        left: -320px; } }
-    @media all and (max-width: 385px) {
-      .nav--active {
-        left: 0; } }
+    position: fixed; }
   .nav__menu {
-    -webkit-transition: -webkit-transform 5s;
-    transition: -webkit-transform 5s;
-    transition: transform 5s;
-    transition: transform 5s, -webkit-transform 5s;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
     z-index: 9999;
-    display: none;
-    position: absolute;
+    position: fixed;
     height: 100vh;
-    position: absolute;
     right: 0;
     top: 0;
+    -webkit-transform: translate(350px, 0);
+            transform: translate(350px, 0);
     width: 350px;
     background: white; }
     @media all and (max-width: 425px) {
       .nav__menu {
-        width: 320px; } }
+        width: 320px;
+        -webkit-transform: translate(350px, 0);
+                transform: translate(350px, 0); } }
+    @media all and (max-width: 385px) {
+      .nav__menu {
+        top: 5rem;
+        width: 100vw; } }
     .nav__menu--active {
-      display: block;
-      -webkit-animation: slideInRight .2s;
-              animation: slideInRight .2s;
-      position: fixed;
-      right: 0;
-      top: 0;
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
       border-left: 1px solid #eeecec; }
-      @media all and (max-width: 385px) {
-        .nav__menu--active {
-          top: 5rem;
-          width: 100vw; } }
   .nav__menu-link {
     color: #555555;
     display: inline-block;
@@ -538,7 +529,11 @@ body, .wrapper {
   opacity: .9;
   -webkit-transition: opacity .2s;
   transition: opacity .2s;
-  position: relative; }
+  position: relative;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s; }
   .nav-button__label {
     display: none;
     color: white;
@@ -549,12 +544,22 @@ body, .wrapper {
     border-radius: 2px;
     background: #5BAAE3;
     margin-bottom: 6px;
-    -webkit-transition: -webkit-transform .2s;
-    transition: -webkit-transform .2s;
-    transition: transform .2s;
-    transition: transform .2s, -webkit-transform .2s; }
+    -webkit-transition: -webkit-transform .6s;
+    transition: -webkit-transform .6s;
+    transition: transform .6s;
+    transition: transform .6s, -webkit-transform .6s; }
   .nav-button--active {
-    margin-right: 0; }
+    margin-right: 0;
+    -webkit-transform: translate(-350px, 0);
+            transform: translate(-350px, 0); }
+    @media all and (max-width: 425px) {
+      .nav-button--active {
+        -webkit-transform: translate(-320px, 0);
+                transform: translate(-320px, 0); } }
+    @media all and (max-width: 385px) {
+      .nav-button--active {
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0); } }
   .nav-button--active .nav-button__bar {
     position: absolute;
     top: 0;

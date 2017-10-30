@@ -20,39 +20,28 @@
 	}
 	&--active {
 		position: fixed;
-		left: -350px;
-		@media all and (max-width: 425px) {
-			left: -320px;
-		}
-		@media all and (max-width: 385px) {
-			left: 0;
-		}
 	}
 	&__menu {
-		transition: transform 5s;
+		transition: transform .3s;
 		z-index: 9999;
-		display: none;
-		position: absolute;
+		position: fixed;
 		height: 100vh;
-		position: absolute;
 		right: 0;
 		top: 0;
+		transform: translate(350px, 0);
 		width: 350px;
 		background: white;
 		@media all and (max-width: 425px) {
 			width: 320px;
+			transform: translate(350px, 0);
+		}
+		@media all and (max-width: 385px) {
+			top: 5rem;
+			width: 100vw;
 		}
 		&--active {
-			display: block;
-			animation: slideInRight .2s;
-			position: fixed;
-			right: 0;
-			top: 0;
+			transform: translate(0, 0);
 			border-left: 1px solid #eeecec;
-			@media all and (max-width: 385px) {
-				top: 5rem;
-				width: 100vw;
-			}
 		}
 	}
 	&__menu-link {
@@ -86,6 +75,7 @@
 	opacity: .9;
 	transition: opacity .2s;
 	position: relative;
+	transition: transform .3s;
 	&__label {
 		display: none;
 		color: white;
@@ -97,10 +87,17 @@
 		border-radius: 2px;
 		background: $blue;
 		margin-bottom: 6px;
-    transition: transform .2s;
+    transition: transform .6s;
 	}
 	&--active {
 		margin-right: 0;
+		transform: translate(-350px, 0);
+		@media all and (max-width: 425px) {
+			transform: translate(-320px, 0);
+		}
+		@media all and (max-width: 385px) {
+			transform: translate(0, 0);
+		}
 	}
 	&--active &__bar {
     position: absolute;
