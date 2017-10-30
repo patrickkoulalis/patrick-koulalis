@@ -31,13 +31,14 @@
 		transform: translate(350px, 0);
 		width: 350px;
 		background: white;
-		@media all and (max-width: 425px) {
+		@media all and (max-width: 465px) {
 			width: 320px;
 			transform: translate(350px, 0);
 		}
-		@media all and (max-width: 385px) {
+		@media all and (max-width: 435px) {
 			top: 5rem;
 			width: 100vw;
+			transform: translate(100vw, 0);
 		}
 		&--active {
 			transform: translate(0, 0);
@@ -92,10 +93,10 @@
 	&--active {
 		margin-right: 0;
 		transform: translate(-350px, 0);
-		@media all and (max-width: 425px) {
+		@media all and (max-width: 465px) {
 			transform: translate(-320px, 0);
 		}
-		@media all and (max-width: 385px) {
+		@media all and (max-width: 435px) {
 			transform: translate(0, 0);
 		}
 	}
@@ -167,11 +168,17 @@
 		color: white;
 		flex: 1 1 100%;
 		animation: slideInUp .5s;
+		@media all and (max-width: 320px) {
+			font-size: 1.5rem;
+		}
 		& h1 {
 			font-size: 2rem;
 			color: white;
 			display: inline;
 			font-weight: 400;
+			@media all and (max-width: 320px) {
+				font-size: 1.5rem;
+			}
 		}
 	}
 	&__cta{
