@@ -32,6 +32,7 @@
     z-index: 1000;
   }
   &--blue {
+    border-top: 1vh solid lighten($blue, 10%);
     background: $blue;
     color: white;
     &:after {
@@ -39,6 +40,7 @@
     }
   }
   &--dark-blue{
+    border-top: 1vh solid lighten($darkBlue, 10%);
     background: $darkBlue;
     color: white;
     &:after {
@@ -46,6 +48,7 @@
     }
   }
   &--pink {
+    border-top: 1vh solid lighten($pink, 10%);
     background: $pink;
     color: white;
     &:after {

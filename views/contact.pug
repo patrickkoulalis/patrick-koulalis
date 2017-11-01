@@ -3,7 +3,7 @@ extends layout.pug
 block content
 
 	//- Contact Lead In
-	section.super.super--blue.section
+	section.super.super--pink.section
 		div.super__inner
 			h2.super__title.super__title--white
 				|Built in Boston. Shared with the world.
@@ -13,7 +13,6 @@ block content
 	if(contact_status_msg)
 		p #{contact_status_msg}
 	section#contact.contact.section
-		h2.section__title.section__title--blue.section__title--text-white Let's Talk
 		div.grid
 			form(class="contact-form" action="/contact" method="POST" role="form")
 				div.contact-form__section

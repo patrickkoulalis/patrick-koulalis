@@ -1,11 +1,6 @@
 .nav {
-	position: absolute;
-	z-index: 9999;
-	top: 0;
-	left: 0;
 	background: white;
 	border-bottom: 1px solid #eeecec;
-	box-shadow: 0 0 2px #000;
   width: 100vw;
   height: 4em;
 	padding: 10px;
@@ -14,12 +9,12 @@
 	align-items: center;
 	justify-content: space-between;
 	&--home {
-		background: transparent;
-		border: none;
-		box-shadow: none;
 	}
 	&--active {
-		position: fixed;
+		// position: fixed;
+		// z-index: 9999;
+		// top: 0;
+		// left: 0;
 	}
 	&__menu {
 		transition: transform .3s;
@@ -124,29 +119,29 @@
 .masthead {
 	position: relative;
 	background:
-		linear-gradient(rgba(21, 39, 52, .95), rgba(21, 39, 52, .95)),
+		linear-gradient(rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .25), rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .95)),
 		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 
-	border-bottom: solid 1vh $blue;
+	// border-bottom: solid 1vh lighten($blue, 10%);
 
-  height: 95vh;
-	padding: 0em 8em 0 8em;
+	min-height: 85vh;
+	height: auto;
+	padding: 4rem 8rem 4rem 8em;
 	overflow: hidden;
-
-	order: 2;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
   @media all and (max-width: 768px) {
-    padding: 0 10px;
-  }
+    padding: 4rem .65rem 4rem .65rem;
+	}
+	@media all and (max-width: 640px) {
+		min-height: 65vh;
+	}
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		max-width: 960px;
+		margin: 0 auto;
 	}
 	&__title {
 		border: solid 10px $blue;
@@ -158,6 +153,10 @@
 		// flex: 0;
 		margin-bottom: 20px;
 		animation: slideInLeft .5s;
+		@media all and (max-width: 640px) {
+			font-size: 3rem;
+			padding: 1.5rem;
+		}
 	}
 	&__text {
 		border: solid 5px $pink;
@@ -168,22 +167,25 @@
 		color: white;
 		flex: 1 1 100%;
 		animation: slideInUp .5s;
-		@media all and (max-width: 320px) {
-			font-size: 1.5rem;
+		@media all and (max-width: 640px) {
+			font-size: 1.2rem;
+			padding: 1.5rem;
 		}
 		& h1 {
 			font-size: 2rem;
 			color: white;
 			display: inline;
 			font-weight: 400;
-			@media all and (max-width: 320px) {
-				font-size: 1.5rem;
+			@media all and (max-width: 640px) {
+				font-size: 1.2rem;
 			}
 		}
 	}
 	&__cta{
 		position: absolute;
 		bottom: 2rem;
+		right: 0;
+		left: 0;
 		font-size: 2em;
 		color: white;
 		width: 100%;

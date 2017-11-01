@@ -5,7 +5,7 @@ block header
 		header(class="top" role="banner" aria-label="Header")
 			nav(class="nav nav--home" role="navigation")
 				a(class="logo-wrap" href="/")
-					img(class="logo" src="/images/logo-white.svg" alt="Patrick Koulalis Logo")
+					img(class="logo" src="/images/logo.svg" alt="Patrick Koulalis Logo")
 					//- span #{page}
 				div.nav-button
 					span.nav-button__label Menu
@@ -29,13 +29,45 @@ block header
 		block content
 		main(role="main" aria-label="Main Content")
 
-			section.super.super--dark-blue.section
+			section.super.super--blue.section
 				div.super__inner
 					h2.super__title.super__title--white
 						|Be proud of your website.
 					div.super__content
 						p You put your heart and soul into your business, I'll do the same for your website.
-						a(href="/work/").button.button--text-white.button__outline.button__outline--blue See More Work
+						a(href="/work/").button.button--text-white.button__outline.button__outline--pink Contact Me
+
+			section.services
+				div.service-card.service-card--gray
+					<svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M269.9 364.6c1.4 6.4 2.1 13 2.1 19.7 0 81.2-54.2 127.7-134.8 127.7C41.5 512 0 435.1 0 347.6c10.4 7.1 46.9 36.5 58.7 36.5 7 0 13-4 15.5-10.6 23.6-62.2 66.5-76.5 112.9-77.4 15.6 33.8 46.1 59.6 82.8 68.5zM460.6 0c-14.4 0-27.9 6.4-38.2 15.7C228.2 190 208 194.1 208 245.4c0 48.8 40.5 90.6 90.2 90.6 59 0 93.2-43.4 200.6-244.8 7-13.7 13.2-28.5 13.2-43.9C512 19.7 487.3 0 460.6 0z"/></svg>
+					h3.service-card__title Web Design
+					ul.service-card__list
+						li Website Design
+						li Landing Pages
+						li Microsites
+						li Mobile App Design
+						li Logo Design &amp; Branding
+						li Email Templates
+					a.button.button__solid.button__solid--blue(href="/contact/") Start your project today!
+				div.service-card
+					<svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+					h3.service-card__title Web Development
+					ul.service-card__list
+						li Website Development
+						li eCommerce Websites
+						li Content Management System
+						li CMS and e-Commerce Integration
+						li Installation &amp; Setup
+						li Website Maintenance
+					a.button.button__solid.button__solid--blue(href="/contact/") Start your project today!
+
+			section.super.super--dark-blue.section
+				div.super__inner
+					h2.super__title.super__title--white
+						|Take your business to the next level
+					div.super__content
+						p Below is a small selection from some of my most recent projects.
+						a(href="/contact/").button.button--text-white.button__outline.button__outline--pink See More Work
 
 			section.section
 				.grid
@@ -57,48 +89,6 @@ block header
 							h3.work__title Mazza-Smith Dance
 							div.work__role Design &amp; Development
 							a(href="https://www.mazzasmithdance.com/").button.button__outline.button__outline--pink Visit Site
-
-			section.super.super--pink.section
-				div.super__inner
-					h2.super__title.super__title--white
-						|Take your business to the next level
-					div.super__content
-						p
-						a(href="/contact/").button.button--text-white.button__outline.button__outline--blue Contact Me
-
-			section.services.section
-				div.services__grid
-					div.service-card
-						h3.service-card__title Strategy
-						ul.service-card__list
-							li Startup Consulting
-							li Information Architecture
-							li User Experience
-							li Wireframes
-							li Brand Strategy
-						a.service-card__button(href="/contact/") Get Started
-					div.service-card
-						h3.service-card__title Web Design
-						ul.service-card__list
-							li Design and Development
-							li Landing Pages
-							li Microsites
-							li Mobile Web Design
-							li CMS Integration
-							li Logo Design &amp; Branding
-							li Email Templates
-						a.service-card__button(href="/contact/") Get Started
-					div.service-card
-						h3.service-card__title Development
-						ul.service-card__list
-							li Website Development
-							li Mobile Development
-							li eCommerce Websites
-							li Content Management System
-							li CMS and e-Commerce Integration
-							li Installation &amp; Setup
-							li Website Maintenance
-						a.service-card__button(href="/contact/") Get Started
 
 			section.section.section--latest-posts
 				h2.section__title.section__title--pink.section__title--text-white Hot Articles, Videos and Tutorials
@@ -135,7 +125,7 @@ block header
 						div.counter__name Caffine Consumed
 
 			//- Contact Lead In
-			section#contact.super.super--blue.section
+			section#contact.super.super--pink.section
 				div.super__inner
 					h2.super__title.super__title--white
 						|Let's Talk.
