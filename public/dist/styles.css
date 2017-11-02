@@ -581,7 +581,7 @@ body, .wrapper {
       padding: 4rem .65rem 4rem .65rem; } }
   @media all and (max-width: 640px) {
     .masthead {
-      min-height: 65vh; } }
+      min-height: 70vh; } }
   .masthead__inner {
     display: -webkit-box;
     display: -ms-flexbox;
