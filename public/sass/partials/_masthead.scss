@@ -1,0 +1,95 @@
+.masthead {
+	position: relative;
+	// background:
+	// 	linear-gradient(rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .25), rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .95)),
+	// 	url(../images/laptop.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	min-height: 85vh;
+	height: auto;
+	padding: 4rem 0rem 2rem 0em;
+  overflow: hidden;
+
+  @media all and (max-width: 1024px) {
+    padding: 4rem 20px 4rem 20px;
+  }
+
+	@media all and (max-width: 640px) {
+		min-height: 70vh;
+  }
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		max-width: 960px;
+		margin: 0 auto;
+	}
+	&__title {
+		border: solid 10px $blue;
+		padding: 2rem;
+		border-radius: 10px;
+		margin: 0;
+		// color: white;
+		font-size: 4rem;
+		// flex: 0;
+		margin-bottom: 20px;
+		animation: slideInLeft .5s;
+		@media all and (max-width: 640px) {
+			padding: 1.5rem;
+		}
+	}
+	&__text {
+		border: solid 5px $pink;
+		padding: 2rem;
+		border-radius: 10px;
+		font-size: 2rem;
+		margin: 0;
+		flex: 1 1 100%;
+		animation: slideInUp .5s;
+		@media all and (max-width: 640px) {
+      padding: 1.5rem;
+      font-size: 1.8rem;
+		}
+		& h1 {
+			font-size: 2rem;
+			display: inline;
+			font-weight: 400;
+			text-transform: unset;
+		}
+	}
+	&__cta{
+		padding: 2rem 0 0 0;
+		font-size: 2em;
+		color: $blue;
+		width: 100%;
+		text-align: center;
+		animation: bounceInUp 1s;
+		cursor: pointer;
+		&:after {
+			content: "";
+			border-top: 20px solid $pink;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			display: block;
+			width: 0;
+			height: 0;
+			margin: 0 auto;
+		}
+	}
+	&--web-design {
+		background: linear-gradient(rgba(21, 39, 52, .55), rgba(21, 39, 52, .55)),
+		url(../images/web-design-2-small.jpg);
+		background-size: cover;
+	}
+	&--404 {
+		height: 100vh;
+		background: linear-gradient(rgba(21, 39, 52, .75), rgba(21, 39, 52, .75)),
+		url(../images/404.jpg) top left / cover;
+	}
+}

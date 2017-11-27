@@ -7,6 +7,9 @@
   }
   &__title {
     text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 3rem;
     &--small {
       font-size: 2em;
     }
@@ -16,6 +19,11 @@
   }
   &__content {
     text-align: center;
+  }
+  &__text {
+    margin: 10px 0;
+    color: white;
+    font-size: 2rem;
   }
   &:after {
     content: "";
@@ -32,7 +40,6 @@
     z-index: 1000;
   }
   &--blue {
-    border-top: 1vh solid lighten($blue, 10%);
     background: $blue;
     color: white;
     &:after {
@@ -40,7 +47,6 @@
     }
   }
   &--dark-blue{
-    border-top: 1vh solid lighten($darkBlue, 10%);
     background: $darkBlue;
     color: white;
     &:after {
@@ -48,7 +54,6 @@
     }
   }
   &--pink {
-    border-top: 1vh solid lighten($pink, 10%);
     background: $pink;
     color: white;
     &:after {

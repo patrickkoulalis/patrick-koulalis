@@ -3,9 +3,8 @@ const router = express.Router();
 const contactController = require('../controllers/contactController');
 
 router.get('/', (req, res) => {
-	res.render('index.pug', {page: 'Home'});
+	res.render('index.pug', { pageTitle: 'Patrick Koulalis - Boston Web Design & Development', canonical: '', page: 'home'});
 })
-
 
 router.get('/contact', contactController.contactPage);
 
@@ -14,23 +13,23 @@ router.post('/contact', contactController.contactPost); //This contact form post
 
 
 router.get('/work', (req, res) => {
-	res.render('work.pug', { page: 'Work'});
+	res.render('work.pug', { pageTitle: 'Web Design & Development Work | Patrick Koulalis', canonical: 'work/'});
 });
 
 router.get('/about', (req, res) => {
-	res.render('about.pug', { page: `About`});
+	res.render('about.pug', { pageTitle: 'About | Patrick Koulalis', canonical: 'about/'});
 });
 
 router.get('/services', (req, res) => {
-	res.render('services.pug', { page: `Services`});
+	res.render('services.pug', { pageTitle: 'Web Design & Development Services | Patrick Koulalis', canonical: 'services/'});
 });
 
 router.get('/services/web-design/', (req, res) => {
-	res.render('web-design.pug', { page: `Web Design`});
+	res.render('web-design.pug', { pageTitle: 'Web Design | Patrick Koulalis', canonical: 'web-design/'});
 });
 
 router.get('/services/web-development/', (req, res) => {
-	res.render('web-development.pug', { page: `Web Development` });
+	res.render('web-development.pug', { pageTitle: 'Web Development | Patrick Koulalis', canonical: 'web-development/' });
 });
 
 router.get('/t', (req, res) => {
@@ -38,7 +37,7 @@ router.get('/t', (req, res) => {
 });
 
 router.get('*', (req, res) => {
-	res.render('404.pug', {page: `404`});
+	res.render('404.pug', { pageTitle: `404`});
 });
 
 module.exports = router;

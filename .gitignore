@@ -60,3 +60,6 @@ typings/
 variables.env
 variables.env.now
 .env
+
+# VScode
+.vscode/

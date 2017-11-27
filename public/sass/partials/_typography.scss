@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
-
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
 h1, h2, h3, h4, h5, h6 {
-	color: #555;
+	color: #484848;
 	margin: 0;
 	padding: 0;
 }
@@ -19,13 +18,13 @@ h3 {
 }
 
 a {
-	// color: #fff;
-	text-decoration: none;
+	color: inherit;
+	text-decoration: underline;
 }
 
-a:hover {
-//  color: whitesmoke;
-}
+// a:hover {
+// 	color: inherit;
+// }
 
 .link {
 	color: #555;

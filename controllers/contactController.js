@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 exports.contactPage = (req, res) => {
-	res.render('contact.pug', {page: 'Contact'});
+	res.render('contact.pug', { pageTitle: 'Contact | Patrick Koulalis', canonical: 'contact/'});
 }
 
 exports.contactPost = (req, res) => {

@@ -5,10 +5,10 @@ block content
 	//- Contact Lead In
 	section.super.super--pink.section
 		div.super__inner
-			h2.super__title.super__title--white
-				|Built in Boston. Shared with the world.
-			p.super__content <span>Email</span> #[a.link.link--text-white(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
-			p.super__content <span>Phone</span> #[a.link.link--text-white(href="tel:5083671837")| 508-367-1837]
+			h1.super__title.super__title--white Contact Me
+			div.super__content
+				p.super__text <span>Email</span> #[a(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
+				p.super__text <span>Phone</span> #[a(href="tel:5083671837")| 508-367-1837]
 
 	if(contact_status_msg)
 		p #{contact_status_msg}

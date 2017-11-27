@@ -13,4 +13,27 @@ function topNavToggle() {
   });
 }
 
+function getStartedScroll() {
+  const mainContent = document.querySelector('main');
+  const getStartedButton = document.querySelector('.masthead__cta');
+  const nav = document.querySelector('.nav');
+  let mainContentHeight = mainContent.offsetTop - nav.offsetHeight;
+  console.log(mainContentHeight);
+  getStartedButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: mainContentHeight,
+      behavior: 'smooth'
+    });
+  });
+
+}
+
+
+
 topNavToggle();
+
+
+
+if (window.location.pathname === '/') {
+  getStartedScroll();
+}

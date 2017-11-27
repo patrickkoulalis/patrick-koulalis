@@ -14,8 +14,10 @@ block header
 					span.nav-button__bar
 				.nav__menu
 					a(href="/" class="nav__menu-link") Home
+					//- a(href="/services/" class="nav__menu-link") Services
 					a(href="/work/" class="nav__menu-link") Work
-					a(href="/contact/" class="nav__menu-link") Contact
+					//- a(href="/about/" class="nav__menu-link") About Us
+					a(href="/contact/" class="nav__menu-link nav__menu-link--contact") Contact
 		block masthead
 			div.masthead
 				.masthead__inner
@@ -23,7 +25,7 @@ block header
 					span.masthead__text My Name is Patrick. A <h1>Boston web designer &amp; developer</h1> crafting the web one awesome website at a time.
 				if(page !== 'contact')
 					//- a(class="button button__solid__green" href="/contact") Lets Work Together!
-				a(href="#contact").masthead__cta
+				div.masthead__cta
 					span Let's Get Started
 
 		block content
@@ -32,9 +34,9 @@ block header
 			section.super.super--blue.section
 				div.super__inner
 					h2.super__title.super__title--white
-						|Be proud of your website.
+						|Be proud of your website
 					div.super__content
-						p You put your heart and soul into your business, I'll do the same for your website.
+						p.super__text If you aren't proud of your website, imagine how your customers feel. Don't lose out on another sale because of a poorly design website!
 						a(href="/contact/").button.button--text-white.button__outline.button__outline--pink Contact Me
 
 			section.services
@@ -64,9 +66,9 @@ block header
 			section.super.super--dark-blue.section
 				div.super__inner
 					h2.super__title.super__title--white
-						|Take your business to the next level
+						|There is no substitute for hard work
 					div.super__content
-						p Below is a small selection from some of my most recent projects.
+						p.super__text Below is a small selection from some of my most recent projects.
 						a(href="/work/").button.button--text-white.button__outline.button__outline--pink See More Work
 
 			section.section
@@ -128,8 +130,10 @@ block header
 			section#contact.super.super--pink.section
 				div.super__inner
 					h2.super__title.super__title--white
-						|Let's Talk.
-					p.super__content Send me a message below. If that's not your thing you can always email me directly at #[a(href="mailto:hello@patrickkoulalis.com" class="link link--text-white")|hello@patrickkoulalis.com]
+						|Let's Talk
+					div.super__content
+						p.super__text
+							|Send me a message below. If that's not your thing you can always email me directly at #[a(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
 
 			//- Contact
 			section.contact.section
