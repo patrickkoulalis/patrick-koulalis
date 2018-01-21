@@ -20,29 +20,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Secure traffic only
-app.all('*', function (req, res, next) {
-	if (req.secure) {
-		return next();
-	};
-	if (process.env.NODE_ENV === 'development') {
-		res.redirect(`https://${req.hostname}:${process.env.HTTPS_PORT}${req.url}`);
-	}
-	res.redirect(`https://${req.hostname}${req.url}`);
-});
-app.use('/', routes)
+// app.all('*', function (req, res, next) {
+// 	if (req.secure) {
+// 		return next();
+// 	};
+// 	if (process.env.NODE_ENV === 'development') {
+// 		res.redirect(`https://${req.hostname}:${process.env.HTTPS_PORT}${req.url}`);
+// 	}
+// 	res.redirect(`https://${req.hostname}${req.url}`);
+// });
+// app.use('/', routes)
 
 
 const https = require('https');
 const http = require('http');
 
 //HTTP Non-Secure Server
-http.createServer(app).listen(process.env.HTTP_PORT || 80);
+http.createServer(app).listen(process.env.HTTP_PORT || 8080, 'localhost');
 
 // HTTPS Secure Server
-const httpsOptions = {
-	ca: fs.readFileSync('certs/ca_bundle.crt'),
-	key: fs.readFileSync('certs/private.key'),
-	cert: fs.readFileSync('certs/certificate.crt')
-};
+// const httpsOptions = {
+// 	ca: fs.readFileSync('certs/ca_bundle.crt'),
+// 	key: fs.readFileSync('certs/private.key'),
+// 	cert: fs.readFileSync('certs/certificate.crt')
+// };
 
-https.createServer(httpsOptions, app).listen(process.env.HTTPS_PORT || 443);
+// https.createServer(httpsOptions, app).listen(process.env.HTTPS_PORT || 443);
