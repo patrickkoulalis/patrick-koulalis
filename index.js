@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 	}
 // 	res.redirect(`https://${req.hostname}${req.url}`);
 // });
-// app.use('/', routes)
+app.use('/', routes)
 
 
 const https = require('https');
