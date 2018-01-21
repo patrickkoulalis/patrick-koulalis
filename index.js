@@ -45,4 +45,4 @@ const httpsOptions = {
 	cert: fs.readFileSync('certs/certificate.crt')
 };
 
-https.createServer(httpsOptions, app).listen(process.env.HTTPS_PORT || 443, localhost);
+https.createServer(httpsOptions, app).listen(process.env.HTTPS_PORT || 443);
