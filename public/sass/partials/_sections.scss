@@ -1,5 +1,9 @@
 .section {
 	padding: $sectionPadding;
+	&__inner {
+		max-width: $innerWidth;
+		margin: 0 auto;
+	}
   &__title {
     font-size: 3.5rem;
     text-align: center;
@@ -23,13 +27,5 @@
     url(../images/beard-guy.jpg);
     background-attachment: fixed;
     background-size: cover;
-  }
-}
-
-.services-section {
-  position: relative;
-  &--web-design {
-    background: linear-gradient(rgba(255, 255, 255, .85), rgba(255, 255, 255, .85)),
-    url(../images/web-design-2.jpg) 50% 50% / cover;
   }
 }

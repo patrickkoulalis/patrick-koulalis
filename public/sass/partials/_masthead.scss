@@ -1,8 +1,8 @@
 .masthead {
 	position: relative;
-	// background:
-	// 	linear-gradient(rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .25), rgba(red($darkBlue), green($darkBlue), blue($darkBlue), .95)),
-	// 	url(../images/laptop.jpg);
+	background:
+		linear-gradient(120deg, rgba(red($blue), green($blue), blue($blue), .95), rgba(red($pink), green($pink), blue($pink), .95)),
+		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 
@@ -12,7 +12,7 @@
 
 	min-height: 85vh;
 	height: auto;
-	padding: 4rem 0rem 2rem 0em;
+	padding: 8.5rem 0rem 2rem 0em;
   overflow: hidden;
 
   @media all and (max-width: 1024px) {
@@ -21,13 +21,14 @@
 
 	@media all and (max-width: 640px) {
 		min-height: 70vh;
-  }
+	}
 
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		max-width: 960px;
+		max-width: $innerWidth;
+		width: 100%;
 		margin: 0 auto;
 	}
 	&__title {
@@ -35,7 +36,7 @@
 		padding: 2rem;
 		border-radius: 10px;
 		margin: 0;
-		// color: white;
+		color: white;
 		font-size: 4rem;
 		// flex: 0;
 		margin-bottom: 20px;
@@ -49,6 +50,7 @@
 		padding: 2rem;
 		border-radius: 10px;
 		font-size: 2rem;
+		color: white;
 		margin: 0;
 		flex: 1 1 100%;
 		animation: slideInUp .5s;
@@ -58,6 +60,7 @@
 		}
 		& h1 {
 			font-size: 2rem;
+			color: white;
 			display: inline;
 			font-weight: 400;
 			text-transform: unset;
@@ -65,8 +68,8 @@
 	}
 	&__cta{
 		padding: 2rem 0 0 0;
-		font-size: 2em;
-		color: $blue;
+		font-size: 1.25em;
+		color: white;
 		width: 100%;
 		text-align: center;
 		animation: bounceInUp 1s;
@@ -79,13 +82,8 @@
 			display: block;
 			width: 0;
 			height: 0;
-			margin: 0 auto;
+			margin: 5px auto 0 auto;
 		}
-	}
-	&--web-design {
-		background: linear-gradient(rgba(21, 39, 52, .55), rgba(21, 39, 52, .55)),
-		url(../images/web-design-2-small.jpg);
-		background-size: cover;
 	}
 	&--404 {
 		height: 100vh;

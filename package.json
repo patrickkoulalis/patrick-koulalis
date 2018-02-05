@@ -38,6 +38,8 @@
     "mongoose": "^4.9.7",
     "nodemailer": "^4.0.1",
     "pug": "^2.0.0-rc.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "stripe": "^5.4.0",
+    "uuid-v4": "^0.1.0"
   }
 }

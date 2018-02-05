@@ -1,0 +1,20 @@
+extends layout.pug
+
+block masthead
+	div.masthead
+		.masthead__inner
+			span.masthead__title Stripe Testing!
+			span.masthead__text This is where stripe shall be tested!
+		if(page !== 'contact')
+			//- a(class="button button__solid__green" href="/contact") Lets Work Together!
+		div.masthead__cta
+			span Let's Get Started
+
+
+block content
+	form(action="/stripe-test" method="POST" role="form" class="check-out-form")
+		div.formErrors
+		div#card-element
+		div.button-group
+			button.button.button--green test order
+

@@ -1,4 +1,5 @@
 import '../sass/main.scss';
+import '../javascript/checkout';
 
 function topNavToggle() {
   const siteWrap = document.querySelector('.site-wrap');
@@ -29,11 +30,7 @@ function getStartedScroll() {
 }
 
 
-
 topNavToggle();
-
-
-
 if (window.location.pathname === '/') {
   getStartedScroll();
 }

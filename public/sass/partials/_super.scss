@@ -2,14 +2,13 @@
   background: whitesmoke;
   position: relative;
   &__inner {
-    max-width: 60em;
+    max-width: $innerWidth;
     margin: 0 auto;
   }
   &__title {
     text-align: center;
     display: block;
     width: 100%;
-    font-size: 3rem;
     &--small {
       font-size: 2em;
     }
@@ -22,8 +21,6 @@
   }
   &__text {
     margin: 10px 0;
-    color: white;
-    font-size: 2rem;
   }
   &:after {
     content: "";
@@ -44,6 +41,13 @@
     color: white;
     &:after {
       border-top: 20px solid $blue;
+    }
+	}
+  &--white {
+    background: #fff;
+    color: #484848;
+    &:after {
+      border-top: 20px solid #fff;
     }
   }
   &--dark-blue{

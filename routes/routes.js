@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const contactController = require('../controllers/contactController');
+const stripeController = require('../controllers/stripeController.js');
 
+var stripe = require("stripe")(
+	"sk_test_QpHol8S3EiOFOHMRmipwiqVD"
+);
+
+
+// Homepage
 router.get('/', (req, res) => {
 	res.render('index.pug', { pageTitle: 'Patrick Koulalis - Boston Web Design & Development', canonical: '', page: 'home'});
 })
+
+// Stripe Test Page
+router.get('/stripe-test', stripeController.stripePage);
+router.post('/stripe-test', stripeController.stripePay);
 
 router.get('/contact', contactController.contactPage);
 
@@ -20,16 +31,12 @@ router.get('/about', (req, res) => {
 	res.render('about.pug', { pageTitle: 'About | Patrick Koulalis', canonical: 'about/'});
 });
 
-router.get('/services', (req, res) => {
-	res.render('services.pug', { pageTitle: 'Web Design & Development Services | Patrick Koulalis', canonical: 'services/'});
+router.get('/solutions', (req, res) => {
+	res.render('solutions.pug', { pageTitle: 'Web Design & Development Services | Patrick Koulalis', canonical: 'services/'});
 });
 
-router.get('/services/web-design/', (req, res) => {
-	res.render('web-design.pug', { pageTitle: 'Web Design | Patrick Koulalis', canonical: 'web-design/'});
-});
-
-router.get('/services/web-development/', (req, res) => {
-	res.render('web-development.pug', { pageTitle: 'Web Development | Patrick Koulalis', canonical: 'web-development/' });
+router.get('/support-plans', (req, res) => {
+	res.render('support.pug')
 });
 
 router.get('/t', (req, res) => {

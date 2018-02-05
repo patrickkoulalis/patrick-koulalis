@@ -1,0 +1,14 @@
+.overview {
+	display: flex;
+	&__image {
+		flex: 1 1 500px;
+	}
+	&__content {
+		flex: 1 1 75%;
+		padding: 0 20px;
+	}
+	&__title {
+		border: 2px solid #ff006d;
+		padding: 10px;
+	}
+}

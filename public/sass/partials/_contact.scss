@@ -1,6 +1,6 @@
 .contact {
 	background:
-		linear-gradient(rgba(red(white), green(white), blue(white), .9), rgba(red(white), green(white), blue(white), .9)),
+		linear-gradient(rgba(red($blue), green($blue), blue($blue), .95), rgba(red($blue), green($blue), blue($blue), .95)),
 		url("../images/sunglasses-cat.jpg");
 	background-size: cover;
 	background-attachment: fixed;
@@ -18,17 +18,16 @@
 		cursor: pointer;
 		display: flex;
 		align-items: center;
-		background: none;
+		background: $green;
 		border: none;
-		font-size: 2rem;
-		color: #484848;
-		border: 5px solid $pink;
-		padding: 10px;
+		font-size: 1rem;
+		color: #fff;
+		padding: 0 10px;
 		&:after {
 			content: "";
-			border-top: 15px solid transparent;
-			border-bottom: 15px solid transparent;
-			border-left: 15px solid $blue;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 10px solid $blue;
 			width: 0;
 			height: 0;
 			margin-left: 1vw;

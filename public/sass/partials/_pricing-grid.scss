@@ -1,0 +1,7 @@
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-column-gap: 20px;
+	grid-template-rows: auto;
+	grid-row-gap: 20px;
+}
