@@ -1,27 +1,14 @@
-
-.services {
+.packages {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  &:after {
-    content: "";
-    border-top: 20px solid white;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    display: block;
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translate(-50%);
-  }
 }
 
-.service-card {
-  flex: 1 1 33%;
-  background: white;
-  padding: 4vw;
+.package-card {
+	position: relative;
+  flex: 0 1 33%;
+  background: #f9f9f9;
+  padding: 4vw 2vw;
   text-align: center;
   @media all and (max-width: 960px) {
     flex: 1 1 100%;
@@ -32,10 +19,22 @@
 	&:nth-child(even) {
 		background: #F5F5F5;
 	}
+	&__callout {
+		font-weight: bold;
+		font-size: 1.3rem;
+	}
+	&__callout-text {
+		display: block;
+		color: $green;
+	}
   &__title {
 		margin: 15px 0 10px 0;
-		font-size: 2em;
+		font-size: 1.75em;
 		display: block;
+		color: $pink;
+		&--red {
+			color: red;
+		}
   }
   &__icon {
     fill: $pink;
@@ -45,8 +44,15 @@
     }
 	}
 	&__price {
-		font-size: 3em;
+		font-size: 2.5em;
 		display: block;
+	}
+	&__original-price {
+		font-size: 1em;
+		display: block;
+		& span {
+			text-decoration: line-through;
+		}
 	}
   &__list {
     list-style: none;
@@ -56,7 +62,7 @@
   &--gray {
 	}
 	&--help {
-		border: 4px solid red;
-		color: red;
+		border: 2px solid red;
+		background: white;
 	}
 }

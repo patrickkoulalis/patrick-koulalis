@@ -1,5 +1,14 @@
 .section {
 	padding: $sectionPadding;
+	&--no-padding {
+		padding: 0 2vw;
+	}
+	&--blue {
+		background: $blue;
+	}
+	&--gray{
+		background: $lightGray;
+	}
 	&__inner {
 		max-width: $innerWidth;
 		margin: 0 auto;

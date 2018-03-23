@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	.section.max-width-wrapper
+		form(action="/account/signup" method="POST" class="skinny-form")
+			.form-header
+				h3.form-header__title Sign Up for an Account
+			.form-inner
+				.form-element
+					label
+						input(type="text" name='name' placeholder='Full Name' required)
+				.form-element
+					label
+						input(type="email" name='email' placeholder='Email Address' required)
+				.form-element
+					label
+						input(type="password" name='password' placeholder='Password' required)
+				.form-element
+					label
+						input(type="password" name='confirmPassword' placeholder='Confirm Password' required)
+
+				button.button.button--blue(type="submit") Sign Up ›

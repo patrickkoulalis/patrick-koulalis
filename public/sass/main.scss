@@ -14,8 +14,76 @@
 @import 'partials/super';
 @import 'partials/work';
 @import 'partials/sections';
-@import 'partials/services';
+@import 'partials/packages';
 @import 'partials/contact';
 @import 'partials/animate';
-@import 'partials/credits';
 @import 'partials/blog';
+@import 'partials/footer';
+@import 'partials/credits';
+
+
+// account dashboard
+.dashboard-wrap {
+	display: flex;
+}
+
+.dashboard-sidebar {
+	flex: 0 1 25%;
+	background: whitesmoke;
+}
+
+.dashboard-content {
+	flex: 0 1 75%;
+}
+
+.dashboard-section {
+	border-radius: 2px;
+	margin-bottom: 10px;
+	&:nth-of-type(even) {
+		background: $lightGray;
+	}
+	&__title {
+		padding: 10px;
+		background: $blue;
+		color: white;
+		border-radius: 2px 2px 0 0;
+	}
+	&__inner {
+		padding: 20px;
+	}
+}
+
+
+
+// clients
+.clients {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.client-card {
+	position: relative;
+  flex: 0 1 33%;
+  background: #f9f9f9;
+  padding: 4.5vw 2vw;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  @media all and (max-width: 960px) {
+    flex: 0 1 50%;
+	}
+	&__logo {
+		max-height: 75px;
+		@media all and (max-width: 960px) {
+			max-width: 75px;
+		}
+		@media all and (max-width: 640px) {
+			max-width: 75px;
+		}
+	}
+	&:nth-child(even) {
+		background: #F5F5F5;
+	}
+}

@@ -1,58 +1,6 @@
 extends layout.pug
-
-block masthead
-	div.masthead
-		div.grid
-			form(class="contact-form" action="/contact" method="POST" role="form")
-				div.contact-form__section
-					h3.contact-form__section-title The Basics
-					label(for="contactName") Your Name
-					input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
-					label(for="contactEmail") Your Email
-					input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
-					label(for="contactMsg")
-					textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
-				div.contact-form__section
-					h3.contact-form__section-title Optional Stuff
-					label(for="contactBudget") Estimated Budget - eg. $1500
-					input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
-					label(for="contactCompanyName") Company Name
-					input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
-					label(for="contactWebsiteUrl") Website URL
-					input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
-					label(for="contactPhoneNumber") Phone Number
-					input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
-					button.button.contact-form__send Ready. Set. Send!
-
+include mixins/_contactForm
 block content
-	section.super.super--white.section
-		div.super__inner
-			h1.super__title Contact Me
-			div.super__content
-				p.super__text <span>Email</span> #[a(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
-				p.super__text <span>Phone</span> #[a(href="tel:5083671837")| 508-367-1837]
-
-	if(contact_status_msg)
-		p #{contact_status_msg}
-	section#contact.contact.section
+	.section
 		div.grid
-			form(class="contact-form" action="/contact" method="POST" role="form")
-				div.contact-form__section
-					h3.contact-form__section-title The Basics
-					label(for="contactName") Your Name
-					input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
-					label(for="contactEmail") Your Email
-					input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
-					label(for="contactMsg")
-					textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
-				div.contact-form__section
-					h3.contact-form__section-title Optional Stuff
-					label(for="contactBudget") Estimated Budget - eg. $1500
-					input(id="contactBudget" type="text" name="contactBudget" placeholder="Estimated Budget - eg. $1500")
-					label(for="contactCompanyName") Company Name
-					input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
-					label(for="contactWebsiteUrl") Website URL
-					input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
-					label(for="contactPhoneNumber") Phone Number
-					input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
-					button.button.contact-form__send Ready. Set. Send!
+			+contactForm()

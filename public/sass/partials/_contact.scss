@@ -1,9 +1,9 @@
 .contact {
-	background:
-		linear-gradient(rgba(red($blue), green($blue), blue($blue), .95), rgba(red($blue), green($blue), blue($blue), .95)),
-		url("../images/sunglasses-cat.jpg");
-	background-size: cover;
-	background-attachment: fixed;
+	// background:
+	// 	linear-gradient(rgba(red($blue), green($blue), blue($blue), .95), rgba(red($blue), green($blue), blue($blue), .95)),
+	// 	url("../images/sunglasses-cat.jpg");
+	// background-size: cover;
+	// background-attachment: fixed;
 }
 
 
@@ -14,6 +14,11 @@
 	margin: 0 auto;
 	grid-column: auto / span 12;
 	grid-row: 2 / span 3;
+	background: $blue;
+	padding: 0;
+	&--dark {
+		background: $blue;
+	}
 	&__send {
 		cursor: pointer;
 		display: flex;
@@ -38,14 +43,20 @@
 
 .contact-form__section {
 	flex: 1 1 50%;
-	padding: 2vw;
+	padding: 0 2vw 2vw;
+	&:nth-of-type(1) {
+		border-right: 1px solid rgba(245, 245, 245, 0.15);
+	}
 	@media all and (max-width: 768px) {
 		flex: 1 1 100%;
+		&:nth-of-type(1) {
+			border-right: none;
+		}
 	}
 }
 
 .contact-form__section-title {
-	color: #484848;
+	color: #FFFFFF;
 	margin-bottom: 2vh;
 	font-size: 1.5rem;
 }

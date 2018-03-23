@@ -1,11 +1,15 @@
 .top {
-	position: absolute;
-	z-index: 9999;
-	top: 0;
-	background: transparent;
+	background:
+		linear-gradient(120deg, rgba(red($blue), green($blue), blue($blue), .70), 75%, rgba(red($pink), green($pink), blue($pink), .95)),
+		url(../images/laptop.jpg);
   width: 100vw;
-	height: 4.5rem;
 	padding: 10px;
+	&--float {
+		position: absolute;
+		z-index: 9999;
+		top: 0;
+  	background: transparent;
+	}
 	&__inner {
 		max-width: $innerWidth;
 		margin: 0 auto;
@@ -13,7 +17,7 @@
 }
 
 .nav {
-	height: 4.5rem;
+	max-height: 4.5rem;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -28,7 +32,7 @@
 			top: 0;
 			transform: translate(350px, 0);
 			width: 350px;
-			background: $blue;
+			background: white;
 		}
 		@media all and (max-width: 465px) {
 			width: 320px;
@@ -62,9 +66,10 @@
 		}
 		@media all and (max-width: 1024px) {
 			display: block;
-			border-bottom: 1px solid lighten($blue, 5%);
+			border-bottom: 1px solid $lightGray;
 			color: #484848;
 			padding: 20px;
+			font-size: 2rem;
 			text-transform: uppercase;
 		}
 		&:hover {
@@ -74,11 +79,10 @@
 }
 
 .logo-wrap {
-	height: 100%;
 }
 .logo {
+	height: 3.5rem;
   display: block;
-	height: 100%;
 	opacity: .9;
 	transition: opacity .2s;
 	&:hover {

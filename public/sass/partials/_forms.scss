@@ -1,22 +1,32 @@
-label {
-	display: none;
+form {
+	background: $lightGray;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
 }
-select, input, textarea {
-	padding: 1rem;
-	width: 100%;
-	display: block;
-	outline: none;
 
-	font-size: 1rem;
-	color: #555;
+// select {
+// 	  margin: 0;
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+// }
+
+select, input {
+	// height: 2.5em;
+}
+
+select, input, textarea {
+	width: 100%;
+	outline: none;
 	border: none;
-	border-radius: 2px;
-	margin-bottom: 10px;
+	color: #555;
+	box-shadow: none;
 	&::placeholder {
 		color: #555;
 	}
 	&:focus {
-		border: solid 1px $blue;
+		border: none;
 	}
 }
 
@@ -24,11 +34,105 @@ input[required], textarea[required]  {
 	// border-left: none;
 }
 
-.check-out-form {
+.skinny-form {
+	margin: 0 auto;
+	max-width: 30em;
+	& button {
+		width: 100%;
+	}
+}
+
+.form-inner {
+	padding: 10px;
+}
+
+.form-header {
+	padding: 20px 10px;
+	margin: 0;
 	background: $blue;
+	color: white;
+	border-radius: 2px 2px 0 0;
+	border-bottom: 2px solid darken($blue, 5%);
+	&__title {
+		margin: 0;
+		color: white;
+	}
+}
+
+.form-group {
+	margin: 0 0 20px 0;
+}
+
+.form-element {
+	padding: .75em;
+	border-radius: 2px;
+	background: white;
+	border: 1px solid whitesmoke;
+  box-shadow: 0 1px 3px 0 rgba(135, 135, 135, 0.5);
+}
+
+.payment-popup {
+	z-index: 99999999999;
+	height: 0;
+	overflow: hidden;
+	background: transparent;
+	transition: background .7s;
+	&--active {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: scroll;
+		background: rgba(50, 50, 50, .8);
+		display: block;
+		height: 100%;
+	}
+	& .payment-form {
+		transition: transform .5s;
+		transform: scale(.5);
+	}
+	&--active  .payment-form {
+		transform: scale(1);
+	}
+	&__close {
+		cursor: pointer;
+		& svg {
+			fill: white;
+			max-height: 1em;
+			position: absolute;
+			right: 10px;
+			top: 25px;
+		}
+	}
+}
+
+.payment-form {
+	background: $lightGray;
 	border-radius: 3px;
-	padding: 2em;
-	margin: 5em auto;
-	width: 50em;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, .2)
+	padding: 0;
+	margin: 1em auto 0 auto;
+	max-width: 30em;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+	& #payment-form-submit {
+		width: 100%;
+	}
+	& .form-element {
+		font-size: .85em;
+		box-shadow: 0 1px 3px 0 rgba(212, 212, 212, 0.5);
+		margin-bottom: 0;
+	}
+	& input, & select {
+		padding: 0 0 0 2em;
+	}
+	&__inner {
+		padding: 1rem;
+	}
+}
+
+.form-icon svg {
+	height: 1em;
+	fill: $blue;
+	position: absolute;
+	z-index: 1;
 }

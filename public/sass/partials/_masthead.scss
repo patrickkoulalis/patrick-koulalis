@@ -1,7 +1,7 @@
 .masthead {
 	position: relative;
 	background:
-		linear-gradient(120deg, rgba(red($blue), green($blue), blue($blue), .95), rgba(red($pink), green($pink), blue($pink), .95)),
+		linear-gradient(120deg, rgba(red($blue), green($blue), blue($blue), .95), 75%, rgba(red($pink), green($pink), blue($pink), .95)),
 		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
@@ -10,54 +10,43 @@
 	flex-direction: column;
 	justify-content: space-between;
 
-	min-height: 85vh;
 	height: auto;
 	padding: 8.5rem 0rem 2rem 0em;
   overflow: hidden;
 
   @media all and (max-width: 1024px) {
-    padding: 4rem 20px 4rem 20px;
+    padding: 8rem 20px 4rem 20px;
   }
 
-	@media all and (max-width: 640px) {
-		min-height: 70vh;
-	}
-
 	&__inner {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
+		// display: flex;
+		// flex-wrap: wrap;
+		// align-items: center;
 		max-width: $innerWidth;
 		width: 100%;
 		margin: 0 auto;
+		text-align: center;
 	}
 	&__title {
-		border: solid 10px $blue;
-		padding: 2rem;
-		border-radius: 10px;
+		// border: solid 10px $blue;
+		// padding: 1rem;
+		// border-radius: 10px;
 		margin: 0;
 		color: white;
 		font-size: 4rem;
-		// flex: 0;
+		display: block;
 		margin-bottom: 20px;
 		animation: slideInLeft .5s;
-		@media all and (max-width: 640px) {
-			padding: 1.5rem;
-		}
 	}
 	&__text {
-		border: solid 5px $pink;
-		padding: 2rem;
-		border-radius: 10px;
+		// border: solid 5px $pink;
+		// padding: 1rem;
+		// border-radius: 10px;
 		font-size: 2rem;
 		color: white;
 		margin: 0;
-		flex: 1 1 100%;
+		display: block;
 		animation: slideInUp .5s;
-		@media all and (max-width: 640px) {
-      padding: 1.5rem;
-      font-size: 1.8rem;
-		}
 		& h1 {
 			font-size: 2rem;
 			color: white;

@@ -1,9 +1,10 @@
 .super {
-  background: whitesmoke;
+  background: $lightGray;
   position: relative;
   &__inner {
     max-width: $innerWidth;
-    margin: 0 auto;
+		margin: 0 auto;
+		padding: 8vh 2vw;
   }
   &__title {
     text-align: center;
@@ -19,12 +20,9 @@
   &__content {
     text-align: center;
   }
-  &__text {
-    margin: 10px 0;
-  }
   &:after {
     content: "";
-    border-top: 20px solid whitesmoke;
+    border-top: 20px solid $lightGray;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     display: block;

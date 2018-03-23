@@ -1,0 +1,50 @@
+extends layout.pug
+include mixins/_popupPaymentForm
+block content
+	section.super.super--white
+		div.super__inner
+			h2.super__title
+				| Website Packages
+			div.super__content
+				h4 Website Packages are great for small businesses and startups look for a cost effective solution with professional results.
+				a(href="/contact/").button.button--pink Learn More - View FAQs
+	.max-width-wrapper.packages
+		each product in h.products
+			if product.category == "Website Packages"
+				div.package-card
+					if(product.callout_text || product.on_sale)
+						.package-card__callout
+							if(product.callout_text)
+								span.package-card__callout-text #{product.callout_text}
+							if(product.on_sale)
+								span.package-card__callout-text #{product.discount}% Off
+					span.package-card__title #{product.name}
+					if(product.on_sale)
+						span.package-card__original-price: span #{h.formatPrice(product.price)}
+					span.package-card__price #{h.formatPrice(product.price - ((product.discount / 100) * product.price))}
+					ul.package-card__list
+						each feature in product.features
+							li #{feature}
+					button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}`) Get the #{product.name} Package
+	section.super.super--blue
+		div.super__inner
+			h2.super__title.super__title--white
+				| Looking for something a little more custom?
+			div.super__content
+				p Our support plans give you peace of mind. When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+				a(href="/contact/").button.button--pink Contact us today!
+
+	section.faqs
+		.max-width-wrapper
+			h2 Website Packages FAQs
+
+			h3 Why use WordPress?
+			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
+
+			h3 What is full theme customization?
+			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
+
+			h3 What is basic theme customization?
+			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
+
+	+popupPaymentForm

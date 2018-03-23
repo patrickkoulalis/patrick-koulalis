@@ -1,3 +1,4 @@
+include mixins/_topNav
 doctype html
 html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#")
 
@@ -41,24 +42,37 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		meta(property="article:author"    content="")
 
 	body
-		block header
-			div.site-wrap.site-wrap--no-padding
+		div.site-wrap.site-wrap--no-padding
+			block uodates
+			block header
 				header(class="top" role="banner" aria-label="Header")
 					.top__inner
-						include partials/top-nav
-				block masthead
-					div.masthead
-						.masthead__inner
-							span.masthead__title Hello.
-							span.masthead__text My Name is Patrick. A <h1>Boston web designer &amp; developer</h1> crafting the web one awesome website at a time.
-						if(page !== 'contact')
-							//- a(class="button button__solid__green" href="/contact") Lets Work Together!
-						div.masthead__cta
-							span Let's Get Started
+						+topNav()
+			block masthead
+
+			block messages
+				if locals.flashes
+					.max-width-wrapper
+						each flash in flashes
+							h4!= flash
+
 			block content
 
 			block footer
-		//-site-wrap
-		block scripts
-			script( src="/dist/main.bundle.js")
-			<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us17.list-manage.com","uuid":"72387008e8dc6722817805a33","lid":"521c973fb6"}) })</script>
+				footer.footer-links
+					.max-width-wrapper
+						a(href="#") Solutions
+						a(href="#") Website Packages
+						a(href="#") Support Plans
+						a(href="#") Web Development
+						h3 Contact
+						a(href="mailto:hello@patrickkoulalis.com") hello@patrickkoulalis.com
+						h3 Social
+						a(href="#") Facebook
+						a(href="#") Twitter
+						a(href="#") Instagram
+			//-site-wrap
+			block scripts
+				script(src="https://js.stripe.com/v3/")
+				script( src="/dist/main.bundle.js")
+				script( src="/javascript/checkout.js")

@@ -1,51 +1,61 @@
 extends layout.pug
 
-block masthead
-	div.masthead
-		.masthead__inner
-			span.masthead__title We are here to help
-			span.masthead__text We offer a varity of solutions to help support you in your adventures on the web!
 block content
-	.section
-		.section__inner
-			.overview
-				div.overview__image
-					img(src="/images/startup-photos.jpg", alt="Support Plans")
-				div.overview__content
-					h2.overview__title Support Plans
-					p Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum possimus odit in hic consectetur! Magnam totam beatae aliquam soluta vero facere odio similique dolore quam expedita iste, quis error, provident praesentium ipsa reprehenderit consectetur perspiciatis, blanditiis repudiandae magni doloremque culpa reiciendis deserunt.
-					a(href="/support-plans").button.button--blue Need help? Check out our support plans.
-	section.super.super--blue.section
+	section.super
+		div.super__inner
+			h2.super__title
+				| Solutions for every kind of budget
+			div.super__content
+				p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+				a(href="/contact/").button.button--pink Contact us
+
+	.overview
+		.overview__inner.max-width-wrapper
+			div.overview__image
+				img(src="/images/startup-photos.jpg"  alt="Support Plans")
+			div.overview__content
+				h2.overview__title Support Plans
+				p Our support plans offer a little bit of everything. Need some design work done there's a plan for that! Need a bit of development? we got you covered. Site maintenance? Not a problem!
+				a(href="/support-plans/").button.button--blue Explore support plans
+
+	.overview.overview--gray
+		.overview__inner.max-width-wrapper
+			div.overview__content
+				h2.overview__title Website Packages
+				p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quos exercitationem accusantium laudantium quasi laboriosam? Ex, minima cupiditate at tempora fugit eligendi. Quod cumque iste excepturi praesentium neque quaerat est sequi ratione beatae! Aliquam unde iure quam consequuntur ratione eum nulla libero velit reprehenderit perspiciatis! Nam similique minus rerum quaerat.
+				a(href="/web-site-packages/").button.button--blue Explore Website packages
+			div.overview__image
+				img(src="/images/startup-photos.jpg" alt="Web Development Packages")
+
+	section.super.super--blue
 		div.super__inner
 			h2.super__title.super__title--white
-				|There is no substitute for hard work
+				| Looking for more of a custom solution?
 			div.super__content
-				p.super__text Below is a small selection from some of my most recent projects.
-				a(href="/work/").button.button--pink See More Work
-	.section
-		.section__inner
-			.overview
-				div.overview__content
-					h2.overview__title Custom Web Design
-					p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
-					a(href="/support-plans").button.button--blue Need Support? Check out our plans here.
-				div.overview__image
-					img(src="/images/web-design-2.jpg", alt="Web Design")
-	.section
-		.section__inner
-			.overview
-				div.overview__image
-					img(src="/images/startup-photos.jpg", alt="Support Plans")
-				div.overview__content
-					h2.overview__title Web Development
-					p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quos exercitationem accusantium laudantium quasi laboriosam? Ex, minima cupiditate at tempora fugit eligendi. Quod cumque iste excepturi praesentium neque quaerat est sequi ratione beatae! Aliquam unde iure quam consequuntur ratione eum nulla libero velit reprehenderit perspiciatis! Nam similique minus rerum quaerat.
-					a(href="/support-plans").button.button--blue Need Support? Check out our plans here.
-	.section
-		.section__inner
-			.overview
-				div.overview__content
-					h2.overview__title On a budget?
-					p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa praesentium nobis id non aliquam eos labore quas reiciendis cumque aperiam earum quaerat dignissimos ratione saepe iusto atque necessitatibus, corrupti accusantium quia commodi, consequuntur cupiditate.
-					button.button.button--blue Get your website today!
-				div.overview__image
-					img(src="/images/desk-office-hero-workspace.jpg", alt="Support Plans")
+				a(href="/estimates/").button.button--pink Get your FREE estimate
+
+	.overview
+		.overview__inner.max-width-wrapper
+			div.overview__image
+				img(src="/images/web-design-2.jpg" alt="Web Devlopment")
+			div.overview__content
+				h2.overview__title Custom Web Development
+				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
+				a(href="/support-plans").button.button--blue Let's talk about your project
+
+	.overview.overview--gray
+		.overview__inner.max-width-wrapper
+			div.overview__content
+				h2.overview__title Custom Web Design
+				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
+				a(href="/support-plans").button.button--blue Let's talk about your project
+			div.overview__image
+				img(src="/images/web-design-2.jpg" alt="Web Design")
+
+	section.super.super--white
+		div.super__inner
+			h2.super__title
+				| On a super tight budget?
+			div.super__content
+				h4 Let us show you what options can work best for you without breaking the bank.
+				a(href="/contact/").button.button--pink Contact us today!

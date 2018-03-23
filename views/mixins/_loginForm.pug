@@ -1,0 +1,14 @@
+mixin loginForm()
+	form(action="/account/login" method="POST" class="skinny-form")
+		.form-header
+			h3.form-header__title Log In to your account
+		.form-inner
+			.form-group
+				.form-element
+					label
+						input(type="email" name='email' placeholder='Email Address')
+				.form-element
+					label
+						input(type="password" name='password' placeholder='Password')
+
+			button.button.button--green(type="submit") Login ›

@@ -4,8 +4,4 @@ block masthead
 	div.masthead.masthead--404
 		.masthead__inner
 			h1.masthead__title OOPS! - 404
-			p.masthead__text The interweb minions couldn't find the page you're looking for. Unless, you were trying to find this page. In that case CONGRATS!
-		if(page !== 'contact')
-			//- a(class="button button__solid__green" href="/contact") Lets Work Together!
-		a(href="/").masthead__cta
-			span Head back to safety!
+			p.masthead__text: a(href="/"): span Head back to safety!

@@ -1,14 +1,41 @@
 .overview {
+	padding: $sectionPadding;
 	display: flex;
+	&--gray {
+		background: $lightGray;
+	}
+	&__inner{
+		display: flex;
+	}
 	&__image {
 		flex: 1 1 500px;
+		& img {
+			border-radius: 2px;
+		}
 	}
 	&__content {
 		flex: 1 1 75%;
 		padding: 0 20px;
 	}
 	&__title {
-		border: 2px solid #ff006d;
+		border: 2px solid $pink;
 		padding: 10px;
+		border-radius: 2px;
+		margin: 0;
+	}
+	@media all and (max-width: 800px) {
+		&__inner{
+			flex-wrap: wrap;
+		}
+		&__image {
+			display: none;
+		}
+		&__title {
+			margin-top: 10px;
+		}
+		&__content {
+			flex: 1 1 100%;
+			padding: 0;
+		}
 	}
 }

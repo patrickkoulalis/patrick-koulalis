@@ -1,0 +1,7 @@
+.footer-links {
+	padding: 8vh 0;
+	color: white;
+	background:
+		linear-gradient(120deg, rgba(red($pink), green($pink), blue($pink), .95), 75%, rgba(red($blue), green($blue), blue($blue), .95)),
+		url(../images/laptop.jpg);
+}

@@ -1,0 +1,36 @@
+mixin estimateForm()
+	form(class="skinny-form" action="/contact" method="POST" role="form")
+		.form-header
+			h3.form-header__title Project Estimate
+		.form-inner
+			.form-group
+				.form-element
+					label(for="contactName")
+						input(id="contactName" type="text" name="contactName" placeholder="Your Name" required)
+				.form-element
+					label(for="contactEmail")
+						input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
+				.form-element
+					label(for="contactMsg")
+						textarea(id="contactMsg" name="contactMsg" spellcheck="false" placeholder="Tell us about your project" required)
+			.form-group
+				.form-element
+					label(for="contactBudget")
+						select(id="contactBudget" type="text" name="contactBudget")
+							option(disabled selected) Rough budget estimate
+							option Less than $1000
+							option $1000 - $5000
+							option $5000 - $15,000
+							option $15,000 - $25,000
+							option $25,000+
+				.form-element
+					label(for="contactCompanyName")
+						input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
+				.form-element
+					label(for="contactWebsiteUrl")
+						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
+				.form-element
+					label(for="contactPhoneNumber")
+						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+
+			button.button.button--green Ready. Set. Send!

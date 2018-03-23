@@ -1,13 +1,13 @@
 {
   "name": "patrickkoulalis",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "",
   "now": {
     "dotenv": "variables.env.now"
   },
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "nodemon ./index.js --ignore public/ & npm run webpack",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js --ignore public/ & npm run webpack",
     "webpack": "webpack -w --display-max-modules 0"
   },
   "author": "",
@@ -32,14 +32,30 @@
     "webpack": "^3.6.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "date-fns": "^1.29.0",
     "dotenv": "^4.0.0",
+    "es6-promisify": "^6.0.0",
     "express": "^4.15.2",
-    "mongoose": "^4.9.7",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.0.3",
+    "md5": "^2.2.1",
+    "mongoose": "^4.13.11",
+    "mongoose-mongodb-errors": "0.0.2",
     "nodemailer": "^4.0.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.0",
     "pug": "^2.0.0-rc.1",
+    "raven": "^2.4.2",
     "request": "^2.81.0",
+    "serve-static": "^1.13.2",
     "stripe": "^5.4.0",
-    "uuid-v4": "^0.1.0"
+    "uuid-v4": "^0.1.0",
+    "validator": "^9.4.1"
   }
 }
