@@ -1,5 +1,13 @@
 extends layout.pug
 
+block masthead
+	div.masthead
+		.masthead__inner
+			h1.masthead__title Solutions
+			h2.masthead__text Find a solution that works best for your business.
+		div.masthead__cta
+			span Let's Get Started
+
 block content
 	section.super
 		div.super__inner
@@ -7,12 +15,12 @@ block content
 				| Solutions for every kind of budget
 			div.super__content
 				p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
-				a(href="/contact/").button.button--pink Contact us
+				a(href="/contact/").button.button--green Contact us
 
 	.overview
 		.overview__inner.max-width-wrapper
 			div.overview__image
-				img(src="/images/startup-photos.jpg"  alt="Support Plans")
+				img(src="/images/startup-photos-800.jpg"  alt="Support Plans")
 			div.overview__content
 				h2.overview__title Support Plans
 				p Our support plans offer a little bit of everything. Need some design work done there's a plan for that! Need a bit of development? we got you covered. Site maintenance? Not a problem!
@@ -25,19 +33,19 @@ block content
 				p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quos exercitationem accusantium laudantium quasi laboriosam? Ex, minima cupiditate at tempora fugit eligendi. Quod cumque iste excepturi praesentium neque quaerat est sequi ratione beatae! Aliquam unde iure quam consequuntur ratione eum nulla libero velit reprehenderit perspiciatis! Nam similique minus rerum quaerat.
 				a(href="/web-site-packages/").button.button--blue Explore Website packages
 			div.overview__image
-				img(src="/images/startup-photos.jpg" alt="Web Development Packages")
+				img(src="/images/startup-photos-800.jpg" alt="Web Development Packages")
 
 	section.super.super--blue
 		div.super__inner
 			h2.super__title.super__title--white
 				| Looking for more of a custom solution?
 			div.super__content
-				a(href="/estimates/").button.button--pink Get your FREE estimate
+				a(href="/estimates/").button.button--green Get your FREE estimate
 
 	.overview
 		.overview__inner.max-width-wrapper
 			div.overview__image
-				img(src="/images/web-design-2.jpg" alt="Web Devlopment")
+				img(src="/images/web-design-800.jpg" alt="Web Devlopment")
 			div.overview__content
 				h2.overview__title Custom Web Development
 				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
@@ -50,7 +58,7 @@ block content
 				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
 				a(href="/support-plans").button.button--blue Let's talk about your project
 			div.overview__image
-				img(src="/images/web-design-2.jpg" alt="Web Design")
+				img(src="/images/web-design-800.jpg" alt="Web Design")
 
 	section.super.super--white
 		div.super__inner
@@ -58,4 +66,4 @@ block content
 				| On a super tight budget?
 			div.super__content
 				h4 Let us show you what options can work best for you without breaking the bank.
-				a(href="/contact/").button.button--pink Contact us today!
+				a(href="/contact/").button.button--green Contact us today!

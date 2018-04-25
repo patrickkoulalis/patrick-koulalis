@@ -1,6 +1,9 @@
 .overview {
 	padding: $sectionPadding;
 	display: flex;
+	&--help {
+		padding: 0;
+	}
 	&--gray {
 		background: $lightGray;
 	}
@@ -14,14 +17,16 @@
 		}
 	}
 	&__content {
-		flex: 1 1 75%;
+		flex: 1 1 40%;
 		padding: 0 20px;
+		text-align: left;
 	}
 	&__title {
-		border: 2px solid $pink;
-		padding: 10px;
 		border-radius: 2px;
 		margin: 0;
+		&--help {
+			color: white;
+		}
 	}
 	@media all and (max-width: 800px) {
 		&__inner{

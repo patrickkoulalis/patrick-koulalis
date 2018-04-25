@@ -19,6 +19,7 @@ const app = express();
 
 // Set up the data base
 const mongoose = require("mongoose");
+// mongoose.connect(process.env.DEV_DB, { useMongoClient: true });
 mongoose.connect(process.env.DATABASE, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 

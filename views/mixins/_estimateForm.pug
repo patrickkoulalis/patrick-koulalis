@@ -1,7 +1,7 @@
 mixin estimateForm()
 	form(class="skinny-form" action="/contact" method="POST" role="form")
 		.form-header
-			h3.form-header__title Project Estimate
+			h3.form-header__title Project Estimate Form
 		.form-inner
 			.form-group
 				.form-element
@@ -11,12 +11,12 @@ mixin estimateForm()
 					label(for="contactEmail")
 						input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
 				.form-element
-					label(for="contactMsg")
-						textarea(id="contactMsg" name="contactMsg" spellcheck="false" placeholder="Tell us about your project" required)
+					label(for="contactPhoneNumber")
+						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number" required)
 			.form-group
 				.form-element
 					label(for="contactBudget")
-						select(id="contactBudget" type="text" name="contactBudget")
+						select(id="contactBudget" type="text" name="contactBudget" required)
 							option(disabled selected) Rough budget estimate
 							option Less than $1000
 							option $1000 - $5000
@@ -25,12 +25,12 @@ mixin estimateForm()
 							option $25,000+
 				.form-element
 					label(for="contactCompanyName")
-						input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name")
+						input(id="contactCompanyName" type="text" name="contactCompanyName" placeholder="Company Name" required)
 				.form-element
 					label(for="contactWebsiteUrl")
-						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
+						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL" required)
 				.form-element
-					label(for="contactPhoneNumber")
-						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+					label(for="contactMsg")
+						textarea(id="contactMsg" name="contactMsg" spellcheck="false" placeholder="Tell us about your project, the more detail the better." required)
 
 			button.button.button--green Ready. Set. Send!

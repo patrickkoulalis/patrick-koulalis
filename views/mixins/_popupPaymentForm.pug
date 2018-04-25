@@ -1,10 +1,10 @@
-mixin popupPaymentForm()
+mixin popupPaymentForm(action)
 	.payment-popup
-		form(action="/stripe-test" method="POST" id="payment-form" autocomplete="on" class="payment-form")
-			span.payment-popup__close
-				include ../icons/window-close.svg
+		form(action=action method="POST" id="payment-form" autocomplete="on" class="payment-form")
 			.form-header
 				h3.form-header__title Checkout
+				span.payment-popup__close
+					include ../icons/window-close.svg
 			div.formErrors
 				//- Used to display Element errors. -->
 				#card-errors(role="alert")
@@ -298,3 +298,4 @@ mixin popupPaymentForm()
 				//- Submit Button
 				div.button-group
 					button#payment-form-submit.button.button--green(type="submit") Pay <span class="amount"></span>
+				a(href="/contact/" class="questions") Questions? Drop us a line

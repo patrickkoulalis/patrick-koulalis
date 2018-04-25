@@ -1,16 +1,16 @@
 extends layout.pug
 include mixins/_contactForm
-include mixins/_topNav
+include mixins/_topNavHome
 block header
 	header(class="top top--float" role="banner" aria-label="Header")
 		.top__inner
-			+topNav()
+			+topNavHome()
 
 block masthead
-	div.masthead
+	div.masthead.masthead--home
 		.masthead__inner
 			span.masthead__title Hello.
-			span.masthead__text <h1>Boston web designer &amp; developer</h1> crafting the web one awesome website at a time.
+			span.masthead__text We craft the web one awesome website at a time.
 		div.masthead__cta
 			span Let's Get Started
 
@@ -19,37 +19,35 @@ block content
 
 		section.super.super--white
 			div.super__inner
-				h2.super__title
+				h1.super__title
 					| Wish you had your own design and development team?
 				div.super__content
-					a(href="/solutions/").button.button--pink Explore Solutions
-		.max-width-wrapper.packages
-			div.package-card
-				<svg class="package-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
-				h3.package-card__title Website Packages
-				ul.package-card__list
+					a(href="/solutions/").button.button--blue Explore Solutions
+		.max-width-wrapper.products
+			div.product-card
+				<svg class="product-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+				h3.product-card__title Website Packages
+				ul.product-card__list
 					li Website Development
 					li eCommerce Websites
 					li Content Management System
-				a.button.button--blue(href="/web-site-packages/") Explore Website Packages
-			div.package-card
-				<svg class="package-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 504c136.967 0 248-111.033 248-248S392.967 8 256 8 8 119.033 8 256s111.033 248 248 248zm-103.398-76.72l53.411-53.411c31.806 13.506 68.128 13.522 99.974 0l53.411 53.411c-63.217 38.319-143.579 38.319-206.796 0zM336 256c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zm91.28 103.398l-53.411-53.411c13.505-31.806 13.522-68.128 0-99.974l53.411-53.411c38.319 63.217 38.319 143.579 0 206.796zM359.397 84.72l-53.411 53.411c-31.806-13.505-68.128-13.522-99.973 0L152.602 84.72c63.217-38.319 143.579-38.319 206.795 0zM84.72 152.602l53.411 53.411c-13.506 31.806-13.522 68.128 0 99.974L84.72 359.398c-38.319-63.217-38.319-143.579 0-206.796z"/></svg>
-				h3.package-card__title Support Plans
-				ul.package-card__list
+				a.button.button--blue(href="/web-site-packages/") Explore Website products
+			div.product-card
+				<svg class="product-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 504c136.967 0 248-111.033 248-248S392.967 8 256 8 8 119.033 8 256s111.033 248 248 248zm-103.398-76.72l53.411-53.411c31.806 13.506 68.128 13.522 99.974 0l53.411 53.411c-63.217 38.319-143.579 38.319-206.796 0zM336 256c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zm91.28 103.398l-53.411-53.411c13.505-31.806 13.522-68.128 0-99.974l53.411-53.411c38.319 63.217 38.319 143.579 0 206.796zM359.397 84.72l-53.411 53.411c-31.806-13.505-68.128-13.522-99.973 0L152.602 84.72c63.217-38.319 143.579-38.319 206.795 0zM84.72 152.602l53.411 53.411c-13.506 31.806-13.522 68.128 0 99.974L84.72 359.398c-38.319-63.217-38.319-143.579 0-206.796z"/></svg>
+				h3.product-card__title Support Plans
+				ul.product-card__list
 					li Installation &amp; Setup
 					li Website Maintenance
 					li Emergency Help(Sh*t happens)
 				a.button.button--blue(href="/support-plans/") Explore Support Plans
-			div.package-card
-				<svg class="package-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 96H352V80c0-26.51-21.49-48-48-48h-96c-26.51 0-48 21.49-48 48v16H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V144c0-26.51-21.49-48-48-48zM208 80h96v16h-96V80zM54 432a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6H54zm298-160v32c0 6.627-5.373 12-12 12h-56v56c0 6.627-5.373 12-12 12h-32c-6.627 0-12-5.373-12-12v-56h-56c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h56v-56c0-6.627 5.373-12 12-12h32c6.627 0 12 5.373 12 12v56h56c6.627 0 12 5.373 12 12z"/></svg>
-				h3.package-card__title Emergency Support
-				ul.package-card__list
+			div.product-card
+				<svg class="product-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 96H352V80c0-26.51-21.49-48-48-48h-96c-26.51 0-48 21.49-48 48v16H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V144c0-26.51-21.49-48-48-48zM208 80h96v16h-96V80zM54 432a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6H54zm298-160v32c0 6.627-5.373 12-12 12h-56v56c0 6.627-5.373 12-12 12h-32c-6.627 0-12-5.373-12-12v-56h-56c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h56v-56c0-6.627 5.373-12 12-12h32c6.627 0 12 5.373 12 12v56h56c6.627 0 12 5.373 12 12z"/></svg>
+				h3.product-card__title Emergency Support
+				ul.product-card__list
 					li Website Design
 					li Landing Pages
 					li Microsites
 				a.button.button--blue(href="/support-plans/#help") Get Help Now
-
-
 
 		//- Random Stats Counter
 		section.counter
@@ -68,7 +66,7 @@ block content
 				h2.super__title.super__title--white
 					| 100% Custom Solutions as unique as your business!
 				div.super__content
-					a(href="/estimates/").button.button--pink Get your FREE estimate
+					a(href="/estimates/").button.button--green Get your FREE estimate
 
 		section.super.super--white
 			div.super__inner
@@ -79,48 +77,13 @@ block content
 		.max-width-wrapper.clients
 			each client in h.clients
 				div.client-card
-					//- span #{client.name}
 					img(class="client-card__logo" src=`/images/clients/${client.logo}`)
-
-		//- section.super.super--blue
-		//- 	div.super__inner
-		//- 		h2.super__title.super__title--white
-		//- 			|There is no substitute for hard work
-		//- 		div.super__content
-		//- 			p Below is a small selection from some of my most recent projects.
-		//- 			a(href="/work/").button.button--pink See More Work
-
-		//- section.section
-		//- 	.grid
-		//- 		.work
-		//- 			img(data-image-src="/images/site-mockups/kenosis-foundation.jpg", alt="Image of work")
-		//- 			.work__inner
-		//- 				h3.work__title Kenosis Foundation
-		//- 				div.work__role Design &amp; Development
-		//- 				a(href="https://kenosisfoundationindia.org/").button.button--pink Visit Site
-		//- 		.work
-		//- 			img(data-image-src="/images/site-mockups/visiblemsp.png", alt="Image of work")
-		//- 			.work__inner
-		//- 				h3.work__title Visible LLC
-		//- 				div.work__role Design &amp; Development
-		//- 				a(href="http://visiblemsp.com/").button.button--pink Visit Site
-		//- 		.work
-		//- 			img(data-image-src="/images/site-mockups/mazza_smith_home.png", alt="Image of work")
-		//- 			.work__inner
-		//- 				h3.work__title Mazza-Smith Dance
-		//- 				div.work__role Design &amp; Development
-		//- 				a(href="https://www.mazzasmithdance.com/").button.button--pink Visit Site
-
-		//- Contact Lead In
-		section#contact.super
-			div.super__inner
-				h2.super__title
-					|Let's Talk
-				div.super__content
-					p.super__text
-						|Send me a message below. If that's not your thing you can always email me directly at #[a(href="mailto:hello@patrickkoulalis.com")|hello@patrickkoulalis.com]
 
 		//- Contact
 		section.contact.section
+			h2.contact__title
+				|Let's Talk
+			p.contact__text
+				|Send us a message below. If that's not your thing you can always email us directly at #[a(href="mailto:patrick@patrickkoulalis.com") patrick@patrickkoulalis.com]
 			div.grid
 				+contactForm()

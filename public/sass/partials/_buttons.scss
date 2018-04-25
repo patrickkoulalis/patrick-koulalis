@@ -1,9 +1,14 @@
-a.button {
-	display: inline-block;
-	text-decoration: none;
+.button-group {
+	display: block;
+	padding: 15px 0;
+	&--center {
+		text-align: center;
+	}
 }
 
+
 .button {
+	display: inline-block;
 	padding: 0 15px;
 	border-radius: 3px;
 	height: 45px;
@@ -11,28 +16,34 @@ a.button {
 	text-align: center;
 	font-size: 1rem;
 	border: none;
+	background: $lightGray;
 	cursor: pointer;
+	text-decoration: none;
 	transition: transform .2s;
 	box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-	color: white;
 	&--blue {
 		background: $blue;
+		color: white;
 	}
 	&--green {
 		background: $green;
+		color: white;
 	}
 	&--pink {
 		background: $pink;
+		color: white;
 	}
 	&--red {
-		background: red;
+		background: $red;
+		color: white;
 	}
 	&:hover {
 		transform: scale(1.1);
 	}
 }
 
-.button-group {
-	display: block;
+.questions {
 	text-align: center;
+	padding: 10px 0;
+	display: block;
 }

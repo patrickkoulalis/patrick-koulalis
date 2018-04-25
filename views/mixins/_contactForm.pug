@@ -1,7 +1,8 @@
 mixin contactForm()
 	form(class="contact-form" action="/contact" method="POST" role="form")
 		div.contact-form__section
-			h3.contact-form__section-title The Basics
+			.form-header.form-header--contact
+				h3.form-header__title The Basics
 			.form-group
 				div.form-element
 					label(for="contactName")
@@ -13,7 +14,8 @@ mixin contactForm()
 					label(for="contactMsg")
 						textarea(id="contactMsg" name="contactMsg", cols="30", rows="10" placeholder="Type Your Message" required)
 		div.contact-form__section
-			h3.contact-form__section-title Optional Stuff
+			.form-header.form-header--contact
+				h3.form-header__title Optional Stuff
 			.form-group
 				div.form-element
 					label(for="contactBudget")

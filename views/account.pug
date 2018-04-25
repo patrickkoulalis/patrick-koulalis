@@ -3,35 +3,39 @@ extends layout
 block content
 	.dashboard-wrap
 		.dashboard-sidebar
-			img(src=`${user.gravatar}`, alt="")
+			//- img(src=`${user.gravatar}`, alt="")
 			a(href="#") Account Overview
-			a(href="#") Payments
-			a(href="/account/logout/") logout
+			a(href="/account/payment-history/") Payment History
+			a(href="#subscriptions") Subscriptions
+			a(href="#") Make a Payment
+			a(href="/account/logout/") Logout
 
 		.dashboard-content
-			.section.dashboard-section
+			.section.dashboard-section#payments
 				.max-width-wrapper
-					h3 Payment History
+					h3 Recent Payments
 					if charges
-						each payment in charges.data
-							h4!= payment.id
-							p Ammount:
-								span!= h.formatPrice(payment.amount)
+						div.r-table
+							div.r-table-row.r-table-row--header
+								div.r-table-cell Date
+								div.r-table-cell Payment ID
+								div.r-table-cell Ammount
+							each payment in charges.data
+								div.r-table-row
+									div.r-table-cell #{h.dateFns.format(payment.created * 1000, 'MM/DD/YYYY')}
+									div.r-table-cell!= payment.id
+									div.r-table-cell Ammount: #{h.formatPrice(payment.amount)}
+						.button-group.button-group--center
+							a(href="#").button.button--blue View Payment History
 
-			.section.dashboard-section
+			.section.dashboard-section#subscriptions
 				.max-width-wrapper
-					h3 Your Subscriptions
-					if charges
-						each payment in charges.data
-							h4!= payment.id
-							p Ammount:
-								span!= h.formatPrice(payment.amount)
-
-			.section.dashboard-section
-				.max-width-wrapper
-					h3 Payment History
-					if charges
-						each payment in charges.data
-							h4!= payment.id
-							p Ammount:
-								span!= h.formatPrice(payment.amount)
+					h3 Your Active Subscriptions
+					if subs
+						div.r-table
+							each sub in subs.data
+								div.r-table-row
+									div.r-table-cell.r-table-cell--header!= sub.plan.nickname
+									div.r-table-cell!= h.formatPrice(sub.plan.amount)
+									div.r-table-cell!= sub.plan.interval
+									div.r-table-cell #[a(href=`/account/cancel-subscription?sub=${sub.id}`).button.button--red Cancel Subscription]

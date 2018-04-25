@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { promisify } = require("es6-promisify");
-const stripe = require("stripe")("sk_test_QpHol8S3EiOFOHMRmipwiqVD");
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 const User = mongoose.model("User");
 
 exports.loginPage = (req, res) => {
@@ -50,14 +50,45 @@ exports.validateSignup = (req, res, next) => {
   next();
 };
 
+exports.accountPage = (req, res) => {
+  res.render("account.pug", {
+    charges: req.charges,
+    subs: req.subs,
+    plans: req.plans
+  });
+};
+
+exports.cancelSubscription = async (req, res) => {
+  try {
+    await stripe.subscriptions.del(req.query.sub);
+    res.redirect("back");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.getPaymentHistory = async (req, res, next) => {
-	try{
-		if(req.user) {
-			const charges = await stripe.charges.list({ customer: req.user.customer_id });
-			req.charges = charges;
-		}
-	} catch(err) {
-		console.log(err);
-	}
+  try {
+    if (req.user) {
+      const chargesPromise = stripe.charges.list({
+        limit: 3,
+        customer: req.user.customer_id
+      });
+      const subsPromise = stripe.subscriptions.list({
+        customer: req.user.customer_id
+      });
+      const plansPromise = stripe.plans.list();
+      const [charges, subs, plans] = await Promise.all([
+        chargesPromise,
+        subsPromise,
+        plansPromise
+      ]);
+      req.charges = charges;
+      req.subs = subs;
+      req.plans = plans;
+    }
+  } catch (err) {
+    console.log(err);
+  }
   next();
 };

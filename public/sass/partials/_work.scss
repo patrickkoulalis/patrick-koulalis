@@ -9,26 +9,13 @@
   }
   &__title {
     text-align: center;
-    // margin: 0 0 10px 0;
+		margin: 0;
+		font-size: 1.2rem;
   }
   &__role {
     padding: 10px 0;
   }
   &__inner {
-    padding: 15% 20px 20px 20px;
     text-align: center;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 10px;
-    border: solid 3px $blue;
-    background: white;
-    transition: opacity .3s;
-  }
-  &:hover &__inner {
-    opacity: 1;
   }
 }

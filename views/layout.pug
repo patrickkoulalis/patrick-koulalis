@@ -61,16 +61,26 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 			block footer
 				footer.footer-links
 					.max-width-wrapper
-						a(href="#") Solutions
-						a(href="#") Website Packages
-						a(href="#") Support Plans
-						a(href="#") Web Development
-						h3 Contact
-						a(href="mailto:hello@patrickkoulalis.com") hello@patrickkoulalis.com
-						h3 Social
-						a(href="#") Facebook
-						a(href="#") Twitter
-						a(href="#") Instagram
+						div
+							span Sitemap
+							a(href="/") Home
+							a(href="/work/") Work
+							a(href="/solutions/") Solutions
+							a(href="/web-site-packages/") Website Packages
+							a(href="/support-plans/") Support Plans
+							a(href="/estimates/") Estimates
+							a(href="/contact/") Contact
+							a(href="/account/") Account
+
+						div
+							span Social
+							a(href="#") Facebook
+							a(href="#") Twitter
+							a(href="#") Instagram
+				footer.copyright
+					.max-width-wrapper
+						- const year = new Date().getFullYear();
+						p Copyright &copy; #{year} Patrick Koulalis | All Rights Reserved | #[a(href="#") Privacy Policy]
 			//-site-wrap
 			block scripts
 				script(src="https://js.stripe.com/v3/")

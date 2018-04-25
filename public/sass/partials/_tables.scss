@@ -1,0 +1,23 @@
+// Responsive Tables
+
+.r-table {
+}
+
+.r-table-row {
+	display: flex;
+	border-bottom: solid 2px darken($lightGray, 1%);
+ &--header {
+	background: darken($lightGray, 5%);
+ }
+}
+
+.r-table-cell {
+ flex: 1 1;
+ padding: 20px;
+ border-right: solid 2px darken($lightGray, 1%);
+ display: flex;
+ align-items: center;
+ &--header {
+	 background: darken($lightGray, 5%);
+ }
+}

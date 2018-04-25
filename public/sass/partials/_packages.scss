@@ -1,10 +1,13 @@
-.packages {
+.products {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
+	@media all and (max-width: 640px) {
+		padding: 0 10px;
+	}
 }
 
-.package-card {
+.product-card {
 	position: relative;
   flex: 0 1 33%;
   background: #f9f9f9;
@@ -19,25 +22,51 @@
 	&:nth-child(even) {
 		background: #F5F5F5;
 	}
+	&__interval {
+		display: inline-block;
+    padding: 0 15px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    background: $lightGray;
+    cursor: pointer;
+    text-decoration: none;
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+		&:hover, &--active {
+			background: darken($lightGray, 3%);
+		}
+		&--active {
+			border-top: solid 2px $blue;
+		}
+	}
 	&__callout {
 		font-weight: bold;
-		font-size: 1.3rem;
+		position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+		left: 0;
+		z-index: 1001;
 	}
 	&__callout-text {
-		display: block;
-		color: $green;
+    display: block;
+		background: $green;
+		border-bottom: solid 2px darken($green, 10%);
+    color: white;
+    padding: 1.5vh;
 	}
   &__title {
 		margin: 15px 0 10px 0;
 		font-size: 1.75em;
 		display: block;
-		color: $pink;
-		&--red {
-			color: red;
+		color: $blue;
+		&--white {
+			color: white;
 		}
   }
   &__icon {
-    fill: $pink;
+    fill: darken($blue, 25%);
     height: 142px;
     @media all and (max-width: 960px) {
       height: 100px;
@@ -57,12 +86,21 @@
   &__list {
     list-style: none;
     padding: 0;
-    margin: 0 0 15px 0;
+		margin: 0 0 15px 0;
+		& li {
+			padding: 8px;
+			border-bottom: solid 2px rgba(200, 200, 200, .1);
+		}
+		& span.feature-title {
+			display: block;
+			padding: 5px 0;
+			color: #009ce9;
+			font-size: 1rem;
+		}
   }
   &--gray {
 	}
 	&--help {
-		border: 2px solid red;
-		background: white;
+		color: #484848;
 	}
 }

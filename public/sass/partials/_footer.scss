@@ -1,7 +1,24 @@
 .footer-links {
-	padding: 8vh 0;
+	padding: 1vh 1vw;
 	color: white;
-	background:
-		linear-gradient(120deg, rgba(red($pink), green($pink), blue($pink), .95), 75%, rgba(red($blue), green($blue), blue($blue), .95)),
-		url(../images/laptop.jpg);
+	background: darken($blue, 30%);
+		// linear-gradient(120deg, rgba(red($pink), green($pink), blue($pink), .95), 75%, rgba(red($blue), green($blue), blue($blue), .95)),
+		// url(../images/laptop.jpg);
+	& div {
+		padding: 1rem 0;
+	}
+	& span {
+		font-size: 1.5rem;
+		padding-right: 10px;
+	}
+	& a {
+		padding-right: 20px;
+	}
+}
+
+.copyright {
+	background: darken($blue, 35%);
+	padding: 1vh 1vw;
+	color: white;
+	text-align: center;
 }

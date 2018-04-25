@@ -29,7 +29,7 @@ exports.handleMail = (req, res, next) => {
   // setup email data with unicode symbols
   let mailOptions = {
     from: "noreply@patrickkoulalis.com", // sender address
-    to: "hello@patrickkoulalis.com", // list of receivers
+    to: "patrick@patrickkoulalis.com", // list of receivers
     subject: `✅ patrickkoulalis.com | ${req.body.contactName} | ${
       req.body.contactEmail
     }`, // Subject line
@@ -41,8 +41,9 @@ exports.handleMail = (req, res, next) => {
       `<p>Company Name: ${req.body.contactCompanyName}</p>` +
       `<p>Website URL: ${req.body.contactWebsiteUrl}</p>` +
       `<p>Phone Number: ${req.body.contactPhoneNumber}</p>` +
-      `<p>${req.body.contactMsg}</p>`
-  };
+			`<p>${req.body.contactMsg}</p>`
+	};
+	console.log(req.body);
   transporter.sendMail(mailOptions, err => {
     if (err) {
       req.err = err;

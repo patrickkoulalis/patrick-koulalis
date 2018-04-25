@@ -1,0 +1,32 @@
+// clients
+.clients {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.client-card {
+	position: relative;
+  flex: 0 1 33%;
+  background: #f9f9f9;
+  padding: 4.5vw 2vw;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  @media all and (max-width: 960px) {
+    flex: 0 1 50%;
+	}
+	&__logo {
+		max-height: 75px;
+		@media all and (max-width: 960px) {
+			max-width: 75px;
+		}
+		@media all and (max-width: 640px) {
+			max-width: 75px;
+		}
+	}
+	&:nth-child(even) {
+		background: #F5F5F5;
+	}
+}

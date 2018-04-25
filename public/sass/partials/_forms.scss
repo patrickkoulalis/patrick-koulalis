@@ -1,19 +1,6 @@
 form {
 	background: $lightGray;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
-}
-
-// select {
-// 	  margin: 0;
-//   -webkit-box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-// }
-
-select, input {
-	// height: 2.5em;
+	// box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
 }
 
 select, input, textarea {
@@ -52,10 +39,17 @@ input[required], textarea[required]  {
 	background: $blue;
 	color: white;
 	border-radius: 2px 2px 0 0;
-	border-bottom: 2px solid darken($blue, 5%);
+	border-bottom: 5px solid #fff;
 	&__title {
 		margin: 0;
 		color: white;
+	}
+	&--contact {
+		background: transparent;
+		// background: darken($blue, 30%);
+		// border-top: 2px solid $pink;
+		border-bottom: 0;
+		// margin-bottom: 7px;
 	}
 }
 
@@ -68,7 +62,8 @@ input[required], textarea[required]  {
 	border-radius: 2px;
 	background: white;
 	border: 1px solid whitesmoke;
-  box-shadow: 0 1px 3px 0 rgba(135, 135, 135, 0.5);
+	margin-bottom: 10px;
+  // box-shadow: 0 1px 3px 0 rgba(135, 135, 135, 0.5);
 }
 
 .payment-popup {
@@ -97,12 +92,12 @@ input[required], textarea[required]  {
 	}
 	&__close {
 		cursor: pointer;
+		position: absolute;
+    right: 10px;
+		top: 25px;
+		width: 1em;
 		& svg {
 			fill: white;
-			max-height: 1em;
-			position: absolute;
-			right: 10px;
-			top: 25px;
 		}
 	}
 }

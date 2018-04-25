@@ -77,12 +77,12 @@ async function loadImages() {
   }
 }
 
-const packageButtons = document.querySelectorAll(".package-card button");
+const productButtons = document.querySelectorAll(".product-card button");
 const paymentPopup = document.querySelector(".payment-popup");
 const closePopup = document.querySelector(".payment-popup__close");
 const productIdInput = document.querySelector("#product-id");
 const buttonPrice = document.querySelector("#payment-form-submit .amount");
-for (let button of packageButtons) {
+for (let button of productButtons) {
   console.log(button.dataset);
   button.addEventListener("click", () => {
     paymentPopup.classList.add("payment-popup--active");

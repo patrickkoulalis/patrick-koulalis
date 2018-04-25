@@ -6,6 +6,7 @@ const accountController = require("../controllers/accountController.js");
 const authController = require("../controllers/authController.js");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 router.get("/info", (req, res) => {
   res.json({ user: req.user, Session: req.session, Cookies: req.cookies });
@@ -60,6 +61,7 @@ router.get("/solutions", (req, res) => {
 router.get("/support-plans", (req, res) => {
   res.render("supportPlans.pug");
 });
+router.post("/support-plans", stripeController.stripeSubscription);
 
 // Web Development Packages Routes
 router.get("/web-site-packages", (req, res) => {
@@ -71,36 +73,28 @@ router.get("/estimates", (req, res) => {
   res.render("estimates.pug");
 });
 
-// Account Signup GET
+// Account Routes
 router.get("/account/signup", accountController.signupPage);
-
-// Account Signup POST
 router.post(
   "/account/signup",
   accountController.validateSignup,
   accountController.registerUser,
   authController.login
 );
-
-// Account Login Page
 router.get("/account/login", accountController.loginPage);
-
-// Account Login POST
 router.post("/account/login", authController.login);
-
-// Account Logout
 router.get("/account/logout", authController.logout);
-
-// User Account Page
+router.get(
+  "/account/cancel-subscription",
+  accountController.cancelSubscription
+);
 router.get(
   "/account",
   authController.isLoggedIn,
   accountController.getPaymentHistory,
-  (req, res) => {
-    res.render("account.pug", { charges: req.charges });
-  }
+  accountController.accountPage
 );
-
+// router.get("/account/payment-history", accountController.paymentHistory);
 // Catch all 404 Routes
 router.get("*", (req, res) => {
   res.render("404.pug", { pageTitle: `404` });

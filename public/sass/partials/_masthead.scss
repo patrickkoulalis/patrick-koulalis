@@ -1,14 +1,15 @@
 .masthead {
 	position: relative;
+
 	background:
-		linear-gradient(120deg, rgba(red($blue), green($blue), blue($blue), .95), 75%, rgba(red($pink), green($pink), blue($pink), .95)),
+		linear-gradient(120deg, rgba(0, 0, 0, .35), rgba(red($blue), green($blue), blue($blue), .35), 75%, rgba(red($pink), green($pink), blue($pink), .35)),
 		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 
 	height: auto;
 	padding: 8.5rem 0rem 2rem 0em;
@@ -16,7 +17,16 @@
 
   @media all and (max-width: 1024px) {
     padding: 8rem 20px 4rem 20px;
-  }
+	}
+
+	&--home {
+		background:
+			linear-gradient(120deg, rgba(0, 0, 0, .75), rgba(red($blue), green($blue), blue($blue), .65), 75%, rgba(red($pink), green($pink), blue($pink), .55)),
+			url(../images/adult-chill-computer-1280.jpg);
+			background-size: cover;
+			background-attachment: fixed;
+		height: 85vh;
+	}
 
 	&__inner {
 		// display: flex;
@@ -65,7 +75,7 @@
 		cursor: pointer;
 		&:after {
 			content: "";
-			border-top: 20px solid $pink;
+			border-top: 20px solid $green;
 			border-left: 20px solid transparent;
 			border-right: 20px solid transparent;
 			display: block;

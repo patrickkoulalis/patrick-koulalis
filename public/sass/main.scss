@@ -18,72 +18,43 @@
 @import 'partials/contact';
 @import 'partials/animate';
 @import 'partials/blog';
+@import 'partials/tables';
+@import 'partials/dashboard';
+@import 'partials/clients';
 @import 'partials/footer';
 @import 'partials/credits';
 
 
-// account dashboard
-.dashboard-wrap {
-	display: flex;
-}
-
-.dashboard-sidebar {
-	flex: 0 1 25%;
-	background: whitesmoke;
-}
-
-.dashboard-content {
-	flex: 0 1 75%;
-}
-
-.dashboard-section {
-	border-radius: 2px;
-	margin-bottom: 10px;
-	&:nth-of-type(even) {
-		background: $lightGray;
+.feature-row {
+	padding: 8vh 0;
+	& svg {
+		max-width: 75px;
 	}
 	&__title {
-		padding: 10px;
-		background: $blue;
-		color: white;
-		border-radius: 2px 2px 0 0;
+		text-align: center;
+		margin: 0 0 40px 0;
 	}
 	&__inner {
-		padding: 20px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&--col2 .feature-card {
+		flex: 0 1 50%;
+	}
+	&--col3 .feature-card {
+		flex: 0 1 33.33%;
+	}
+	&--col4 .feature-card {
+		flex: 0 1 25%;
+	}
+	&--col5 .feature-card {
+		flex: 0 1 20%;
+	}
+	&--col6 .feature-card {
+		flex: 0 1 16.667%;
 	}
 }
 
-
-
-// clients
-.clients {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.client-card {
-	position: relative;
-  flex: 0 1 33%;
-  background: #f9f9f9;
-  padding: 4.5vw 2vw;
+.feature-card {
 	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-  @media all and (max-width: 960px) {
-    flex: 0 1 50%;
-	}
-	&__logo {
-		max-height: 75px;
-		@media all and (max-width: 960px) {
-			max-width: 75px;
-		}
-		@media all and (max-width: 640px) {
-			max-width: 75px;
-		}
-	}
-	&:nth-child(even) {
-		background: #F5F5F5;
-	}
 }

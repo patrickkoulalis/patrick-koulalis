@@ -1,0 +1,19 @@
+mixin topNavHome()
+	nav(class="nav nav--home" role="navigation")
+		a(class="logo-wrap" href="/")
+			img(class="logo" src="/images/logo-white.svg" alt="Patrick Koulalis Logo")
+		div.nav-button
+			span.nav-button__label Menu
+			span.nav-button__bar
+			span.nav-button__bar
+			span.nav-button__bar
+		.nav__menu
+			a(href="/" class="nav__menu-link nav__menu-link--white") Home
+			//- a(href="/services/" class="nav__menu-link") Services
+			a(href="/work/" class="nav__menu-link nav__menu-link--white") Work
+			//- a(href="/about/" class="nav__menu-link") About
+			a(href="/solutions/" class="nav__menu-link nav__menu-link--white") Solutions
+			//- a(href="/blog/" class="nav__menu-link") Blog
+			a(href="/estimates/" class="nav__menu-link nav__menu-link--white") Estimates
+			a(href="/contact/" class="nav__menu-link nav__menu-link--white nav__menu-link--contact") Contact
+			a(href="/account/" class="nav__menu-link nav__menu-link--white nav__menu-link--account") Account

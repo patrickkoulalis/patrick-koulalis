@@ -41,6 +41,13 @@
       border-top: 20px solid $blue;
     }
 	}
+  &--red {
+    background: $red;
+    color: white;
+    &:after {
+      border-top: 20px solid $red;
+    }
+	}
   &--white {
     background: #fff;
     color: #484848;

@@ -1,45 +1,54 @@
 extends layout.pug
 include mixins/_popupPaymentForm
+block masthead
+	div.masthead
+		.masthead__inner
+			h1.masthead__title Website Packages
+			h2.masthead__text We craft the web one awesome website at a time.
+		div.masthead__cta
+			span Let's Get Started
 block content
 	section.super.super--white
 		div.super__inner
-			h2.super__title
-				| Website Packages
 			div.super__content
 				h4 Website Packages are great for small businesses and startups look for a cost effective solution with professional results.
-				a(href="/contact/").button.button--pink Learn More - View FAQs
-	.max-width-wrapper.packages
+				a(href="/contact/").button.button--green Learn More - View FAQs
+	.max-width-wrapper.products
 		each product in h.products
 			if product.category == "Website Packages"
-				div.package-card
-					if(product.callout_text || product.on_sale)
-						.package-card__callout
+				div.product-card
+					if(product.callout_text || product.discount)
+						.product-card__callout
 							if(product.callout_text)
-								span.package-card__callout-text #{product.callout_text}
-							if(product.on_sale)
-								span.package-card__callout-text #{product.discount}% Off
-					span.package-card__title #{product.name}
-					if(product.on_sale)
-						span.package-card__original-price: span #{h.formatPrice(product.price)}
-					span.package-card__price #{h.formatPrice(product.price - ((product.discount / 100) * product.price))}
-					ul.package-card__list
+								span.product-card__callout-text #{product.callout_text}
+							if(product.discount)
+								span.product-card__callout-text On Sale #{product.discount}% Off
+					span.product-card__title #{product.name}
+					if(product.discount)
+						span.product-card__original-price: span #{h.formatPrice(product.price)}
+					span.product-card__price #{h.formatPrice(product.price - ((product.discount / 100) * product.price))}
+					ul.product-card__list
 						each feature in product.features
-							li #{feature}
-					button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}`) Get the #{product.name} Package
+							li #[span.feature-title #{feature.title}] #{feature.value}
+								if(feature.icon)
+									img(src=feature.icon style="width: 20px;")
+					div.button-group
+						button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}`) Get the #{product.name} Package
+					a(href="/contact/" class="questions") Questions? Drop us a line
 	section.super.super--blue
 		div.super__inner
 			h2.super__title.super__title--white
 				| Looking for something a little more custom?
 			div.super__content
 				p Our support plans give you peace of mind. When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
-				a(href="/contact/").button.button--pink Contact us today!
+				a(href="/contact/").button.button--green Contact us today!
 
 	section.faqs
 		.max-width-wrapper
 			h2 Website Packages FAQs
 
-			h3 Why use WordPress?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
+			h3 Why should I purchase a website package over using a custom option?
+			p Website Packages are great for small businesses and startups look for a cost effective solution with professional results. If you are looking for a custom option contact us either by filling out the form here or calling us at 508-367-1837
 
 			h3 What is full theme customization?
 			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
@@ -47,4 +56,4 @@ block content
 			h3 What is basic theme customization?
 			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
 
-	+popupPaymentForm
+	+popupPaymentForm('/stripe-test/')

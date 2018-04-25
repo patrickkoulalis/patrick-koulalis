@@ -1,9 +1,17 @@
 .contact {
-	// background:
-	// 	linear-gradient(rgba(red($blue), green($blue), blue($blue), .95), rgba(red($blue), green($blue), blue($blue), .95)),
-	// 	url("../images/sunglasses-cat.jpg");
-	// background-size: cover;
-	// background-attachment: fixed;
+	background:
+		linear-gradient(rgba(red($blue), green($blue), blue($blue), .75), rgba(red($blue), green($blue), blue($blue), .95)),
+		url("../images/contact-1280.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	&__title {
+		color: white;
+		text-align: center;
+	}
+	&__text {
+		color: white;
+		text-align: center;
+	}
 }
 
 
@@ -14,11 +22,10 @@
 	margin: 0 auto;
 	grid-column: auto / span 12;
 	grid-row: 2 / span 3;
-	background: $blue;
-	padding: 0;
-	&--dark {
-		background: $blue;
-	}
+	padding: 0 0 40px 0;
+	background: rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(245, 245, 245, 0.15);
+	position: relative;
 	&__send {
 		cursor: pointer;
 		display: flex;
@@ -28,6 +35,10 @@
 		font-size: 1rem;
 		color: #fff;
 		padding: 0 10px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
 		&:after {
 			content: "";
 			border-top: 10px solid transparent;
@@ -37,6 +48,9 @@
 			height: 0;
 			margin-left: 1vw;
 			display: block;
+		}
+		&:hover {
+			transform: scale(1.1) translateX(-50%);
 		}
 	}
 }
