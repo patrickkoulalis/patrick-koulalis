@@ -12,12 +12,22 @@ router.get("/info", (req, res) => {
   res.json({ user: req.user, Session: req.session, Cookies: req.cookies });
 });
 
+router.get("/flash", (req, res) => {
+  req.flash("error", "Error 1");
+  req.flash("error", "Error 2");
+  req.flash("error", "Error 3");
+  req.flash("success", "Success 1");
+  req.flash("success", "Success 2");
+  req.flash("success", "Success 3");
+  res.redirect("back");
+});
+
 // Homepage
 router.get("/", (req, res) => {
   res.render("index.pug", {
     pageTitle: "Patrick Koulalis - Boston Web Design & Development",
     canonical: "",
-    page: "home"
+    pageClass: "home"
   });
 });
 
@@ -84,6 +94,10 @@ router.post(
 router.get("/account/login", accountController.loginPage);
 router.post("/account/login", authController.login);
 router.get("/account/logout", authController.logout);
+router.get("/account/forgot", accountController.forgotPasswordPage);
+router.post("/account/forgot", authController.forgotPassword);
+router.get("/account/reset/:token", authController.reset);
+router.post("/account/reset/:token", authController.checkPasswords, authController.updatePasswords);
 router.get(
   "/account/cancel-subscription",
   accountController.cancelSubscription
@@ -95,6 +109,7 @@ router.get(
   accountController.accountPage
 );
 // router.get("/account/payment-history", accountController.paymentHistory);
+
 // Catch all 404 Routes
 router.get("*", (req, res) => {
   res.render("404.pug", { pageTitle: `404` });

@@ -1,0 +1,16 @@
+mixin loginForm()
+	form(action="/account/login" method="POST" class="skinny-form")
+		.form-header
+			h3.form-header__title Log In to your account
+		.form-inner
+			.form-group
+				.form-element
+					label
+						input(type="email" name='email' placeholder='Email Address')
+				.form-element
+					label
+						input(type="password" name='password' placeholder='Password')
+			div(style="text-align: center;")
+				a(href="/account/forgot/") Forgot Password?
+				p Don’t have an account yet? #[a(href="/account/signup/") Sign up]
+			button.button.button--green(type="submit") Login ›

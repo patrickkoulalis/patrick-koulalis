@@ -41,7 +41,7 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		meta(property="og:image"          content="https://patrickkoulalis.com/images/preview.jpg")
 		meta(property="article:author"    content="")
 
-	body
+	body(class=`${pageClass}`)
 		div.site-wrap.site-wrap--no-padding
 			block uodates
 			block header
@@ -52,9 +52,13 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 
 			block messages
 				if locals.flashes
-					.max-width-wrapper
-						each flash in flashes
-							h4!= flash
+					- const cats = Object.keys(locals.flashes)
+					each cat in cats
+						each message in flashes[cat]
+							div(class=`flash flash-${cat}`)
+								span.flash-close x
+								.max-width-wrapper
+									p!= message
 
 			block content
 

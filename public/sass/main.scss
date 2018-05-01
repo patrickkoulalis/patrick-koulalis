@@ -3,6 +3,7 @@
 @import 'partials/layout';
 @import 'partials/header';
 @import 'partials/masthead';
+@import 'partials/flashes';
 @import 'partials/grid';
 @import 'partials/solutions';
 @import 'partials/pricing-grid';
@@ -57,4 +58,20 @@
 
 .feature-card {
 	text-align: center;
+	margin-bottom: 20px;
+}
+
+.faqs {
+	&__title {
+		text-align: center;
+	}
+}
+
+.faq {
+	padding: 20px;
+	border: solid 1px whitesmoke;
+	border-top: none;
+	&:first-of-type {
+		border-top: solid 1px whitesmoke;
+	}
 }

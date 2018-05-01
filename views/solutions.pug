@@ -5,35 +5,36 @@ block masthead
 		.masthead__inner
 			h1.masthead__title Solutions
 			h2.masthead__text Find a solution that works best for your business.
-		div.masthead__cta
-			span Let's Get Started
+			div.masthead__cta.button-group
+				a(href="/estimates/").button.button--green Get your FREE Estimate
 
 block content
-	section.super
-		div.super__inner
-			h2.super__title
-				| Solutions for every kind of budget
-			div.super__content
-				p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
-				a(href="/contact/").button.button--green Contact us
+	//- section.super
+	//- 	div.super__inner
+	//- 		h2.super__title
+	//- 			| Solutions for every kind of budget
+	//- 		div.super__content
+	//- 			p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
 
 	.overview
 		.overview__inner.max-width-wrapper
 			div.overview__image
-				img(src="/images/startup-photos-800.jpg"  alt="Support Plans")
+				img(src="/images/support-plans-640.jpg"  alt="Support Plans")
 			div.overview__content
 				h2.overview__title Support Plans
-				p Our support plans offer a little bit of everything. Need some design work done there's a plan for that! Need a bit of development? we got you covered. Site maintenance? Not a problem!
+
+				p Sh*t happens don't wait till it's to late. Our support plans offer a variety of benefits such a Site backups, Database Management, General Troubleshooting, Site Maintenance, and Performance Audits. When something does go wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+
 				a(href="/support-plans/").button.button--blue Explore support plans
 
 	.overview.overview--gray
 		.overview__inner.max-width-wrapper
 			div.overview__content
 				h2.overview__title Website Packages
-				p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quos exercitationem accusantium laudantium quasi laboriosam? Ex, minima cupiditate at tempora fugit eligendi. Quod cumque iste excepturi praesentium neque quaerat est sequi ratione beatae! Aliquam unde iure quam consequuntur ratione eum nulla libero velit reprehenderit perspiciatis! Nam similique minus rerum quaerat.
+				p Website Packages are great for small businesses and startups looking for a quick and cost effective solution with professional results. We help you choose a design that we will then customize for you to make it unique and to reach all of your goals.
 				a(href="/web-site-packages/").button.button--blue Explore Website packages
 			div.overview__image
-				img(src="/images/startup-photos-800.jpg" alt="Web Development Packages")
+				img(src="/images/website-packages-640.jpg" alt="Web Development Packages")
 
 	section.super.super--blue
 		div.super__inner
@@ -45,25 +46,17 @@ block content
 	.overview
 		.overview__inner.max-width-wrapper
 			div.overview__image
-				img(src="/images/web-design-800.jpg" alt="Web Devlopment")
+				img(src="/images/close-up-design-wireframe-640.jpg" alt="Web Design")
 			div.overview__content
-				h2.overview__title Custom Web Development
-				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
-				a(href="/support-plans").button.button--blue Let's talk about your project
+				h2.overview__title Custom Web Design and Development
+				p When you choose to have a custom site developed you have complete control of how your site will look and function. From the first phone call with us to the day your site is launched you will feel like part of our team.
+				a(href="/estimates/").button.button--blue Let's Get Started
 
-	.overview.overview--gray
-		.overview__inner.max-width-wrapper
-			div.overview__content
-				h2.overview__title Custom Web Design
-				p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
-				a(href="/support-plans").button.button--blue Let's talk about your project
-			div.overview__image
-				img(src="/images/web-design-800.jpg" alt="Web Design")
 
-	section.super.super--white
+	section.super.super--blue
 		div.super__inner
-			h2.super__title
+			h2.super__title.super__title--white
 				| On a super tight budget?
 			div.super__content
-				h4 Let us show you what options can work best for you without breaking the bank.
+				p Let us show you what options can work best for you without breaking the bank.
 				a(href="/contact/").button.button--green Contact us today!

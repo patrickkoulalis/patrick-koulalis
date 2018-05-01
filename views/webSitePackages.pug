@@ -4,15 +4,13 @@ block masthead
 	div.masthead
 		.masthead__inner
 			h1.masthead__title Website Packages
-			h2.masthead__text We craft the web one awesome website at a time.
-		div.masthead__cta
-			span Let's Get Started
+			//- h2.masthead__text We craft the web one awesome website at a time.
+			a(href="#faqs").button.button--green Website Packages FAQs
 block content
 	section.super.super--white
 		div.super__inner
 			div.super__content
-				h4 Website Packages are great for small businesses and startups look for a cost effective solution with professional results.
-				a(href="/contact/").button.button--green Learn More - View FAQs
+				h4 Website Packages are great for small businesses and startups looking for a cost effective solution with professional results.
 	.max-width-wrapper.products
 		each product in h.products
 			if product.category == "Website Packages"
@@ -40,20 +38,22 @@ block content
 			h2.super__title.super__title--white
 				| Looking for something a little more custom?
 			div.super__content
-				p Our support plans give you peace of mind. When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+				//- p Our support plans give you peace of mind. When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
 				a(href="/contact/").button.button--green Contact us today!
 
-	section.faqs
+	section.section.faqs#faqs
 		.max-width-wrapper
-			h2 Website Packages FAQs
+			h2.faqs__title Website Packages FAQs
 
-			h3 Why should I purchase a website package over using a custom option?
-			p Website Packages are great for small businesses and startups look for a cost effective solution with professional results. If you are looking for a custom option contact us either by filling out the form here or calling us at 508-367-1837
+			div.faq
+				h3 Why should I go with a website package over a custom option?
+				p Website Packages are great for small businesses and startups that are on a budget and require a fast turnaround. If you are looking for a custom option contact us either by filling out the form <a href="/contact/">here</a> or calling us at <a href="tel:508-367-1837">508-367-1837</a>.
+			div.faq
+				h3 Do I get a custom design when I purchase a website package?
+				p No. We believe it is important to be up front about this. Themes are used and then customized to fit your needs. While the theme is updated to be unqiue to your business the intial design is not custom. If you are looking for a custom option contact us either by filling out the form <a href="/contact/">here</a> or calling us at <a href="tel:508-367-1837">508-367-1837</a>.
+			div.faq
+				h3 Will the content be provided for my site?
+				p No, all content will need to be provided by you. If you do need content for your site we offer copywriting services at an addional charge. You can contact us <a href="/contact/">here</a> to request a quote.
 
-			h3 What is full theme customization?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
-
-			h3 What is basic theme customization?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
 
 	+popupPaymentForm('/stripe-test/')

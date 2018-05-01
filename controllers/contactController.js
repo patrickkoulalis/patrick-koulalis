@@ -12,8 +12,9 @@ exports.contactPost = (req, res) => {
     console.log(err);
     res.redirect("/contact");
   }
-  console.log("Message Has been sent. Handled by middleware!");
-  res.redirect("/contact");
+	console.log("Message Has been sent. Handled by middleware!");
+	req.flash('success', 'Thanks for reaching out! We will get back to you shortly.');
+  res.redirect("back");
 };
 
 exports.handleMail = (req, res, next) => {

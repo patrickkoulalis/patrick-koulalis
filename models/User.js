@@ -21,17 +21,17 @@ const UserSchema = new Schema({
     trim: true,
     required: "A name is required!"
   },
-  is_admin: {
-    type: Boolean,
-    default: false
-  },
   customer_id: {
     type: String,
     unique: true
   },
   payments: {
     type: Array
-  },
+	},
+	tempPassword: String,
+	tempPasswordExpires: Date,
+	resetPasswordToken: String,
+	resetPasswordExpires: Date,
   date_created: {
     type: Date,
     default: Date.now

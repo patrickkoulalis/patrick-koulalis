@@ -5,6 +5,16 @@ const axios = require("axios");
 getStartedScroll();
 loadImages();
 topNavToggle();
+flashClose();
+
+function flashClose() {
+  const flashClose = Array.from(document.querySelectorAll(".flash-close"));
+  for (close of flashClose) {
+    close.addEventListener("click", function() {
+      this.parentNode.remove();
+    });
+  }
+}
 
 function topNavToggle() {
   const siteWrap = document.querySelector(".site-wrap");
@@ -93,3 +103,4 @@ for (let button of productButtons) {
     paymentPopup.classList.remove("payment-popup--active");
   });
 }
+

@@ -2,7 +2,7 @@
 	position: relative;
 
 	background:
-		linear-gradient(120deg, rgba(0, 0, 0, .35), rgba(red($blue), green($blue), blue($blue), .35), 75%, rgba(red($pink), green($pink), blue($pink), .35)),
+		linear-gradient(120deg, rgba(0, 0, 0, .75), rgba(red($blue), green($blue), blue($blue), .75), 75%, rgba(red($pink), green($pink), blue($pink), .75)),
 		url(../images/laptop.jpg);
 	background-size: cover;
 	background-attachment: fixed;
@@ -12,7 +12,7 @@
 	justify-content: center;
 
 	height: auto;
-	padding: 8.5rem 0rem 2rem 0em;
+	padding: 8.5rem 0rem;
   overflow: hidden;
 
   @media all and (max-width: 1024px) {
@@ -26,6 +26,14 @@
 			background-size: cover;
 			background-attachment: fixed;
 		height: 85vh;
+	}
+
+	&--support-plans {
+		background:
+		linear-gradient(120deg, rgba(0, 0, 0, .65), rgba(red($blue), green($blue), blue($blue), .65), 75%, rgba(red($pink), green($pink), blue($pink), .65)),
+		url(../images/support-plans-1280.jpg);
+		background-size: cover;
+		background-attachment: fixed;
 	}
 
 	&__inner {
@@ -72,16 +80,18 @@
 		width: 100%;
 		text-align: center;
 		animation: bounceInUp 1s;
-		cursor: pointer;
-		&:after {
-			content: "";
-			border-top: 20px solid $green;
-			border-left: 20px solid transparent;
-			border-right: 20px solid transparent;
-			display: block;
-			width: 0;
-			height: 0;
-			margin: 5px auto 0 auto;
+		&--home {
+			cursor: pointer;
+			&:after {
+				content: "";
+				border-top: 20px solid $green;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				display: block;
+				width: 0;
+				height: 0;
+				margin: 5px auto 0 auto;
+			}
 		}
 	}
 	&--404 {

@@ -1,0 +1,30 @@
+.flash {
+	padding: 5px 30px;
+	text-align: center;
+	position: relative;
+	margin: 10px;
+}
+
+.flash-close {
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	color: white;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.flash-info {
+	background: $blue;
+	color: white;
+}
+
+.flash-success {
+	background: $green;
+	color: white;
+}
+
+.flash-error {
+	background: $red;
+	color: white;
+}

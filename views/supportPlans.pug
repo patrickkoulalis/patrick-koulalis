@@ -1,19 +1,19 @@
 extends layout.pug
 include mixins/_popupPaymentForm
 block masthead
-	div.masthead
+	div.masthead.masthead--support-plans
 		.masthead__inner
 			h1.masthead__title Support Plans
-			h2.masthead__text Don't get caught with your pants down!
-		div.masthead__cta
-			span Let's Get Started
+			//- h2.masthead__text Don't get caught with your pants down!
+			div.masthead__cta.button-group
+				a(href="#faqs").button.button--green Support Plan FAQs
 block content
 	section.super.super--white
 		div.super__inner
 			h2.super__title
-				| Don't get caught with your pants <strong>down!</strong>
+				| Sh*t Happens, Are you prepared?
 			div.super__content
-				p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+				p Signing up for one of our support plans is the best way to keeping your site up and running at it's very best.
 				a(href="#help") Having a website emergency?
 	.max-width-wrapper.products
 		each product in h.products
@@ -25,8 +25,6 @@ block content
 								span.product-card__callout-text #{product.callout_text}
 							if(product.discount)
 								span.product-card__callout-text Save #{product.discount}%
-					a.product-card__interval.product-card__interval--active Monthly
-					a.product-card__interval Yearly
 					span.product-card__title #{product.name}
 					if(product.discount)
 						span.product-card__original-price: span #{h.formatPrice(product.price)}/mo
@@ -34,48 +32,37 @@ block content
 					ul.product-card__list
 						each feature in product.features
 							li #{feature}
-					button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}` + '/mo') Sign Up for #{product.name} Support
+					div.button-group
+						button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}` + '/mo') Sign Up for #{product.name} Support
+						a(href="/contact/" class="questions") Questions? Drop us a line
+		//- div.pricing-interval
+		//- 	a.product-card__interval.product-card__interval--active Monthly
+		//- 	a.product-card__interval Yearly
 
-	.feature-row.feature-row--col4.max-width-wrapper
-			h2.feature-row__title Support Plan Features
-			.feature-row__inner
-				.feature-card
-					include ../public/images/icons/code.svg
-					h4 Save Time &amp; Money
-					p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					a(href="#" style="display: block;") Learn More
-				.feature-card
-					include ../public/images/icons/code.svg
-					h4 Cost Effective
-					p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					a(href="#" style="display: block;") Learn More
-				.feature-card
-					include ../public/images/icons/code.svg
-					h4 Cost Effective
-					p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					a(href="#" style="display: block;") Learn More
-				.feature-card
-					include ../public/images/icons/code.svg
-					h4 Cost Effective
-					p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					a(href="#" style="display: block;") Learn More
-	.overview
-		.overview__inner.max-width-wrapper
-			div.overview__image
-				img(src="/images/startup-photos-800.jpg"  alt="Support Plans")
-			div.overview__content
-				h2.overview__title Pre-pay and Save!
-				p Our support plans offer a little bit of everything. Need some design work done there's a plan for that! Need a bit of development? we got you covered. Site maintenance? Not a problem!
-				a(href="/support-plans/").button.button--blue Explore support plans
+	//- .feature-row.feature-row--col4.max-width-wrapper
+	//- 		h2.feature-row__title Support Plan Benefits
+	//- 		.feature-row__inner
+	//- 			.feature-card
+	//- 				include ../public/images/icons/code.svg
+	//- 				h4 Security
+	//- 				p Daily, Weekly, and Monthly backups.
+	//- 				a(href="#" style="display: block;") Learn More
+	//- 			.feature-card
+	//- 				include ../public/images/icons/code.svg
+	//- 				h4 Flexiblity
+	//- 				p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+	//- 				a(href="#" style="display: block;") Learn More
+	//- 			.feature-card
+	//- 				include ../public/images/icons/code.svg
+	//- 				h4 Performance
+	//- 				p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+	//- 				a(href="#" style="display: block;") Learn More
+	//- 			.feature-card
+	//- 				include ../public/images/icons/code.svg
+	//- 				h4 Save
+	//- 				p Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+	//- 				a(href="#" style="display: block;") Learn More
 
-	.overview.overview--gray
-		.overview__inner.max-width-wrapper
-			div.overview__content
-				h2.overview__title Cost Effective
-				p Our support plans offer a little bit of everything. Need some design work done there's a plan for that! Need a bit of development? we got you covered. Site maintenance? Not a problem!
-				a(href="/support-plans/").button.button--blue Explore support plans
-			div.overview__image
-				img(src="/images/startup-photos-800.jpg"  alt="Support Plans")
 
 	section.super.super--red#help
 		div.super__inner
@@ -83,26 +70,32 @@ block content
 				.overview.overview--help
 					.overview__inner.max-width-wrapper
 						div.overview__content
-							h2.overview__title.overview__title--help Sh*t Happens! Get help with your website today.
-							p Templates, who needs them am I right? Doloremque, nostrum beatae? Earum tempore facere voluptas rem quasi iusto doloribus cumque temporibus, autem assumenda laboriosam odio aspernatur perferendis placeat corporis nobis aliquid dignissimos. Unde, reiciendis culpa.
-						div.product-card.product-card--help
-							span.product-card__title Emergency!
-							span.product-card__price $40/hr
-							ul.product-card__list
-								li * 1 hour minimum
-								li Billed to the closest 15 mintues after the first hour
-							a.button.button--blue(href="/contact/") Get help now
+							h2.overview__title.overview__title--help Website Emergency?
+							p When your site is down it can feel like everything is on fire. Let's get your site back up and running.
+							a(href="/contact/").button.button--green Contact Us
+						div.overview__image
+							img(src="/images/everything-is-fine.jpg", alt="Comic strip of a Dog in a room on fire claming this is fine.")
+						//- div.product-card.product-card--help
+						//- 	span.product-card__title Emergency!
+						//- 	span.product-card__price $75/hr
+						//- 	ul.product-card__list
+						//- 		li * 1 hour minimum
+						//- 		li Billed to the closest 15 mintues after the first hour
+						//- 	a.button.button--blue(href="/contact/") Get help now
 
-	section.faqs
+	section.section.faqs#faqs
 		.max-width-wrapper
-			h2 Website products FAQs
-
-			h3 Why use WordPress?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
-
-			h3 What is full theme customization?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
-
-			h3 What is basic theme customization?
-			p Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam deserunt repellendus est aspernatur dicta tempora omnis eos reiciendis ea.
+			h2.faqs__title Support Packages FAQs
+			div.faq
+				h3 Do site backups, performance audits, or site monitoring use my monthly hours?
+				p No. These features are part of the package and are sepreate from any development or design hours that you have.
+			div.faq
+				h3 What can I use my hours for?
+				p Almost anything. Site fixes, design customization, new pages, etc. For large projects we will need to setup a dedicated budget. If you have questions about if a project is going to require a seprate budget send us a message <a href="/contact/">here</a> or by call us at <a href="tel:508-367-1837">508-367-1837</a>.
+			div.faq
+				h3 What happens if I run out of hours for the month?
+				p If you go over your limit you can request a increase for that month or you may also upgrade to a higher tier Support Plan. Addtional hours are discounted based on your plans tier. To request an increase or upgrade please contact us <a href="/contact/">here</a> or by calling us at <a href="tel:508-367-1837">508-367-1837</a>.
+			div.faq
+				h3 How do I manage my subscription?
+				p To manage your subscriptions please log into your <a href="/account/">account</a>.
 	+popupPaymentForm('/support-plans')

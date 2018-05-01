@@ -75,7 +75,8 @@ exports.getPaymentHistory = async (req, res, next) => {
         customer: req.user.customer_id
       });
       const subsPromise = stripe.subscriptions.list({
-        customer: req.user.customer_id
+        customer: req.user.customer_id,
+        status: "all"
       });
       const plansPromise = stripe.plans.list();
       const [charges, subs, plans] = await Promise.all([
@@ -86,9 +87,14 @@ exports.getPaymentHistory = async (req, res, next) => {
       req.charges = charges;
       req.subs = subs;
       req.plans = plans;
+      console.log(subs);
     }
   } catch (err) {
     console.log(err);
   }
   next();
+};
+
+exports.forgotPasswordPage = (req, res) => {
+  res.render("forgotPassword");
 };

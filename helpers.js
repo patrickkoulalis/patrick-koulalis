@@ -31,11 +31,11 @@ exports.products = {
   WP1: {
     name: "Basic",
     price: 75000,
-    discount: 15,
+    discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 5" },
-      { title: "Additional Pages", value: "$175" },
+      { title: "Additional Pages", value: "$150" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -77,20 +77,19 @@ exports.products = {
         value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
-      { title: "Website Training", value: "Up to 2 Hours" },
-      { title: "Support", value: "14 days of Basic Support" }
+      { title: "Website Training", value: "Up to 2 Hours" }
     ],
     product_id: "WP1",
     category: "Website Packages"
   },
   WP2: {
-    name: "Mid-Level",
-    price: 250000,
-    discount: 15,
+    name: "Enhanced",
+    price: 150000,
+    discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 10" },
-      { title: "Additional Pages", value: "$175" },
+      { title: "Additional Pages", value: "$150" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -132,20 +131,19 @@ exports.products = {
         value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
-      { title: "Website Training", value: "Up to 3 Hours" },
-      { title: "Support", value: "30 days of Basic Support" }
+      { title: "Website Training", value: "Up to 3 Hours" }
     ],
     product_id: "WP2",
     category: "Website Packages"
   },
   WP3: {
-    name: "Full Customization",
-    price: 450000,
-    discount: 15,
+    name: "Ultimate",
+    price: 300000,
+    discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 15" },
-      { title: "Additional Pages", value: "$175" },
+      { title: "Additional Pages", value: "$150" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -187,8 +185,7 @@ exports.products = {
         value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
-      { title: "Website Training", value: "Up to 5 Hours" },
-      { title: "Support", value: "30 days of Basic Support" }
+      { title: "Website Training", value: "Up to 5 Hours" }
     ],
     product_id: "WP3",
     category: "Website Packages"
@@ -199,8 +196,8 @@ exports.products = {
     discount: 0,
     callout_text: "",
     features: [
-      "1 Extra Hour for Design",
-      "2 hours of support",
+      "4 hours of support",
+      "Monthly Site Backups",
       "10% off Additonal Hours"
     ],
     product_id: "SP1",
@@ -209,36 +206,34 @@ exports.products = {
   },
   SP2: {
     name: "Small Business",
-    price: 35000,
-    discount: 0,
-    calloutText: "Best Seller",
-    features: [
-      "1 Extra Hour for Design",
-      "2 hours of support",
-      "10% off Additonal Hours"
-    ],
-    product_id: "SP2",
-    category: "Support Plans"
-  },
-  SP3: {
-    name: "Enterprise",
     price: 50000,
     discount: 0,
     callout_text: "",
     features: [
-      "1 Extra Hour for Design",
-      "2 hours of support",
-      "10% off Additonal Hours"
+      "10 hours of support",
+      "Weekly Site Backups",
+      "15% off Additonal Hours"
+    ],
+    product_id: "SP2",
+    plan_id: "plan_CbmAUDZFD3podO",
+    category: "Support Plans"
+  },
+  SP3: {
+    name: "Enterprise",
+    price: 125000,
+    discount: 0,
+    callout_text: "",
+    features: [
+      "14 hours of support",
+      "Daily Site Backups",
+      "20% off Additonal Hours"
     ],
     product_id: "SP3",
+    plan_id: "plan_CbmAUDZFD3podO",
     category: "Support Plans"
   }
 };
 
-exports.faqs = {
-  website_packages: [{ question: "what is this?", answer: "this is a thing" }]
-};
-
 exports.social = {
-	twitter: 'twitter.com/patrickkoulalis',
-}
+  twitter: "twitter.com/patrickkoulalis"
+};

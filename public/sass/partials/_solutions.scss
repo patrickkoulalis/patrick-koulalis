@@ -33,7 +33,8 @@
 			flex-wrap: wrap;
 		}
 		&__image {
-			display: none;
+			// display: none;
+			order: 1;
 		}
 		&__title {
 			margin-top: 10px;
@@ -41,6 +42,7 @@
 		&__content {
 			flex: 1 1 100%;
 			padding: 0;
+			order: 2;
 		}
 	}
 }

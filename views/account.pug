@@ -10,6 +10,10 @@ block content
 			a(href="#") Make a Payment
 			a(href="/account/logout/") Logout
 
+			div(style="text-align: center; font-size: .85rem;").customer-id
+				p Customer ID
+				p #{user.customer_id}
+
 		.dashboard-content
 			.section.dashboard-section#payments
 				.max-width-wrapper
@@ -38,4 +42,7 @@ block content
 									div.r-table-cell.r-table-cell--header!= sub.plan.nickname
 									div.r-table-cell!= h.formatPrice(sub.plan.amount)
 									div.r-table-cell!= sub.plan.interval
-									div.r-table-cell #[a(href=`/account/cancel-subscription?sub=${sub.id}`).button.button--red Cancel Subscription]
+									if(sub.status == 'canceled')
+										div.r-table-cell!= sub.status
+									if(sub.status != 'canceled')
+										div.r-table-cell #[a(href=`/account/cancel-subscription?sub=${sub.id}`).button.button--red Cancel Subscription]

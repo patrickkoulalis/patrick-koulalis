@@ -511,8 +511,10 @@ body, .wrapper {
   .nav__menu-link {
     display: inline-block;
     padding: 0 10px;
-    -webkit-transition: color .2s;
-    transition: color .2s;
+    -webkit-transition: color .2s, -webkit-transform .5s;
+    transition: color .2s, -webkit-transform .5s;
+    transition: color .2s, transform .5s;
+    transition: color .2s, transform .5s, -webkit-transform .5s;
     text-decoration: none;
     font-weight: 100; }
     .nav__menu-link--white {
@@ -544,7 +546,8 @@ body, .wrapper {
         font-size: 2rem;
         text-transform: uppercase; } }
     .nav__menu-link:hover {
-      color: #009fe6; }
+      -webkit-transform: scale(1.05);
+              transform: scale(1.05); }
 
 .logo {
   height: 3.5rem;
@@ -585,6 +588,8 @@ body, .wrapper {
     transition: -webkit-transform .6s;
     transition: transform .6s;
     transition: transform .6s, -webkit-transform .6s; }
+  .nav-button--home .nav-button__bar {
+    background: white; }
   .nav-button--active {
     margin-right: 0;
     -webkit-transform: translate(-350px, 0);
@@ -616,7 +621,7 @@ body, .wrapper {
 
 .masthead {
   position: relative;
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.35), rgba(0, 159, 230, 0.35), 75%, rgba(244, 52, 111, 0.35)), url(images/laptop3acb55.jpg);
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 159, 230, 0.75), 75%, rgba(244, 52, 111, 0.75)), url(images/laptop3acb55.jpg);
   background-size: cover;
   background-attachment: fixed;
   display: -webkit-box;
@@ -630,7 +635,7 @@ body, .wrapper {
       -ms-flex-pack: center;
           justify-content: center;
   height: auto;
-  padding: 8.5rem 0rem 2rem 0em;
+  padding: 8.5rem 0rem;
   overflow: hidden; }
   @media all and (max-width: 1024px) {
     .masthead {
@@ -640,6 +645,10 @@ body, .wrapper {
     background-size: cover;
     background-attachment: fixed;
     height: 85vh; }
+  .masthead--support-plans {
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.65), rgba(0, 159, 230, 0.65), 75%, rgba(244, 52, 111, 0.65)), url(images/support-plans-12808ff340.jpg);
+    background-size: cover;
+    background-attachment: fixed; }
   .masthead__inner {
     max-width: 70em;
     width: 100%;
@@ -673,21 +682,48 @@ body, .wrapper {
     width: 100%;
     text-align: center;
     -webkit-animation: bounceInUp 1s;
-            animation: bounceInUp 1s;
-    cursor: pointer; }
-    .masthead__cta:after {
-      content: "";
-      border-top: 20px solid #00C353;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      display: block;
-      width: 0;
-      height: 0;
-      margin: 5px auto 0 auto; }
+            animation: bounceInUp 1s; }
+    .masthead__cta--home {
+      cursor: pointer; }
+      .masthead__cta--home:after {
+        content: "";
+        border-top: 20px solid #00C353;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        display: block;
+        width: 0;
+        height: 0;
+        margin: 5px auto 0 auto; }
   .masthead--404 {
     height: 100vh;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(21, 39, 52, 0.75)), to(rgba(21, 39, 52, 0.75))), url(images/40439005f.jpg) top left/cover;
     background: linear-gradient(rgba(21, 39, 52, 0.75), rgba(21, 39, 52, 0.75)), url(images/40439005f.jpg) top left/cover; }
+
+.flash {
+  padding: 5px 30px;
+  text-align: center;
+  position: relative;
+  margin: 10px; }
+
+.flash-close {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer; }
+
+.flash-info {
+  background: #009fe6;
+  color: white; }
+
+.flash-success {
+  background: #00C353;
+  color: white; }
+
+.flash-error {
+  background: #e60030;
+  color: white; }
 
 .grid {
   display: grid;
@@ -732,14 +768,19 @@ body, .wrapper {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
     .overview__image {
-      display: none; }
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1; }
     .overview__title {
       margin-top: 10px; }
     .overview__content {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 100%;
               flex: 1 1 100%;
-      padding: 0; } }
+      padding: 0;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2; } }
 
 .pricing-grid {
   display: grid;
@@ -774,8 +815,8 @@ body, .wrapper {
 
 #card-errors {
   text-align: center;
-  padding: 20px 0 0 0;
-  color: red;
+  padding: 10px;
+  color: #e60030;
   font-weight: bold; }
 
 form {
@@ -967,7 +1008,6 @@ ul {
   display: block; }
 
 .counter {
-  display: none;
   padding: 8vh 2vw;
   background: #009fe6; }
   .counter__inner {
@@ -1119,6 +1159,17 @@ ul {
       padding: 10vw 5vw; } }
   .product-card:nth-child(even) {
     background: #F5F5F5; }
+  body:not(.home) .product-card:nth-child(2) {
+    padding: 6vw 2vw;
+    margin-top: -2vw;
+    z-index: 1002;
+    -webkit-box-shadow: 0px 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0 10px rgba(0, 0, 0, 0.1); }
+    @media all and (max-width: 960px) {
+      body:not(.home) .product-card:nth-child(2) {
+        margin-top: 0vw;
+        -webkit-box-shadow: none;
+                box-shadow: none; } }
   .product-card__interval {
     display: inline-block;
     padding: 0 15px;
@@ -1145,9 +1196,7 @@ ul {
     z-index: 1001; }
   .product-card__callout-text {
     display: block;
-    background: #00C353;
-    border-bottom: solid 2px #00903d;
-    color: white;
+    color: #00C353;
     padding: 1.5vh; }
   .product-card__title {
     margin: 15px 0 10px 0;
@@ -3826,6 +3875,17 @@ Photo by Aleks Dorohovich on Unsplash
             flex: 0 1 16.667%; }
 
 .feature-card {
+  text-align: center;
+  margin-bottom: 20px; }
+
+.faqs__title {
   text-align: center; }
+
+.faq {
+  padding: 20px;
+  border: solid 1px whitesmoke;
+  border-top: none; }
+  .faq:first-of-type {
+    border-top: solid 1px whitesmoke; }
 
 /*# sourceMappingURL=styles.css.map*/

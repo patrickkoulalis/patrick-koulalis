@@ -43,6 +43,8 @@
     "express": "^4.15.2",
     "express-session": "^1.15.6",
     "express-validator": "^5.0.3",
+    "html-to-text": "^4.0.0",
+    "juice": "^4.2.3",
     "md5": "^2.2.1",
     "mongoose": "^4.13.11",
     "mongoose-mongodb-errors": "0.0.2",

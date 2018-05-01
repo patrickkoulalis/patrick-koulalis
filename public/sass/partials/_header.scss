@@ -53,7 +53,7 @@
 	&__menu-link {
 		display: inline-block;
 		padding: 0 10px;
-		transition: color .2s;
+		transition: color .2s, transform .5s;
 		text-decoration: none;
 		font-weight: 100;
 		&--white {
@@ -88,7 +88,8 @@
 			text-transform: uppercase;
 		}
 		&:hover {
-			color: $blue;
+			// color: rgb(226, 226, 226);
+			transform: scale(1.05);
 		}
 	}
 }
@@ -129,6 +130,9 @@
 		background: $blue;
 		margin-bottom: 6px;
     transition: transform .6s;
+	}
+	&--home &__bar {
+		background: white;
 	}
 	&--active {
 		margin-right: 0;
