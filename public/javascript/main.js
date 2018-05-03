@@ -93,7 +93,6 @@ const closePopup = document.querySelector(".payment-popup__close");
 const productIdInput = document.querySelector("#product-id");
 const buttonPrice = document.querySelector("#payment-form-submit .amount");
 for (let button of productButtons) {
-  console.log(button.dataset);
   button.addEventListener("click", () => {
     paymentPopup.classList.add("payment-popup--active");
     productIdInput.setAttribute("value", button.dataset.productId);

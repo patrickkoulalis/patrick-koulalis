@@ -3,84 +3,29 @@ const uuid = require("uuid-v4");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
+const passport = require("passport");
 const h = require("../helpers");
-const mail = require("../mail");
+const mail = require("../handlers/mail");
 // Display Stripe test page
 exports.stripePage = (req, res) => {
   res.render("stripe.pug", { pageTitle: "Stripe Testing" });
 };
 
 // Stripe Checkout One Time Payment
-exports.stripePay = async (req, res) => {
+exports.stripeCharge = async (req, res) => {
+  let idemKey = uuid();
+  let productName;
+  const user = req.currentUser;
+  const customer = req.customer;
+
   try {
-    let customer;
-    let idemKey = uuid();
-
-    // if there is no current user logged in
-    if (!req.user) {
-      const existingUser = await User.findOne({ email: req.body.email });
-      if (existingUser) {
-        req.flash(
-          "error",
-          'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
-        );
-        return res.redirect("back");
-      }
-      // If there is no user with the checkout email create and new user in the database
-      customer = await stripe.customers.create({
-        source: req.body.stripeToken,
-        email: req.body.email
-      });
-      // Also create a new stripe user
-      const tempPassword = crypto.randomBytes(20).toString("hex");
-      const tempPasswordExpires = Date.now() + 3600000;
-      const newUser = new User({
-        name: req.body.full_name,
-        email: req.body.email,
-        customer_id: customer.id,
-        tempPassword,
-        tempPasswordExpires
-      });
-      // Save the new user to the database
-      await newUser.save();
-      const loginUrl = `http://${req.headers.host}/account/login/${
-        user.tempPassword
-      }`;
-      mail.send({
-        from: "noreply@patrickkoulalis.com",
-        to: req.body.email,
-        subject: "Here is your temporary password",
-        html: loginUrl,
-        text: loginUrl,
-        filename: "temp-password"
-      });
-    }
-
-    // if the current user does not have a customer id create one
-    if (!req.user.customer_id) {
-      customer = await stripe.customers.create({
-        source: req.body.stripeToken,
-        email: req.body.email
-      });
-      const updatedCurrentUser = await User.findOneAndUpdate(
-        { email: req.user.email },
-        { customer_id: customer.id }
-      );
-      await updatedCurrentUser.save();
-    }
-    // if user has a customer id grab it
-    customer = await stripe.customers.retrieve(req.user.customer_id);
-
     // Get the product id from the request
     const productId = await req.body.product_id;
-    console.log(productId);
-    // console.log(h.products);
-    console.log(h.products[productId]);
+    productName = h.products[productId].name;
     // Get and calculate product price
     const productPrice =
       h.products[productId].price -
       h.products[productId].discount / 100 * h.products[productId].price;
-
     // Charge to Stripe
     const charge = await stripe.charges.create(
       {
@@ -88,10 +33,7 @@ exports.stripePay = async (req, res) => {
         currency: "usd",
         customer: customer.id,
         description:
-          "Charge for " +
-          h.products[productId].name +
-          " " +
-          h.products[productId].product_id,
+          "Charge for " + productName + " " + h.products[productId].product_id,
         metadata: {
           address: req.body.address,
           country: req.body.country,
@@ -100,7 +42,6 @@ exports.stripePay = async (req, res) => {
           zipcode: req.body.zipcode,
           notes: req.body.notes,
           discount_amount: h.products[productId].discount,
-          on_sale: h.products[productId].on_sale,
           coupon_code: req.body.coupon_code
         }
       },
@@ -122,77 +63,38 @@ exports.stripePay = async (req, res) => {
       }
     );
   } catch (err) {
-    console.log("error:" + err);
+    console.log(err);
+    req.flash(
+      "error",
+      "An error has occurred please try again. Payment was not successful."
+    );
+    return res.redirect("back");
   }
   //if no errors redirect the user after completion
+  const loginURL = `http://${req.headers.host}/account/login/`;
+  const siteURL = `http://${req.headers.host}`;
+  mail.send({
+    user,
+    subject: "Thank you for your purchase",
+    filename: "thankYou",
+    siteURL,
+    loginURL
+  });
   res.redirect("/account");
 };
 
 // Stripe Checkout Subscription
 exports.stripeSubscription = async (req, res) => {
+  let idemKey = uuid();
+  let productName;
+  const user = req.currentUser;
+  const customer = req.customer;
+
   try {
-    let customer;
-    let idemKey = uuid();
-    // if there is no current user logged in
-    if (!req.user) {
-      const existingUser = await User.findOne({ email: req.body.email });
-      if (existingUser) {
-        req.flash(
-          "error",
-          'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
-        );
-        return res.redirect("back");
-      }
-      // If there is no user with the checkout email create and new user in the database
-      customer = await stripe.customers.create({
-        source: req.body.stripeToken,
-        email: req.body.email
-      });
-      // Also create a new stripe user
-      const tempPassword = crypto.randomBytes(20).toString("hex");
-      const tempPasswordExpires = Date.now() + 3600000;
-      const newUser = new User({
-        name: req.body.full_name,
-        email: req.body.email,
-        customer_id: customer.id,
-        tempPassword,
-        tempPasswordExpires
-      });
-      // Save the new user to the database
-      await newUser.save();
-      const loginUrl = `http://${req.headers.host}/account/login/${
-        user.tempPassword
-      }`;
-      mail.send({
-        from: "noreply@patrickkoulalis.com",
-        to: req.body.email,
-        subject: "Here is your temporary password",
-        html: loginUrl,
-        text: loginUrl,
-        filename: "temp-password"
-      });
-    }
-
-    // if the current user does not have a customer id create one
-    if (!req.user.customer_id) {
-      customer = await stripe.customers.create({
-        source: req.body.stripeToken,
-        email: req.body.email
-      });
-      const updatedCurrentUser = await User.findOneAndUpdate(
-        { email: req.user.email },
-        { customer_id: customer.id }
-      );
-      await updatedCurrentUser.save();
-    }
-    // if user has a customer id grab it
-    customer = await stripe.customers.retrieve(req.user.customer_id);
-
     // Get the product id from the request
     const productId = await req.body.product_id;
-    console.log(productId);
-    // console.log(h.products);
-    console.log(h.products[productId]);
+    productName = h.products[productId].name;
+
     // Get and calculate product price
     const productPrice =
       h.products[productId].price -
@@ -236,5 +138,97 @@ exports.stripeSubscription = async (req, res) => {
     console.log("error:" + err);
   }
   //if no errors redirect the user after completion
+  const loginURL = `http://${req.headers.host}/account/login/`;
+  const siteURL = `http://${req.headers.host}`;
+  mail.send({
+    user,
+    subject: "Thank you for your purchase",
+    filename: "thankYou",
+    siteURL,
+    loginURL,
+    productName
+  });
   res.redirect("/account");
+};
+
+// Check for account
+exports.checkAccount = async (req, res, next) => {
+  // if there is a user logged in do this
+  // ====================================
+  if (req.user) {
+    // Grab the current users customer id
+    const customer = await stripe.customers.retrieve(req.user.customer_id);
+    // Send user and customer object to the next thing
+    req.currentUser = req.user;
+    req.customer = customer;
+    next();
+    return;
+  }
+  // if there is no user logged in do this
+  // ====================================
+  // check to see if the email address is already in use
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    req.flash(
+      "error",
+      'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
+    );
+    return res.redirect("back");
+  }
+
+  // Create a new stripe customer
+  const customer = await stripe.customers.create({
+    source: req.body.stripeToken,
+    email: req.body.email
+  });
+
+  // Add new user to the database
+  const user = new User({
+    name: req.body.full_name,
+    email: req.body.email,
+    customer_id: customer.id
+  });
+  const tempPassword = crypto.randomBytes(5).toString("hex");
+  await user.setPassword(tempPassword);
+  await user.save();
+
+  // Send temp password to the new user
+  const loginURL = `http://${req.headers.host}/account/login/`;
+  const siteURL = `http://${req.headers.host}`;
+  mail.send({
+    user,
+    subject: "Here is your temporary password",
+    filename: "tempPassword",
+    tempPassword,
+    siteURL,
+    loginURL
+  });
+
+  // send user and customer object to the next thing
+  req.currentUser = user;
+  req.customer = customer;
+  next();
+};
+
+// add payment method if none exsists
+exports.addPaymentMethod = async (req, res, next) => {
+  try {
+    if (!req.user) {
+      return next();
+    }
+    const customerCards = await stripe.customers.listCards(
+      req.user.customer_id
+    );
+    if (customerCards.data.length <= 0) {
+      await stripe.customers.createSource(req.currentUser.customer_id, {
+        source: req.body.stripeToken
+      });
+      return next();
+    }
+    next();
+  } catch (err) {
+    console.log(err);
+    req.flash("error", "Error");
+    res.redirect("back");
+  }
 };

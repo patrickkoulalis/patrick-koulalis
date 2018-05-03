@@ -14,7 +14,7 @@ block masthead
 block content
 	h2 Stripe.js &amp; Elements
 
-	form(action="/stripe-test" method="POST" id="payment-form" autocomplete="on" class="checkout-form")
+	form(action="/stripe-test/" method="POST" id="payment-form" autocomplete="on" class="checkout-form")
 		.form-header
 			h3.form-header__title Checkout
 		div.formErrors
@@ -311,7 +311,7 @@ block content
 
 
 	h2 Stripe Checkout
-	form(action="your-server-side-code" method="POST")
+	form(method="POST")
 		script(
 			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			data-key="pk_test_yTxwWJhOPvOYxTEo9oVzXWqy"

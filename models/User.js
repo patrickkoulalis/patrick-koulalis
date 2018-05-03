@@ -28,8 +28,6 @@ const UserSchema = new Schema({
   payments: {
     type: Array
 	},
-	tempPassword: String,
-	tempPasswordExpires: Date,
 	resetPasswordToken: String,
 	resetPasswordExpires: Date,
   date_created: {

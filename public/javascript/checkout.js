@@ -50,18 +50,9 @@ if (cardElement) {
   var form = document.getElementById("payment-form");
   form.addEventListener("submit", function(event) {
     event.preventDefault();
-
     const paymentPopupFormEmail = document.querySelector(
       '#payment-form input[type="email"]'
     );
-
-    // const existingUser = await User.findOne({ email: req.body.email });
-    // if (existingUser) {
-    //   var errorElement = document.getElementById("card-errors");
-    //   errorElement.textContent =
-    // 		"An account with that email address already exsists, please log in and try again or try another email";
-    // 	return;
-    // }
 
     stripe.createToken(card).then(function(result) {
       if (result.error) {
@@ -83,7 +74,6 @@ if (cardElement) {
     hiddenInput.setAttribute("name", "stripeToken");
     hiddenInput.setAttribute("value", token.id);
     form.appendChild(hiddenInput);
-
     // Submit the form
     form.submit();
   }

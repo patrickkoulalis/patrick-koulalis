@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	.dashboard-wrap
+		.dashboard-sidebar
+			//- img(src=`${user.gravatar}`, alt="")
+			a(href="/account/") Account Overview
+			a(href="/account/payments/") Payment History
+			a(href="#subscriptions") Subscriptions
+			a(href="/account/billing/") Billing
+			//- a(href="#") Make a Payment
+			a(href="/account/logout/") Logout
+
+			div(style="text-align: center; font-size: .85rem;").customer-id
+				p Customer ID
+				p #{user.customer_id}
+
+		.dashboard-content
+			.section.dashboard-section#payments
+				.max-width-wrapper
+					h3 Billing
+					p Update your default payment method below.
+					if charges
+						div.r-table
+							div.r-table-row.r-table-row--header
+								div.r-table-cell Date
+								div.r-table-cell Payment ID
+								div.r-table-cell Amount
+							each payment in charges.data
+								div.r-table-row
+									div.r-table-cell #{h.dateFns.format(payment.created * 1000, 'MM/DD/YYYY')}
+									div.r-table-cell!= payment.id
+									div.r-table-cell Amount: #{h.formatPrice(payment.amount)}

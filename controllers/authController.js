@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
 const { promisify } = require("es6-promisify");
-const mail = require("../mail");
+const mail = require("../handlers/mail");
+
 exports.login = passport.authenticate("local", {
   successRedirect: "/account/",
   successFlash: true,
@@ -30,6 +31,7 @@ exports.forgotPassword = async (req, res, next) => {
   // Check to see if user exsists
   const user = await User.findOne({ email: req.body.email });
 
+  // If No user send fake flash
   if (!user) {
     req.flash(
       "success",
@@ -39,6 +41,7 @@ exports.forgotPassword = async (req, res, next) => {
     );
     return res.redirect("/account/login/");
   }
+
   user.resetPasswordToken = crypto.randomBytes(20).toString("hex");
   user.resetPasswordExpires = Date.now() + 3600000;
   await user.save();
@@ -46,13 +49,15 @@ exports.forgotPassword = async (req, res, next) => {
   const resetURL = `http://${req.headers.host}/account/reset/${
     user.resetPasswordToken
   }`;
+  const siteURL = req.headers.host;
 
-  const mailOptions = {
-    to: req.body.email,
-    from: "no-reply@patrickkoulalis.com",
-    html: resetURL
-  };
-  mail.send(mailOptions);
+  await mail.send({
+    user,
+    subject: "Password reset link",
+    resetURL,
+    siteURL,
+    filename: "passwordReset"
+  });
 
   req.flash(
     "success",
@@ -69,6 +74,7 @@ exports.reset = async (req, res) => {
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() }
   });
+
   if (!user) {
     req.flash("error", "Reset link has expired!");
     res.redirect("/account/login/");
@@ -94,8 +100,8 @@ exports.updatePasswords = async (req, res) => {
     req.flash("error", `Password reset link has expired`);
     return res.redirect("/account/login/");
   }
-  const setPassword = promisify(user.setPassword.bind(user));
-  await setPassword(req.body.password);
+
+  await user.setPassword(req.body.password);
   user.resetPasswordToken = undefined;
   user.resetPasswordExpires = undefined;
   const updatedUser = await user.save();

@@ -4,10 +4,11 @@ block content
 	.dashboard-wrap
 		.dashboard-sidebar
 			//- img(src=`${user.gravatar}`, alt="")
-			a(href="#") Account Overview
-			a(href="/account/payment-history/") Payment History
+			a(href="/account/") Account Overview
+			a(href="/account/payments/") Payment History
 			a(href="#subscriptions") Subscriptions
-			a(href="#") Make a Payment
+			a(href="/account/billing/") Billing
+			//- a(href="#") Make a Payment
 			a(href="/account/logout/") Logout
 
 			div(style="text-align: center; font-size: .85rem;").customer-id
@@ -23,14 +24,14 @@ block content
 							div.r-table-row.r-table-row--header
 								div.r-table-cell Date
 								div.r-table-cell Payment ID
-								div.r-table-cell Ammount
+								div.r-table-cell Amount
 							each payment in charges.data
 								div.r-table-row
 									div.r-table-cell #{h.dateFns.format(payment.created * 1000, 'MM/DD/YYYY')}
 									div.r-table-cell!= payment.id
-									div.r-table-cell Ammount: #{h.formatPrice(payment.amount)}
+									div.r-table-cell Amount: #{h.formatPrice(payment.amount)}
 						.button-group.button-group--center
-							a(href="#").button.button--blue View Payment History
+							a(href="/account/payments/").button.button--blue View Payment History
 
 			.section.dashboard-section#subscriptions
 				.max-width-wrapper
@@ -46,3 +47,8 @@ block content
 										div.r-table-cell!= sub.status
 									if(sub.status != 'canceled')
 										div.r-table-cell #[a(href=`/account/cancel-subscription?sub=${sub.id}`).button.button--red Cancel Subscription]
+
+					else
+					h4(style="text-align: center;") You have no active subscriptions to display!
+					.button-group.button-group--center
+						a(href="/support-plans/").button.button--green Sign up for a support plan

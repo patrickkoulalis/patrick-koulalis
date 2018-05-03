@@ -815,7 +815,6 @@ body, .wrapper {
 
 #card-errors {
   text-align: center;
-  padding: 10px;
   color: #e60030;
   font-weight: bold; }
 
@@ -916,9 +915,10 @@ select, input, textarea {
   margin: 1em auto 0 auto;
   max-width: 30em;
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); }
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; }
   .payment-form #payment-form-submit {
-    width: 100%; }
+    width: 80%; }
   .payment-form .form-element {
     font-size: .85em;
     -webkit-box-shadow: 0 1px 3px 0 rgba(212, 212, 212, 0.5);
@@ -927,7 +927,15 @@ select, input, textarea {
   .payment-form input, .payment-form select {
     padding: 0 0 0 2em; }
   .payment-form__inner {
-    padding: 1rem; }
+    padding: 1rem;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s; }
+
+.slide-left {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%); }
 
 .form-icon svg {
   height: 1em;

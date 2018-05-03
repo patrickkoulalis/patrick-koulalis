@@ -192,44 +192,50 @@ exports.products = {
   },
   SP1: {
     name: "Start Up",
-    price: 15000,
+    price: 25000,
     discount: 0,
     callout_text: "",
     features: [
-      "4 hours of support",
+      "3 hours of support",
       "Monthly Site Backups",
-      "10% off Additonal Hours"
+      "Performance Audit",
+      "Monthly Website Report",
+      "15% off Additonal Hours"
     ],
     product_id: "SP1",
-    plan_id: "plan_CbmAUDZFD3podO",
+    plan_id: "BSP",
     category: "Support Plans"
   },
   SP2: {
     name: "Small Business",
-    price: 50000,
+    price: 75000,
     discount: 0,
     callout_text: "",
     features: [
       "10 hours of support",
       "Weekly Site Backups",
-      "15% off Additonal Hours"
+      "Performance Audit",
+      "Monthly Website Report",
+      "25% off Additonal Hours"
     ],
     product_id: "SP2",
-    plan_id: "plan_CbmAUDZFD3podO",
+    plan_id: "BSP",
     category: "Support Plans"
   },
   SP3: {
     name: "Enterprise",
-    price: 125000,
+    price: 250000,
     discount: 0,
     callout_text: "",
     features: [
-      "14 hours of support",
+      "20 hours of support",
       "Daily Site Backups",
-      "20% off Additonal Hours"
+      "Performance Audit",
+      "Weekly Website Report",
+      "35% off Additonal Hours"
     ],
     product_id: "SP3",
-    plan_id: "plan_CbmAUDZFD3podO",
+    plan_id: "BSP",
     category: "Support Plans"
   }
 };

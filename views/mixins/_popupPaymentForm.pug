@@ -21,8 +21,17 @@ mixin popupPaymentForm(action)
 						span.form-icon
 							include ../icons/envelope.svg
 						label(for="email")
-							input(type="email" name="email" placeholder="email" required  value=`${(user ? user.email : '')}`)
-					#card-element
+							if user
+								input(type="email" name="email" placeholder="email" required readonly value=`${(user ? user.email : '')}`)
+							else
+								input(type="email" name="email" placeholder="email" required)
+					if customer && customer.data.length > 0
+						div.form-element
+							select(name="creditCard")
+								each source in customer.data
+									option(value=source.id) &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{source.last4} Exp. #{source.exp_month}/#{source.exp_year}
+					else
+						#card-element
 
 				if !user
 					//- Form Group
@@ -296,7 +305,7 @@ mixin popupPaymentForm(action)
 					.form-data
 						input(id="product-id" type="hidden" name="product_id")
 				//- Submit Button
-				div.button-group
+				div.button-group.button-group--center
 					button#payment-form-submit.button.button--green(type="submit") Pay <span class="amount"></span>
 				a(href="/contact/" class="questions") Questions? Drop us a line
 

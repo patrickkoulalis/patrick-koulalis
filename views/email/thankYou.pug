@@ -1,0 +1,68 @@
+//- Handy mixin for making buttons
+mixin button(url, text)
+	table.button.button--green(border='0', cellpadding='0', cellspacing='0')
+		tbody
+			tr
+				td(align='left')
+					table(border='0', cellpadding='0', cellspacing='0')
+						tbody: tr: td: a(href=url, target='_blank')= text
+
+
+doctype html
+html
+	head
+		meta(name='viewport', content='width=device-width')
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		style
+			include styles.css
+	body
+		span.preheader Use this link to reset your password. The link is only valid for 24 hours.
+		table.email-wrapper(width='100%' cellpadding='0' cellspacing='0')
+			tr
+				td(align='center')
+					table.email-content(width='100%' cellpadding='0' cellspacing='0')
+						tr
+							td.email-masthead
+									| Thank You for your purchase of #{productName}, here are the next steps.
+						// Email Body
+						tr
+							td.email-body(width='100%' cellpadding='0' cellspacing='0')
+								table.email-body_inner(align='center' width='570' cellpadding='0' cellspacing='0')
+									// Body content
+									tr
+										td.content-cell
+											h1 Hi #{user.name},
+											p
+												| Here are your next steps.
+											// Action
+											table.body-action(align='center' width='100%' cellpadding='0' cellspacing='0')
+												tr
+													td(align='center')
+														table(width='100%' border='0' cellspacing='0' cellpadding='0')
+															tr
+																td(align='center')
+																	table(border='0' cellspacing='0' cellpadding='0')
+																		tr
+																			td
+																				+button(resetURL, 'Reset Password')
+											p
+												| If you did not request a password reset, please ignore this email or
+												a(href=`${siteURL}/contact/`) contact support
+												|  if you have questions.
+											p
+												| Thanks,
+												br
+												| The Support Team
+											// Sub copy
+											table.body-sub
+												tr
+													td
+														p.sub
+															| If you&rsquo;re having trouble with the button above, copy and paste the URL below into your web browser.
+														p.sub
+						tr
+							td
+								table.email-footer(align='center' width='570' cellpadding='0' cellspacing='0')
+									tr
+										td.content-cell(align='center')
+											p.sub.align-center &copy; 2018 patrickkoulalis.com All rights reserved.
