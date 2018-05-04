@@ -4,9 +4,9 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 
 	head
 		if process.env.NODE_ENV == 'production'
-			script(async src="https://www.googletagmanager.com/gtag/js?id=UA-53026829-1")
-			script
-				include ../public/javascript/gtag.js
+			//- script(async src="https://www.googletagmanager.com/gtag/js?id=UA-53026829-1")
+			//- script
+			//- 	include ../public/javascript/gtag.js
 			script
 				include ../public/javascript/heap.js
 		else
