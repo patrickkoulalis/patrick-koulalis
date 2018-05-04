@@ -52,10 +52,10 @@ router.get("/solutions", (req, res) => {
 
 // Support Plans Routes
 router.get("/support-plans", async (req, res) => {
-  if (!req.user) {
-    return res.render("supportPlans.pug");
-  }
   try {
+		if (!req.user) {
+			return res.render("supportPlans.pug");
+		}
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("supportPlans.pug", { customer: customer });
   } catch (err) {
