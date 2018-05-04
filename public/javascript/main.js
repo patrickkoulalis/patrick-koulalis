@@ -1,15 +1,17 @@
-import "../javascript/raven.min.js";
+import Raven from 'raven-js';
 import "../sass/main.scss";
 import "../javascript/checkout";
 const axios = require("axios");
 
-// Browser Error Reporting
-Raven.config('https://ee413322e1944efbb5ced428eda8b006@sentry.io/301174').install()
+// Error Capturing for the browser
+Raven
+    .config('https://ee413322e1944efbb5ced428eda8b006@sentry.io/301174')
+		.install();
 
 getStartedScroll();
-loadImages();
 topNavToggle();
 flashClose();
+paymentPopup();
 
 
 function flashClose() {
@@ -49,18 +51,20 @@ function getStartedScroll() {
 	}
 }
 
-const productButtons = document.querySelectorAll(".product-card button");
-const paymentPopup = document.querySelector(".payment-popup");
-const closePopup = document.querySelector(".payment-popup__close");
-const productIdInput = document.querySelector("#product-id");
-const buttonPrice = document.querySelector("#payment-form-submit .amount");
-for (let button of productButtons) {
-	button.addEventListener("click", () => {
-		paymentPopup.classList.add("payment-popup--active");
-		productIdInput.setAttribute("value", button.dataset.productId);
-		buttonPrice.textContent = button.dataset.price;
-	});
-	closePopup.addEventListener("click", () => {
-		paymentPopup.classList.remove("payment-popup--active");
-	});
+function paymentPopup() {
+	const productButtons = document.querySelectorAll(".product-card button");
+	const paymentPopup = document.querySelector(".payment-popup");
+	const closePopup = document.querySelector(".payment-popup__close");
+	const productIdInput = document.querySelector("#product-id");
+	const buttonPrice = document.querySelector("#payment-form-submit .amount");
+	for (let button of productButtons) {
+		button.addEventListener("click", () => {
+			paymentPopup.classList.add("payment-popup--active");
+			productIdInput.setAttribute("value", button.dataset.productId);
+			buttonPrice.textContent = button.dataset.price;
+		});
+		closePopup.addEventListener("click", () => {
+			paymentPopup.classList.remove("payment-popup--active");
+		});
+	}
 }
