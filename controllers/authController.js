@@ -71,7 +71,7 @@ exports.forgotPassword = async (req, res, next) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 
@@ -90,7 +90,7 @@ exports.reset = async (req, res) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 
@@ -129,7 +129,7 @@ exports.resetPassword = async (req, res) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 
@@ -156,6 +156,6 @@ exports.updatePassword = async (req, res) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };

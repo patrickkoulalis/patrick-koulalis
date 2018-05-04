@@ -28,7 +28,7 @@ exports.registerUser = async (req, res, next) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 
@@ -74,7 +74,7 @@ exports.cancelSubscription = async (req, res) => {
   } catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
   }
 };
 
@@ -155,7 +155,7 @@ exports.getPaymentHistory = async (req, res, next) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 exports.displayPaymentHistory = async (req, res, next) => {
@@ -181,7 +181,7 @@ exports.getBilling = async (req, res, next) => {
 	} catch (err) {
 			Raven.captureException(err);;
 			req.flash('error', h.flashes.error);
-			req.redirect('back');
+			res.redirect('back');
 	}
 };
 exports.displayBilling = async (req, res, next) => {

@@ -12,7 +12,7 @@ exports.contactPost = (req, res) => {
 	if (req.err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 	req.flash('success', 'Thanks for reaching out! We will get back to you shortly.');
 	res.redirect("back");
