@@ -243,7 +243,7 @@ exports.products = {
 			},
     ],
     product_id: "SP1",
-    plan_id: "BSP",
+    plan_id: "plan_CnhDLqAUbRhaAw",
     category: "Support Plans"
   },
   SP2: {
@@ -299,7 +299,7 @@ exports.products = {
 			},
     ],
     product_id: "SP2",
-    plan_id: "BSP",
+    plan_id: "plan_CnfG4OxNsobM5N",
     category: "Support Plans"
   },
   SP3: {
@@ -355,7 +355,7 @@ exports.products = {
 			},
     ],
     product_id: "SP3",
-    plan_id: "BSP",
+    plan_id: "plan_CnhCgEa0RKgTGA",
     category: "Support Plans"
   }
 };
