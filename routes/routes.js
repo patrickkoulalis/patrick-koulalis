@@ -73,16 +73,16 @@ router.post(
 
 // Web Development Packages Routes
 router.get("/website-packages", async (req, res) => {
+  if (!req.user) {
+    return res.render("supportPlans.pug");
+  }
   try {
-		if (!req.user) {
-    	return res.render("websitePackages.pug");
-  	}
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("websitePackages.pug", { customer: customer });
+    res.render("supportPlans.pug", { customer: customer });
   } catch (err) {
-		console.log(err);
-		req.flash('error', h.flashes.error);
-		req.redirect('back');
+    console.log(err);
+    req.flash("error", "An error has occurred please try again.");
+    res.redirect("back");
   }
 });
 

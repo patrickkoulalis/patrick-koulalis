@@ -11,7 +11,31 @@ block content
 		div.super__inner
 			div.super__content
 				h4 Website Packages are great for small businesses and startups looking for a cost effective solution with professional results.
-
+	.max-width-wrapper.products
+		each product in h.products
+			if product.category == "Website Packages"
+				div.product-card
+					if(product.callout_text || product.discount)
+						.product-card__callout
+							if(product.callout_text)
+								span.product-card__callout-text #{product.callout_text}
+							if(product.discount)
+								span.product-card__callout-text On Sale #{product.discount}% Off
+					span.product-card__title #{product.name}
+					if(product.discount)
+						span.product-card__original-price: span #{h.formatPrice(product.price)}
+					span.product-card__price #{h.formatPrice(product.price - ((product.discount / 100) * product.price))}
+					ul.product-card__list
+						each feature in product.features
+							li
+								span.feature-title #{feature.title}
+								if(feature.value)
+									span #{feature.value}
+								if(feature.icon)
+									img(src=feature.icon style="height: 20px;")
+					div.button-group
+						button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}`) Get the #{product.name} Package
+					a(href="/contact/" class="questions") Questions? Drop us a line
 	section.super.super--blue
 		div.super__inner
 			h2.super__title.super__title--white
