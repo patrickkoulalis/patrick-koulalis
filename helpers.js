@@ -243,7 +243,7 @@ exports.products = {
 			},
     ],
     product_id: "SP1",
-    plan_id: "BSP",
+    plan_id: "plan_Cnjwvm7SqWi3QW",
     category: "Support Plans"
   },
   SP2: {
