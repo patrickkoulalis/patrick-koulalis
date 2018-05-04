@@ -9,7 +9,7 @@ exports.contactPage = (req, res) => {
 
 exports.contactPost = (req, res) => {
 	if (req.err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
 	}

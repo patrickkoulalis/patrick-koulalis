@@ -59,7 +59,7 @@ router.get("/support-plans", async (req, res) => {
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("supportPlans.pug", { customer: customer });
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);
     req.flash("error", "An error has occurred please try again.");
     res.redirect("back");
   }
@@ -73,14 +73,14 @@ router.post(
 
 // Web Development Packages Routes
 router.get("/website-packages", async (req, res) => {
-  if (!req.user) {
-    return res.render("websitePackages.pug");
-  }
   try {
+		if (!req.user) {
+			return res.render("websitePackages.pug");
+		}
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("websitePackages.pug", { customer: customer });
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);
     req.flash("error", "An error has occurred please try again.");
     res.redirect("back");
   }

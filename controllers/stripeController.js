@@ -74,7 +74,7 @@ exports.stripeCharge = async (req, res) => {
 		});
 		res.redirect("/account");
   } catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
   }
@@ -143,7 +143,7 @@ exports.stripeSubscription = async (req, res) => {
 		});
 		res.redirect("/account");
   } catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
   }
@@ -208,7 +208,7 @@ exports.checkAccount = async (req, res, next) => {
 		req.customer = customer;
 		next();
 	} catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
 	}
@@ -231,7 +231,7 @@ exports.addPaymentMethod = async (req, res, next) => {
     }
     next();
   } catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
   }

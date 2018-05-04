@@ -25,7 +25,7 @@ exports.registerUser = async (req, res, next) => {
 		const register = await User.register(user, req.body.password);
 		next();
 	} catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
 	}
@@ -71,7 +71,7 @@ exports.cancelSubscription = async (req, res) => {
     });
     res.redirect("back");
   } catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
   }
@@ -85,7 +85,7 @@ exports.updatePaymentMethod = async (req, res) => {
     req.flash("success", "Your card has been updated.");
     res.redirect("back");
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);;
     req.flash(
       "error",
       "There was a problem updating your card. Please try again, and if the problem persists, contact the customer success team."
@@ -100,7 +100,7 @@ exports.removePaymentMethod = async (req, res) => {
     req.flash("success", "Your card has been removed.");
     res.redirect("back");
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);;
     req.flash(
       "error",
       "There was a problem removing your card. Please try again, and if the problem persists, contact the customer success team."
@@ -129,7 +129,7 @@ exports.getAccountOverviewData = async (req, res, next) => {
     req.charges = charges;
     req.subs = subs;
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);;
     req.flash(
       "error",
       "There was an error retriving your account. Please try again, and if the problem persists, contact the customer success team."
@@ -152,7 +152,7 @@ exports.getPaymentHistory = async (req, res, next) => {
 		req.charges = charges;
 		next();
 	} catch (err) {
-		console.log(err);
+		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
 	}
@@ -178,7 +178,7 @@ exports.getBilling = async (req, res, next) => {
 		req.customer = customer;
 		next();
 	} catch (err) {
-			console.log(err);
+			Raven.captureException(err);;
 			req.flash('error', h.flashes.error);
 			req.redirect('back');
 	}
@@ -205,7 +205,7 @@ exports.addCard = async (req, res, next) => {
     }
     res.redirect("back");
   } catch (err) {
-    console.log(err);
+    Raven.captureException(err);;
     req.flash(
       "error",
       "There was a problem adding your card. Please try again, and if the problem persists, contact the customer success team."
