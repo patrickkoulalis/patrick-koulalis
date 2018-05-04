@@ -32,14 +32,10 @@ app.set("view engine", "pug");
 
 // Sentry Raven
 Raven.config(process.env.SENTRY_DSN).install();
+// before all other middleware/route handlers
 app.use(Raven.requestHandler());
+// before all other error handlers
 app.use(Raven.errorHandler());
-app.use(function onError(err, req, res, next) {
-    // The error id is attached to `res.sentry` to be returned
-    // and optionally displayed to the user for support.
-    res.statusCode = 500;
-    res.end(res.sentry + '\n');
-});
 
 
 // Serve static files from 'public'
