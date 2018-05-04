@@ -73,17 +73,7 @@ router.post(
 
 // Web Development Packages Routes
 router.get("/web-site-packages", async (req, res) => {
-  try {
-		if (!req.user) {
-    	return res.render("websitePackages.pug");
-  	}
-    const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("websitePackages.pug", { customer: customer });
-  } catch (err) {
-		console.log(err);
-		req.flash('error', h.flashes.error);
-		req.redirect('back');
-  }
+  res.render("websitePackages.pug");
 });
 
 // Esitmates
