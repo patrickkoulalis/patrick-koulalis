@@ -74,11 +74,11 @@ router.post(
 // Web Development Packages Routes
 router.get("/website-packages", async (req, res) => {
   if (!req.user) {
-    return res.render("supportPlans.pug");
+    return res.render("websitePackages.pug");
   }
   try {
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("supportPlans.pug", { customer: customer });
+    res.render("websitePackages.pug", { customer: customer });
   } catch (err) {
     console.log(err);
     req.flash("error", "An error has occurred please try again.");
