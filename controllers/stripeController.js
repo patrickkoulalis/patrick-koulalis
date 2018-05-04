@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
 const passport = require("passport");
+const Raven = require('raven');
 const h = require("../helpers");
 const mail = require("../handlers/mail");
 // Display Stripe test page
@@ -76,7 +77,7 @@ exports.stripeCharge = async (req, res) => {
   } catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
   }
 };
 
@@ -145,7 +146,7 @@ exports.stripeSubscription = async (req, res) => {
   } catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
   }
 };
 
@@ -210,7 +211,7 @@ exports.checkAccount = async (req, res, next) => {
 	} catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
 	}
 };
 
@@ -233,6 +234,6 @@ exports.addPaymentMethod = async (req, res, next) => {
   } catch (err) {
 		Raven.captureException(err);;
 		req.flash('error', h.flashes.error);
-		req.redirect('back');
+		res.redirect('back');
   }
 };

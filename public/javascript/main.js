@@ -1,12 +1,12 @@
-import Raven from 'raven-js';
+// import Raven from 'raven-js';
 import "../sass/main.scss";
 import "../javascript/checkout";
 const axios = require("axios");
 
 // Error Capturing for the browser
-Raven
-    .config('https://ee413322e1944efbb5ced428eda8b006@sentry.io/301174')
-		.install();
+// Raven
+//     .config('https://ee413322e1944efbb5ced428eda8b006@sentry.io/301174')
+// 		.install();
 
 getStartedScroll();
 topNavToggle();

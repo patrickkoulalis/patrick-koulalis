@@ -1,3 +1,4 @@
+const Raven = require('raven');
 const mongoose = require("mongoose");
 const { promisify } = require("es6-promisify");
 const stripe = require("stripe")(process.env.STRIPE_KEY);

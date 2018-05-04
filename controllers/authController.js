@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
 const { promisify } = require("es6-promisify");
+const Raven = require('raven');
 const mail = require("../handlers/mail");
 
 exports.login = passport.authenticate("local", {

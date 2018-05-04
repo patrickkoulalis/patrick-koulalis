@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const Raven = require('raven');
 
 exports.contactPage = (req, res) => {
   res.render("contact.pug", {

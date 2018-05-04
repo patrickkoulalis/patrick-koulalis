@@ -7,6 +7,7 @@ const authController = require("../controllers/authController.js");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
+const Raven = require('raven');
 const h = require("../helpers");
 
 // Homepage
