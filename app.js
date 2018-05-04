@@ -10,6 +10,7 @@ const promisify = require("es6-promisify");
 const flash = require("connect-flash");
 const expressValidator = require("express-validator");
 const fs = require("fs");
+const Raven = require('raven');
 const helpers = require("./helpers");
 
 // import environmental variables from our variables.env file
@@ -28,6 +29,18 @@ const User = require("./models/User");
 // Set views and view engine, we are using pug.
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "pug");
+
+// Sentry Raven
+Raven.config(process.env.SENTRY_DSN).install();
+app.use(Raven.requestHandler());
+app.use(Raven.errorHandler());
+app.use(function onError(err, req, res, next) {
+    // The error id is attached to `res.sentry` to be returned
+    // and optionally displayed to the user for support.
+    res.statusCode = 500;
+    res.end(res.sentry + '\n');
+});
+
 
 // Serve static files from 'public'
 app.use(express.static(path.join(__dirname, "public")));

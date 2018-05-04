@@ -13,7 +13,6 @@ exports.contactPost = (req, res) => {
 		req.flash('error', h.flashes.error);
 		req.redirect('back');
 	}
-	console.log("Message Has been sent. Handled by middleware!");
 	req.flash('success', 'Thanks for reaching out! We will get back to you shortly.');
 	res.redirect("back");
 };
@@ -45,7 +44,6 @@ exports.handleMail = (req, res, next) => {
       `<p>Phone Number: ${req.body.contactPhoneNumber}</p>` +
 			`<p>${req.body.contactMsg}</p>`
 	};
-	console.log(req.body);
   transporter.sendMail(mailOptions, err => {
     if (err) {
       req.err = err;

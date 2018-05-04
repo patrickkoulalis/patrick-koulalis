@@ -192,7 +192,7 @@ exports.products = {
   },
   SP1: {
     name: "Start Up",
-    price: 25000,
+    price: 45000,
     discount: 0,
     callout_text: "",
     features: [
@@ -248,7 +248,7 @@ exports.products = {
   },
   SP2: {
     name: "Small Business",
-    price: 50000,
+    price: 75000,
     discount: 0,
     callout_text: "",
     features: [
@@ -304,7 +304,7 @@ exports.products = {
   },
   SP3: {
     name: "Enterprise",
-    price: 125000,
+    price: 150000,
     discount: 0,
     callout_text: "",
     features: [
@@ -345,7 +345,7 @@ exports.products = {
 			},
 			{
         title: "Dedicated Development/Design",
-        value: "18 Hours",
+        value: "16 Hours",
         icon: ""
 			},
 			{
