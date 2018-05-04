@@ -1,7 +1,7 @@
 // Live Key
-// const stripe = Stripe("pk_live_6hiU9mzkB5WvD6quYQ7BK5jd");
+const stripe = Stripe("pk_live_6hiU9mzkB5WvD6quYQ7BK5jd");
 // Development Key
-const stripe = Stripe("pk_test_yTxwWJhOPvOYxTEo9oVzXWqy");
+// const stripe = Stripe("pk_test_yTxwWJhOPvOYxTEo9oVzXWqy");
 const elements = stripe.elements();
 
 const style = {
