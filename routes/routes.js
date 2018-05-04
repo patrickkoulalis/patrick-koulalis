@@ -75,10 +75,10 @@ router.post(
 router.get("/website-packages", async (req, res) => {
   try {
 		if (!req.user) {
-			return res.render("websitePackages.pug");
+			return res.render("website-packages.pug");
 		}
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("websitePackages.pug", { customer: customer });
+    res.render("website-packages.pug", { customer: customer });
   } catch (err) {
     Raven.captureException(err);
     req.flash("error", "An error has occurred please try again.");
