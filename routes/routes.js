@@ -72,7 +72,7 @@ router.post(
 );
 
 // Web Development Packages Routes
-router.get("/web-site-packages", async (req, res) => {
+router.get("/website-packages", async (req, res) => {
   try {
 		if (!req.user) {
     	return res.render("websitePackages.pug");
