@@ -30,7 +30,7 @@ exports.clients = [
 exports.products = {
   WP1: {
     name: "Basic",
-    price: 75000,
+    price: 0,
     discount: 0,
     callout_text: "",
     features: [
@@ -243,7 +243,7 @@ exports.products = {
 			},
     ],
     product_id: "SP1",
-    plan_id: "plan_Cnjwvm7SqWi3QW",
+    plan_id: "plan_CnhDLqAUbRhaAw",
     category: "Support Plans"
   },
   SP2: {
