@@ -30,7 +30,7 @@ exports.clients = [
 exports.products = {
   WP1: {
     name: "Basic",
-    price: 0,
+    price: 75000,
     discount: 0,
     callout_text: "",
     features: [
