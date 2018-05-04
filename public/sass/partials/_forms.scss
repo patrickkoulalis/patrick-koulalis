@@ -101,6 +101,21 @@ input[required], textarea[required]  {
 		}
 	}
 }
+.add-card {
+	padding: 20px;
+	& #card-element {
+		width: 50%;
+		margin: 0 auto;
+	}
+	&__set-wrap {
+		padding: 10px 0;
+	}
+	& input[type="checkbox"] {
+		display: inline-block;
+		width: unset;
+		margin: 0 0 0 5px;
+	}
+}
 
 .payment-form {
 	background: $lightGray;

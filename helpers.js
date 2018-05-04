@@ -196,11 +196,51 @@ exports.products = {
     discount: 0,
     callout_text: "",
     features: [
-      "3 hours of support",
-      "Monthly Site Backups",
-      "Performance Audit",
-      "Monthly Website Report",
-      "15% off Additonal Hours"
+			{
+        title: "Daily Site Backups",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Sucuri Security Check",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Website Updates",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Uptime Monitoring",
+        value: "",
+        icon: "/images/icons/times-red.svg"
+			},
+			{
+        title: "Performance Audit",
+        value: "",
+        icon: "/images/icons/times-red.svg"
+			},
+			{
+        title: "SEO Ranking",
+        value: "",
+        icon: "/images/icons/times-red.svg"
+			},
+			{
+        title: "Website Report",
+        value: "Monthly ",
+        icon: ""
+			},
+			{
+        title: "Dedicated Development/Design",
+        value: "4 Hours",
+        icon: ""
+			},
+			{
+        title: "Additonal Hours Discount",
+        value: "15% Off",
+        icon: ""
+			},
     ],
     product_id: "SP1",
     plan_id: "BSP",
@@ -208,15 +248,55 @@ exports.products = {
   },
   SP2: {
     name: "Small Business",
-    price: 75000,
+    price: 50000,
     discount: 0,
     callout_text: "",
     features: [
-      "10 hours of support",
-      "Weekly Site Backups",
-      "Performance Audit",
-      "Monthly Website Report",
-      "25% off Additonal Hours"
+			{
+        title: "Daily Site Backups",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Sucuri Security Check",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Website Updates",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Uptime Monitoring",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Performance Audit",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "SEO Ranking",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Website Report",
+        value: "Monthly",
+        icon: ""
+			},
+			{
+        title: "Dedicated Development/Design",
+        value: "8 Hours",
+        icon: ""
+			},
+			{
+        title: "Additonal Hours Discount",
+        value: "25% Off",
+        icon: ""
+			},
     ],
     product_id: "SP2",
     plan_id: "BSP",
@@ -224,15 +304,55 @@ exports.products = {
   },
   SP3: {
     name: "Enterprise",
-    price: 250000,
+    price: 125000,
     discount: 0,
     callout_text: "",
     features: [
-      "20 hours of support",
-      "Daily Site Backups",
-      "Performance Audit",
-      "Weekly Website Report",
-      "35% off Additonal Hours"
+			{
+        title: "Daily Site Backups",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Sucuri Security Check",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Website Updates",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Uptime Monitoring",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Performance Audit",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "SEO Ranking",
+        value: "",
+        icon: "/images/icons/check-green.svg"
+			},
+			{
+        title: "Website Report",
+        value: "Weekly",
+        icon: ""
+			},
+			{
+        title: "Dedicated Development/Design",
+        value: "18 Hours",
+        icon: ""
+			},
+			{
+        title: "Additonal Hours Discount",
+        value: "35% Off",
+        icon: ""
+			},
     ],
     product_id: "SP3",
     plan_id: "BSP",
@@ -243,3 +363,8 @@ exports.products = {
 exports.social = {
   twitter: "twitter.com/patrickkoulalis"
 };
+
+exports.flashes = {
+	error: `An error has occurred. Please try again, and if the problem persists, contact the customer success team.`,
+	success: ''
+}

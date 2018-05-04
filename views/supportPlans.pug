@@ -31,10 +31,16 @@ block content
 					span.product-card__price #{h.formatPrice(product.price - ((product.discount / 100) * product.price))}/mo
 					ul.product-card__list
 						each feature in product.features
-							li #{feature}
+							li
+								span.feature-title #{feature.title}
+								if(feature.icon)
+									img(src=feature.icon style="height: 20px;")
+								if(feature.value)
+									span #{feature.value}
 					div.button-group
 						button.button.button--blue(data-product-id=`${product.product_id}` data-price=`${h.formatPrice(product.price - ((product.discount / 100) * product.price))}` + '/mo') Sign Up for #{product.name} Support
 						a(href="/contact/" class="questions") Questions? Drop us a line
+		//- _ATT @EVERYONE @PATRICK
 		//- div.pricing-interval
 		//- 	a.product-card__interval.product-card__interval--active Monthly
 		//- 	a.product-card__interval Yearly

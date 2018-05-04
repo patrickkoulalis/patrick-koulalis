@@ -20,66 +20,77 @@ exports.logout = (req, res) => {
 
 exports.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
-    next();
-    return;
+    return next();
   }
   req.flash("info", "Please login to access your account");
   res.redirect("/account/login/");
 };
 
 exports.forgotPassword = async (req, res, next) => {
-  // Check to see if user exsists
-  const user = await User.findOne({ email: req.body.email });
+	try {
+		// Check to see if user exsists
+		const user = await User.findOne({ email: req.body.email });
 
-  // If No user send fake flash
-  if (!user) {
-    req.flash(
-      "success",
-      `A password reset link has been sent to ${
-        req.body.email
-      }. Click on the link provided to reset your password.`
-    );
-    return res.redirect("/account/login/");
-  }
+		// If No user send fake flash
+		if (!user) {
+			req.flash(
+				"success",
+				`A password reset link has been sent to ${
+					req.body.email
+				}. Click on the link provided to reset your password.`
+			);
+			return res.redirect("/account/login/");
+		}
 
-  user.resetPasswordToken = crypto.randomBytes(20).toString("hex");
-  user.resetPasswordExpires = Date.now() + 3600000;
-  await user.save();
+		user.resetPasswordToken = crypto.randomBytes(20).toString("hex");
+		user.resetPasswordExpires = Date.now() + 3600000;
+		await user.save();
 
-  const resetURL = `http://${req.headers.host}/account/reset/${
-    user.resetPasswordToken
-  }`;
-  const siteURL = req.headers.host;
+		const resetURL = `http://${req.headers.host}/account/reset/${
+			user.resetPasswordToken
+		}`;
+		const siteURL = req.headers.host;
 
-  await mail.send({
-    user,
-    subject: "Password reset link",
-    resetURL,
-    siteURL,
-    filename: "passwordReset"
-  });
+		await mail.send({
+			user,
+			subject: "Password reset link",
+			resetURL,
+			siteURL,
+			filename: "passwordReset"
+		});
 
-  req.flash(
-    "success",
-    `A password reset link has been sent to ${
-      req.body.email
-    }. Click on the link provided to reset your password.`
-  );
+		req.flash(
+			"success",
+			`A password reset link has been sent to ${
+				req.body.email
+			}. Click on the link provided to reset your password.`
+		);
 
-  res.redirect("/account/login/");
+		res.redirect("/account/login/");
+	} catch (err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
 };
 
 exports.reset = async (req, res) => {
-  const user = await User.findOne({
-    resetPasswordToken: req.params.token,
-    resetPasswordExpires: { $gt: Date.now() }
-  });
+	try {
+		const user = await User.findOne({
+			resetPasswordToken: req.params.token,
+			resetPasswordExpires: { $gt: Date.now() }
+		});
 
-  if (!user) {
-    req.flash("error", "Reset link has expired!");
-    res.redirect("/account/login/");
-  }
-  res.render("resetPassword");
+		if (!user) {
+			req.flash("error", "Reset link has expired!");
+			return res.redirect("/account/login/");
+		}
+		res.render("resetPassword");
+	} catch (err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
 };
 
 exports.checkPasswords = (req, res, next) => {
@@ -91,25 +102,59 @@ exports.checkPasswords = (req, res, next) => {
   res.redirect("back");
 };
 
-exports.updatePasswords = async (req, res) => {
-  const user = await User.findOne({
-    resetPasswordToken: req.params.token,
-    resetPasswordExpires: { $gt: Date.now() }
-  });
-  if (!user) {
-    req.flash("error", `Password reset link has expired`);
-    return res.redirect("/account/login/");
-  }
+// Reset forgotten password
+exports.resetPassword = async (req, res) => {
+	try {
+		const user = await User.findOne({
+			resetPasswordToken: req.params.token,
+			resetPasswordExpires: { $gt: Date.now() }
+		});
+		if (!user) {
+			req.flash("error", `Password reset link has expired`);
+			return res.redirect("/account/login/");
+		}
 
-  await user.setPassword(req.body.password);
-  user.resetPasswordToken = undefined;
-  user.resetPasswordExpires = undefined;
-  const updatedUser = await user.save();
-  const login = promisify(req.login.bind(req));
-  await login(updatedUser);
-  req.flash(
-    "success",
-    "Congratulations! Your password has been reset and you have been logged into your account."
-  );
-  res.redirect("/account/");
+		await user.setPassword(req.body.password);
+		user.resetPasswordToken = undefined;
+		user.resetPasswordExpires = undefined;
+		const updatedUser = await user.save();
+		const login = promisify(req.login.bind(req));
+		await login(updatedUser);
+		req.flash(
+			"success",
+			"Congratulations! Your password has been reset and you have been logged into your account."
+		);
+		res.redirect("/account/");
+	} catch (err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
+};
+
+// Updates User Password
+exports.updatePassword = async (req, res) => {
+	try {
+		const user = await User.findOne({
+			_id: req.user.id
+		});
+		if (!user) {
+			req.flash("error", `Password reset link has expired`);
+			return res.redirect("/account/login/");
+		}
+
+		await user.setPassword(req.body.password);
+		const updatedUser = await user.save();
+		const login = promisify(req.login.bind(req));
+		await login(updatedUser);
+		req.flash(
+			"success",
+			"Congratulations! Your password has been reset and you have been logged into your account."
+		);
+		res.redirect("/account/");
+	} catch (err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
 };

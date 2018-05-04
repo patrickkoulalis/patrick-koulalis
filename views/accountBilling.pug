@@ -6,7 +6,7 @@ block content
 			//- img(src=`${user.gravatar}`, alt="")
 			a(href="/account/") Account Overview
 			a(href="/account/payments/") Payment History
-			a(href="#subscriptions") Subscriptions
+			a(href="/account/#subscriptions") Subscriptions
 			a(href="/account/billing/") Billing
 			//- a(href="#") Make a Payment
 			a(href="/account/logout/") Logout
@@ -19,15 +19,45 @@ block content
 			.section.dashboard-section#payments
 				.max-width-wrapper
 					h3 Billing
-					p Update your default payment method below.
-					if charges
+
+					h4 Default Payment Method
+					if defaultCard
 						div.r-table
-							div.r-table-row.r-table-row--header
-								div.r-table-cell Date
-								div.r-table-cell Payment ID
-								div.r-table-cell Amount
-							each payment in charges.data
-								div.r-table-row
-									div.r-table-cell #{h.dateFns.format(payment.created * 1000, 'MM/DD/YYYY')}
-									div.r-table-cell!= payment.id
-									div.r-table-cell Amount: #{h.formatPrice(payment.amount)}
+							//- div.r-table-row.r-table-row--header
+							//- 	div.r-table-cell Card
+							//- 	div.r-table-cell Exp
+							//- 	div.r-table-cell Type
+							div.r-table-row
+								div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{defaultCard.last4}
+								div.r-table-cell #{defaultCard.exp_month}/#{defaultCard.exp_year}
+								div.r-table-cell #{defaultCard.brand}
+					h4 Your Cards
+					p To update your default payment method please select one of the cards below.
+					if cards
+						div.r-table
+							//- div.r-table-row.r-table-row--header
+							//- 	div.r-table-cell Card
+							//- 	div.r-table-cell Exp
+							//- 	div.r-table-cell Type
+							//- 	div.r-table-cell
+							each card in cards.data
+								if card.id != defaultCard.id
+									div.r-table-row
+										div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{card.last4}
+										div.r-table-cell #{card.exp_month}/#{card.exp_year}
+										div.r-table-cell #{card.brand}
+										div.r-table-cell
+											a(href=`/account/remove-payment-method?c=${card.id}` style="color: red;") Remove Card
+										div.r-table-cell
+											a(href=`/account/update-payment-method?c=${card.id}`).button.button--green Make Default
+						h4 Add a new payment method
+						form(action="/account/billing" method='POST' id='add-card' class="add-card")
+							div.formErrors
+								//- Used to display Element errors. -->
+								#card-errors(role="alert")
+							#card-element
+							.button-group.button-group--center
+								button.button.button--green Add Card
+								div.add-card__set-wrap
+									span Set as default
+									input(type="checkbox" name="setDefault")

@@ -7,25 +7,7 @@ const authController = require("../controllers/authController.js");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
-
-router.get("/info", (req, res) => {
-  res.json({ user: req.user, Session: req.session, Cookies: req.cookies });
-});
-
-router.get("/customers", async (req, res) => {
-  const customer = await stripe.customers.retrieve(req.user.customer_id);
-  res.json(customer);
-});
-
-router.get("/flash", (req, res) => {
-  req.flash("error", "Error 1");
-  req.flash("error", "Error 2");
-  req.flash("error", "Error 3");
-  req.flash("success", "Success 1");
-  req.flash("success", "Success 2");
-  req.flash("success", "Success 3");
-  res.redirect("back");
-});
+const h = require("../helpers");
 
 // Homepage
 router.get("/", (req, res) => {
@@ -35,10 +17,6 @@ router.get("/", (req, res) => {
     pageClass: "home"
   });
 });
-
-// Stripe Test Page
-router.get("/stripe-test", stripeController.stripePage);
-router.post("/stripe-test", stripeController.stripeCharge);
 
 // Contact Routes
 router.get("/contact", contactController.contactPage);
@@ -72,14 +50,6 @@ router.get("/solutions", (req, res) => {
   });
 });
 
-//checkout
-router.post(
-  "/checkout",
-  stripeController.checkAccount,
-  stripeController.addPaymentMethod,
-  stripeController.stripeCharge
-);
-
 // Support Plans Routes
 router.get("/support-plans", async (req, res) => {
   if (!req.user) {
@@ -111,9 +81,9 @@ router.get("/web-site-packages", async (req, res) => {
     console.log(customer);
     res.render("websitePackages.pug", { customer: customer });
   } catch (err) {
-    console.log(err);
-    req.flash("error", "An error has occurred please try again.");
-    res.redirect("back");
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
   }
 });
 
@@ -122,6 +92,15 @@ router.get("/estimates", (req, res) => {
   res.render("estimates.pug");
 });
 
+//checkout
+router.post(
+  "/checkout",
+  stripeController.checkAccount,
+  stripeController.addPaymentMethod,
+  stripeController.stripeCharge
+);
+// _ATT _@EVERYONE _@PATRICK
+// SPEED IMPORVMENTS FOR DASHBOARD
 // Account Routes
 router.get("/account/signup", accountController.signupPage);
 router.post(
@@ -132,18 +111,16 @@ router.post(
 );
 router.get("/account/login", accountController.loginPage);
 router.post("/account/login", authController.login);
-router.get("/account/logout", authController.logout);
+router.get("/account/logout", authController.isLoggedIn, authController.logout);
 router.get("/account/forgot", accountController.forgotPasswordPage);
 router.post("/account/forgot", authController.forgotPassword);
+router.get("/account/update-password", authController.isLoggedIn, accountController.updatePassword);
+router.post("/account/update-password", authController.isLoggedIn, authController.checkPasswords, authController.updatePassword);
 router.get("/account/reset/:token", authController.reset);
 router.post(
   "/account/reset/:token",
   authController.checkPasswords,
-  authController.updatePasswords
-);
-router.get(
-  "/account/cancel-subscription",
-  accountController.cancelSubscription
+  authController.resetPassword
 );
 router.get(
   "/account",
@@ -153,14 +130,62 @@ router.get(
 );
 router.get(
   "/account/payments",
+  authController.isLoggedIn,
   accountController.getPaymentHistory,
   accountController.displayPaymentHistory
 );
 router.get(
   "/account/billing",
+  authController.isLoggedIn,
   accountController.getBilling,
   accountController.displayBilling
 );
+router.post(
+  "/account/billing",
+  authController.isLoggedIn,
+  accountController.addCard
+);
+// _ATT _@EVERYONE _@PATRICK
+// MAKE SURE THAT PEOPLE ARE ASSOCIATED WITH THE SUB BEFORE IT CANCELS
+router.get(
+  "/account/cancel-subscription",
+  authController.isLoggedIn,
+  accountController.cancelSubscription
+);
+router.get(
+  "/account/update-payment-method",
+  authController.isLoggedIn,
+  accountController.updatePaymentMethod
+);
+router.get(
+  "/account/remove-payment-method",
+  authController.isLoggedIn,
+  accountController.removePaymentMethod
+);
+
+// Utility Routes
+router.get("/info", (req, res) => {
+  res.json({ user: req.user, Session: req.session, Cookies: req.cookies });
+});
+
+router.get("/customers", async (req, res) => {
+  const customer = await stripe.customers.retrieve(req.user.customer_id);
+  res.json(customer);
+});
+
+router.get("/flash", (req, res) => {
+  req.flash('error', h.flashes.error);
+  req.flash("error", "Error 2");
+  req.flash("error", "Error 3");
+  req.flash("success", "Success 1");
+  req.flash("success", "Success 2");
+  req.flash("success", "Success 3");
+  res.redirect("back");
+});
+
+//Stripe Test Page
+router.get("/stripe-test", stripeController.stripePage);
+router.post("/stripe-test", stripeController.stripeCharge);
 
 // Catch all 404 Routes
 router.get("*", (req, res) => {

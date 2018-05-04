@@ -8,17 +8,18 @@ exports.contactPage = (req, res) => {
 };
 
 exports.contactPost = (req, res) => {
-  if (req.err) {
-    console.log(err);
-    res.redirect("/contact");
-  }
+	if (req.err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
 	console.log("Message Has been sent. Handled by middleware!");
 	req.flash('success', 'Thanks for reaching out! We will get back to you shortly.');
-  res.redirect("back");
+	res.redirect("back");
 };
 
 exports.handleMail = (req, res, next) => {
-  // create reusable transporter object using the default SMTP transport
+	// create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,

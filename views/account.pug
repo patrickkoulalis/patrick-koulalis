@@ -8,6 +8,7 @@ block content
 			a(href="/account/payments/") Payment History
 			a(href="#subscriptions") Subscriptions
 			a(href="/account/billing/") Billing
+			a(href="/account/update-password/") Update your password
 			//- a(href="#") Make a Payment
 			a(href="/account/logout/") Logout
 
@@ -41,14 +42,18 @@ block content
 							each sub in subs.data
 								div.r-table-row
 									div.r-table-cell.r-table-cell--header!= sub.plan.nickname
-									div.r-table-cell!= h.formatPrice(sub.plan.amount)
-									div.r-table-cell!= sub.plan.interval
-									if(sub.status == 'canceled')
+									div.r-table-cell #{h.formatPrice(sub.plan.amount)} / #{sub.plan.interval}
+									if sub.cancel_at_period_end
+										div.r-table-cell Cancels on: #{h.dateFns.format(sub.current_period_end * 1000, 'MM/DD/YYYY')}
 										div.r-table-cell!= sub.status
-									if(sub.status != 'canceled')
+									else
+										div.r-table-cell Next Payment: #{h.dateFns.format(sub.current_period_end * 1000, 'MM/DD/YYYY')}
+									if sub.status == 'canceled'
+										div.r-table-cell!= sub.status
+									if sub.status != 'canceled' && !sub.cancel_at_period_end
 										div.r-table-cell #[a(href=`/account/cancel-subscription?sub=${sub.id}`).button.button--red Cancel Subscription]
 
 					else
-					h4(style="text-align: center;") You have no active subscriptions to display!
-					.button-group.button-group--center
-						a(href="/support-plans/").button.button--green Sign up for a support plan
+						h4(style="text-align: center;") You have no active subscriptions to display!
+						.button-group.button-group--center
+							a(href="/support-plans/").button.button--green Sign up for a support plan

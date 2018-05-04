@@ -17,10 +17,9 @@ exports.stripeCharge = async (req, res) => {
   let productName;
   const user = req.currentUser;
   const customer = req.customer;
-
   try {
     // Get the product id from the request
-    const productId = await req.body.product_id;
+    const productId = req.body.product_id;
     productName = h.products[productId].name;
     // Get and calculate product price
     const productPrice =
@@ -61,26 +60,24 @@ exports.stripeCharge = async (req, res) => {
           }
         }
       }
-    );
+		);
+		//if no errors redirect the user after completion
+		const loginURL = `http://${req.headers.host}/account/login/`;
+		const siteURL = `http://${req.headers.host}`;
+		mail.send({
+			user,
+			subject: `${productName} Website Package`,
+			filename: "thank-you-website-package",
+			siteURL,
+			loginURL,
+			productName
+		});
+		res.redirect("/account");
   } catch (err) {
-    console.log(err);
-    req.flash(
-      "error",
-      "An error has occurred please try again. Payment was not successful."
-    );
-    return res.redirect("back");
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
   }
-  //if no errors redirect the user after completion
-  const loginURL = `http://${req.headers.host}/account/login/`;
-  const siteURL = `http://${req.headers.host}`;
-  mail.send({
-    user,
-    subject: "Thank you for your purchase",
-    filename: "thankYou",
-    siteURL,
-    loginURL
-  });
-  res.redirect("/account");
 };
 
 // Stripe Checkout Subscription
@@ -92,7 +89,7 @@ exports.stripeSubscription = async (req, res) => {
 
   try {
     // Get the product id from the request
-    const productId = await req.body.product_id;
+    const productId = req.body.product_id;
     productName = h.products[productId].name;
 
     // Get and calculate product price
@@ -133,81 +130,88 @@ exports.stripeSubscription = async (req, res) => {
           }
         }
       }
-    );
+		);
+		const loginURL = `http://${req.headers.host}/account/login/`;
+		const siteURL = `http://${req.headers.host}`;
+		mail.send({
+			user,
+			subject: `Welcome to the ${productName} Support Plan`,
+			filename: "thank-you-support-plan",
+			siteURL,
+			loginURL,
+			productName
+		});
+		res.redirect("/account");
   } catch (err) {
-    console.log("error:" + err);
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
   }
-  //if no errors redirect the user after completion
-  const loginURL = `http://${req.headers.host}/account/login/`;
-  const siteURL = `http://${req.headers.host}`;
-  mail.send({
-    user,
-    subject: "Thank you for your purchase",
-    filename: "thankYou",
-    siteURL,
-    loginURL,
-    productName
-  });
-  res.redirect("/account");
 };
 
 // Check for account
 exports.checkAccount = async (req, res, next) => {
-  // if there is a user logged in do this
-  // ====================================
-  if (req.user) {
-    // Grab the current users customer id
-    const customer = await stripe.customers.retrieve(req.user.customer_id);
-    // Send user and customer object to the next thing
-    req.currentUser = req.user;
-    req.customer = customer;
-    next();
-    return;
-  }
-  // if there is no user logged in do this
-  // ====================================
-  // check to see if the email address is already in use
-  const existingUser = await User.findOne({ email: req.body.email });
-  if (existingUser) {
-    req.flash(
-      "error",
-      'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
-    );
-    return res.redirect("back");
-  }
+	try {
+		// if there is a user logged in do this
+		// ====================================
+		if (req.user) {
+			// Grab the current users customer id
+			const customer = await stripe.customers.retrieve(req.user.customer_id);
+			// Send user and customer object to the next thing
+			req.currentUser = req.user;
+			req.customer = customer;
+			next();
+			return;
+		}
+		// if there is no user logged in do this
+		// ====================================
+		// check to see if the email address is already in use
+		const existingUser = await User.findOne({ email: req.body.email });
+		if (existingUser) {
+			req.flash(
+				"error",
+				'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
+			);
+			return res.redirect("back");
+		}
 
-  // Create a new stripe customer
-  const customer = await stripe.customers.create({
-    source: req.body.stripeToken,
-    email: req.body.email
-  });
+		// Create a new stripe customer
+		const customer = await stripe.customers.create({
+			source: req.body.stripeToken,
+			email: req.body.email
+		});
 
-  // Add new user to the database
-  const user = new User({
-    name: req.body.full_name,
-    email: req.body.email,
-    customer_id: customer.id
-  });
-  const tempPassword = crypto.randomBytes(5).toString("hex");
-  await user.setPassword(tempPassword);
-  await user.save();
+		// Add new user to the database
+		const user = new User({
+			name: req.body.full_name,
+			email: req.body.email,
+			customer_id: customer.id
+		});
+		const tempPassword = crypto.randomBytes(5).toString("hex");
+		await user.setPassword(tempPassword);
+		await user.save();
 
-  // Send temp password to the new user
-  const loginURL = `http://${req.headers.host}/account/login/`;
-  const siteURL = `http://${req.headers.host}`;
-  mail.send({
-    user,
-    subject: "Here is your temporary password",
-    filename: "tempPassword",
-    tempPassword,
-    siteURL,
-    loginURL
-  });
+		// Send temp password to the new user
+		const loginURL = `http://${req.headers.host}/account/login/`;
+		const siteURL = `http://${req.headers.host}`;
+		mail.send({
+			user,
+			subject: "Here is your temporary password",
+			filename: "tempPassword",
+			tempPassword,
+			siteURL,
+			loginURL
+		});
 
-  // send user and customer object to the next thing
-  req.currentUser = user;
-  req.customer = customer;
-  next();
+		// send user and customer object to the next thing
+		req.currentUser = user;
+		req.customer = customer;
+		next();
+	} catch (err) {
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
+	}
 };
 
 // add payment method if none exsists
@@ -227,8 +231,8 @@ exports.addPaymentMethod = async (req, res, next) => {
     }
     next();
   } catch (err) {
-    console.log(err);
-    req.flash("error", "Error");
-    res.redirect("back");
+		console.log(err);
+		req.flash('error', h.flashes.error);
+		req.redirect('back');
   }
 };

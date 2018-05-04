@@ -36,24 +36,24 @@ if (cardElement) {
     }
   });
 
-  // Handle real-time validation errors from the card Element.
-  card.addEventListener("change", function(event) {
-    var displayError = document.getElementById("card-errors");
-    if (event.error) {
-      displayError.textContent = event.error.message;
-    } else {
-      displayError.textContent = "";
-    }
-  });
-
   // Handle form submission.
-  var form = document.getElementById("payment-form");
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const paymentPopupFormEmail = document.querySelector(
-      '#payment-form input[type="email"]'
-    );
+  const paymentForm = document.getElementById("payment-form");
+  if (paymentForm) {
+    paymentForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      createToken(paymentForm);
+    });
+  }
 
+  const addNewCardForm = document.getElementById("add-card");
+  if (addNewCardForm) {
+    addNewCardForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      createToken(addNewCardForm);
+    });
+  }
+
+  function createToken(form) {
     stripe.createToken(card).then(function(result) {
       if (result.error) {
         // Inform the user if there was an error.
@@ -61,14 +61,13 @@ if (cardElement) {
         errorElement.textContent = result.error.message;
       } else {
         // Send the token to your server.
-        stripeTokenHandler(result.token);
+        stripeTokenHandler(result.token, form);
       }
     });
-  });
+  }
 
-  function stripeTokenHandler(token) {
+  function stripeTokenHandler(token, form) {
     // Insert the token ID into the form so it gets submitted to the server
-    var form = document.getElementById("payment-form");
     var hiddenInput = document.createElement("input");
     hiddenInput.setAttribute("type", "hidden");
     hiddenInput.setAttribute("name", "stripeToken");

@@ -908,6 +908,18 @@ select, input, textarea {
     .payment-popup__close svg {
       fill: white; }
 
+.add-card {
+  padding: 20px; }
+  .add-card #card-element {
+    width: 50%;
+    margin: 0 auto; }
+  .add-card__set-wrap {
+    padding: 10px 0; }
+  .add-card input[type="checkbox"] {
+    display: inline-block;
+    width: unset;
+    margin: 0 0 0 5px; }
+
 .payment-form {
   background: #f9f9f9;
   border-radius: 3px;

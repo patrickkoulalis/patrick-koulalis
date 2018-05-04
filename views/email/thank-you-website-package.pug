@@ -1,0 +1,11 @@
+extends email-layout
+
+block content
+	h1 Hello #{user.name},
+	p Thank You for your purchase of the #{productName} Website Package.
+	p Keep an eye out from an email that will arrive shortly from our team to gather all the necessary information needed for your project.
+	p If you have any questions, feel free to email our customer success team. (We're lightning quick at replying.) We look forward to working with you!
+	+button(`${siteURL}/contact/`, 'Contact customer success team')
+	br
+	p Thanks,
+	p Patrick &amp; The Customer Success Team
