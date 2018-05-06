@@ -178,7 +178,8 @@ exports.getBilling = async (req, res, next) => {
     // Get customer object for current user
     const customer = await stripe.customers.retrieve(req.user.customer_id);
     req.customer = customer;
-    // Get the customers default card ID
+
+		// Get the customers default card ID
     const defaultCardId = customer.default_source;
     // Get the default card object if there is one
     if (defaultCardId) {
