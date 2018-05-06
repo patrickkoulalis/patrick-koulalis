@@ -65,12 +65,6 @@ router.get("/support-plans", async (req, res) => {
     res.redirect("back");
   }
 });
-router.post(
-  "/subscribe",
-  stripeController.checkAccount,
-  stripeController.addPaymentMethod,
-  stripeController.stripeSubscription
-);
 
 // Web Development Packages Routes
 router.get("/website-packages", async (req, res) => {
@@ -92,13 +86,19 @@ router.get("/estimates", (req, res) => {
   res.render("estimates.pug");
 });
 
-//checkout
 router.post(
   "/checkout",
   stripeController.checkAccount,
   stripeController.addPaymentMethod,
   stripeController.stripeCharge
 );
+router.post(
+  "/subscribe",
+  stripeController.checkAccount,
+  stripeController.addPaymentMethod,
+  stripeController.stripeSubscription
+);
+
 // _ATT _@EVERYONE _@PATRICK
 // SPEED IMPORVMENTS FOR DASHBOARD
 // Account Routes

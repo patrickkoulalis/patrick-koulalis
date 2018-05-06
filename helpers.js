@@ -74,7 +74,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$95/month (optional)"
+        value: "$45/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 2 Hours" }
@@ -128,7 +128,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$95/month (optional)"
+        value: "$45/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 3 Hours" }
@@ -182,7 +182,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$95/month (optional)"
+        value: "$45/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 5 Hours" }
@@ -196,51 +196,51 @@ exports.products = {
     discount: 0,
     callout_text: "",
     features: [
-			{
+      {
         title: "Daily Site Backups",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Sucuri Security Check",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Website Updates",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Uptime Monitoring",
         value: "",
         icon: "/images/icons/times-red.svg"
-			},
-			{
+      },
+      {
         title: "Performance Audit",
         value: "",
         icon: "/images/icons/times-red.svg"
-			},
-			{
+      },
+      {
         title: "SEO Ranking",
         value: "",
         icon: "/images/icons/times-red.svg"
-			},
-			{
+      },
+      {
         title: "Website Report",
         value: "Monthly ",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Dedicated Development/Design",
         value: "4 Hours",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Additonal Hours Discount",
         value: "15% Off",
         icon: ""
-			},
+      }
     ],
     product_id: "SP1",
     plan_id: "plan_CnhDLqAUbRhaAw",
@@ -252,51 +252,51 @@ exports.products = {
     discount: 0,
     callout_text: "",
     features: [
-			{
+      {
         title: "Daily Site Backups",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Sucuri Security Check",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Website Updates",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Uptime Monitoring",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Performance Audit",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "SEO Ranking",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Website Report",
         value: "Monthly",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Dedicated Development/Design",
         value: "8 Hours",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Additonal Hours Discount",
         value: "25% Off",
         icon: ""
-			},
+      }
     ],
     product_id: "SP2",
     plan_id: "plan_CnfG4OxNsobM5N",
@@ -308,51 +308,51 @@ exports.products = {
     discount: 0,
     callout_text: "",
     features: [
-			{
+      {
         title: "Daily Site Backups",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Sucuri Security Check",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Website Updates",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Uptime Monitoring",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Performance Audit",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "SEO Ranking",
         value: "",
         icon: "/images/icons/check-green.svg"
-			},
-			{
+      },
+      {
         title: "Website Report",
         value: "Weekly",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Dedicated Development/Design",
         value: "16 Hours",
         icon: ""
-			},
-			{
+      },
+      {
         title: "Additonal Hours Discount",
         value: "35% Off",
         icon: ""
-			},
+      }
     ],
     product_id: "SP3",
     plan_id: "plan_CnhCgEa0RKgTGA",
@@ -365,6 +365,6 @@ exports.social = {
 };
 
 exports.flashes = {
-	error: `An error has occurred. Please try again, and if the problem persists, contact the customer success team.`,
-	success: ''
-}
+  error: `An error has occurred. Please try again, and if the problem persists, contact the customer success team.`,
+  success: ""
+};

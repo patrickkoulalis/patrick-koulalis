@@ -8,12 +8,27 @@ mixin topNavHome()
 			span.nav-button__bar
 			span.nav-button__bar
 		.nav__menu
-			a(href="/" class="nav__menu-link nav__menu-link--white") Home
-			//- a(href="/services/" class="nav__menu-link") Services
-			a(href="/work/" class="nav__menu-link nav__menu-link--white") Work
-			//- a(href="/about/" class="nav__menu-link") About
-			a(href="/solutions/" class="nav__menu-link nav__menu-link--white") Solutions
-			//- a(href="/blog/" class="nav__menu-link") Blog
-			a(href="/estimates/" class="nav__menu-link nav__menu-link--white") Estimates
-			a(href="/contact/" class="nav__menu-link nav__menu-link--white nav__menu-link--contact") Contact
-			a(href="/account/" class="nav__menu-link nav__menu-link--white nav__menu-link--account") Account
+			li.nav__menu-item
+				a(href="/" class="nav__menu-link nav__menu-link--white") Home
+			//- li.nav__menu-item
+				a(href="/services/" class="nav__menu-link nav__menu-link--white") Services
+			li.nav__menu-item
+				a(href="/work/" class="nav__menu-link nav__menu-link--white") Work
+			//- li.nav__menu-item
+				a(href="/about/" class="nav__menu-link nav__menu-link--white") About
+			li.nav__menu-item
+				a(href="/solutions/" class="nav__menu-link nav__menu-link--white") Solutions
+				.nav__dropdown
+					a(href="/website-packages/" class="nav__menu-link") Website Packages
+					a(href="/support-plans/" class="nav__menu-link") Support Plans
+					a(href="/estimates/" class="nav__menu-link") Custom Web Development
+					a(href="/estimates/" class="nav__menu-link") Custom Web Design
+					a(href="/contact/" class="nav__menu-link") Emergency Support
+			//- li.nav__menu-item
+				a(href="/blog/" class="nav__menu-link nav__menu-link--white") Blog
+			li.nav__menu-item
+				a(href="/estimates/" class="nav__menu-link nav__menu-link--white") Estimates
+			li.nav__menu-item.nav__menu-item--contact
+				a(href="/contact/" class="nav__menu-link nav__menu-link--white") Contact
+			li.nav__menu-item.nav__menu-item--account
+				a(href="/account/" class="nav__menu-link nav__menu-link--white") Account

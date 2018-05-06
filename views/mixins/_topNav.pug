@@ -1,20 +1,34 @@
 mixin topNav()
-	nav(class="nav nav--home" role="navigation")
+	nav(class="nav top-nav--home" role="navigation")
 		a(class="logo-wrap" href="/")
 			img(class="logo" src="/images/logo.svg" alt="Patrick Koulalis Logo")
-			//- span #{page}
 		div.nav-button
 			span.nav-button__label Menu
 			span.nav-button__bar
 			span.nav-button__bar
 			span.nav-button__bar
 		.nav__menu
-			a(href="/" class="nav__menu-link") Home
-			//- a(href="/services/" class="nav__menu-link") Services
-			a(href="/work/" class="nav__menu-link") Work
-			//- a(href="/about/" class="nav__menu-link") About
-			a(href="/solutions/" class="nav__menu-link") Solutions
-			//- a(href="/blog/" class="nav__menu-link") Blog
-			a(href="/estimates/" class="nav__menu-link") Estimates
-			a(href="/contact/" class="nav__menu-link nav__menu-link--contact") Contact
-			a(href="/account/" class="nav__menu-link nav__menu-link--account") Account
+			li.nav__menu-item
+				a(href="/" class="nav__menu-link") Home
+			//- li.nav__menu-item
+				a(href="/services/" class="nav__menu-link") Services
+			li.nav__menu-item
+				a(href="/work/" class="nav__menu-link") Work
+			//- li.nav__menu-item
+				a(href="/about/" class="nav__menu-link") About
+			li.nav__menu-item
+				a(href="/solutions/" class="nav__menu-link") Solutions
+				.nav__dropdown
+					a(href="/website-packages/" class="nav__menu-link") Website Packages
+					a(href="/support-plans/" class="nav__menu-link") Support Plans
+					a(href="/estimates/" class="nav__menu-link") Custom Web Development
+					a(href="/estimates/" class="nav__menu-link") Custom Web Design
+					a(href="/contact/" class="nav__menu-link") Emergency Support
+			//- li.nav__menu-item
+				a(href="/blog/" class="nav__menu-link") Blog
+			li.nav__menu-item
+				a(href="/estimates/" class="nav__menu-link") Estimates
+			li.nav__menu-item.nav__menu-item--contact
+				a(href="/contact/" class="nav__menu-link") Contact
+			li.nav__menu-item.nav__menu-item--account
+				a(href="/account/" class="nav__menu-link") Account

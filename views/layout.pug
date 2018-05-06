@@ -21,8 +21,9 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		link(rel="icon" type="image/png" sizes="16x16" href="/images/favicon16x16.png")
 		link(rel="icon" type="image/png" sizes="32x32" href="/images/favicon32x32.png")
 		link(rel="icon" type="image/png" sizes="96x96" href="/images/favicon96x96.png")
-		meta(name="description" content="Patrick Koulalis is a Boston Web Designer and Developer offering custom website solutions using the latest technologies that are both beautiful and functional.")
-		meta(name="keywords" content="Boston Web Design, Boston Web Design Company, Web Design, Website Design, Webdesign, Web Development, Internet Marketing, Social Media, WordPress Websites, Custom Websites, Custom Web Design, Web Designer, Web Design Company, Boston Web Development, Boston Web Development Company, Boston Print Design, Boston Graphic Design, Ecommerce Website Design, Metrowest Web Design, Natick Web Design")
+		meta(name="description" content="Patrickkoulalis.com is team of amazing web designers and developers based in Boston offering custom website solutions, website packages, and website support plans.")
+		block keywords
+			meta(name="keywords" content="Boston Web Design, Boston Web Design Company, Web Design, Website Design, Webdesign, Web Development, WordPress Websites, Custom Websites, Custom Web Design, Web Designer, Web Design Company, Boston Web Development, Ecommerce Website Design, Metrowest Web Design, Natick Web Design, Website Packages, Website Support")
 		meta(name="robots"                content="index, follow")
 		meta(name="author"                content="Patrick Koulalis Web Developer")
 		meta(name="twitter:card"          content="summary")
@@ -31,14 +32,14 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		meta(name="twitter:url"           content="https://patrickkoulalis.com/")
 		meta(name="twitter:title"         content="Patrick Koulalis - Boston Web Design & Development")
 		meta(name="twitter:description"   content="Patrick Koulalis is a Boston Web Designer and Developer offering custom website solutions using the latest technologies that are both beautiful and functional.")
-		meta(name="twitter:image"         content="https://patrickkoulalis.com/images/preview.jpg")
+		meta(name="twitter:image"         content="https://patrickkoulalis.com/images/preview-card-960.jpg")
 		meta(property="og:site_name"      content="Patrick Koulalis - Boston Web Design & Development")
 		meta(property="og:locale"         content="en_US")
 		meta(property="og:type"           content="website")
 		meta(property="og:url"            content="https://patrickkoulalis.com/")
 		meta(property="og:title"          content="Patrick Koulalis - Boston Web Design & Development")
 		meta(property="og:description"    content="Patrick Koulalis is a Boston Web Designer and Developer offering custom website solutions using the latest technologies that are both beautiful and functional.")
-		meta(property="og:image"          content="https://patrickkoulalis.com/images/preview.jpg")
+		meta(property="og:image"          content="https://patrickkoulalis.com/images/preview-card-960.jpg")
 		meta(property="article:author"    content="")
 
 	body(class=`${pageClass}`)
@@ -88,6 +89,6 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 						p Copyright &copy; #{year} Patrick Koulalis | All Rights Reserved
 			//-site-wrap
 			block scripts
-				script(src="https://js.stripe.com/v3/")
-				script( src="/dist/main.bundle.js")
-				script( src="/javascript/checkout.js")
+				script(src="https://js.stripe.com/v3/" defer)
+				script( src="/dist/main.bundle.js" defer)
+				script( src="/javascript/checkout.js" defer)
