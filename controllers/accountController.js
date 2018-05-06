@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { promisify } = require("es6-promisify");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const User = mongoose.model("User");
+const h = require("../helpers.js");
 
 exports.loginPage = (req, res) => {
   res.render("accountLogin.pug");
@@ -34,16 +35,15 @@ exports.registerUser = async (req, res, next) => {
 
 // Validate user signup info
 exports.validateSignup = async (req, res, next) => {
-
-	// check to see if the email address is already in use
-	const existingUser = await User.findOne({ email: req.body.email });
-	if (existingUser) {
-		req.flash(
-			"error",
-			'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
-		);
-		return res.redirect("back");
-	}
+  // check to see if the email address is already in use
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    req.flash(
+      "error",
+      'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
+    );
+    return res.redirect("back");
+  }
 
   req.sanitizeBody("name");
   req.checkBody("name", "Name cannot be blank!").notEmpty();
@@ -177,17 +177,21 @@ exports.getBilling = async (req, res, next) => {
   try {
     // Get customer object for current user
     const customer = await stripe.customers.retrieve(req.user.customer_id);
+    req.customer = customer;
     // Get the customers default card ID
     const defaultCardId = customer.default_source;
-    // Get the default card object
-    const defaultCard = await stripe.customers.retrieveCard(
-      customer.id,
-      defaultCardId
-    );
+    // Get the default card object if there is one
+    if (defaultCardId) {
+      const defaultCard = await stripe.customers.retrieveCard(
+        customer.id,
+        defaultCardId
+      );
+      req.defaultCard = defaultCard;
+    }
+
     const cards = await stripe.customers.listCards(customer.id);
     req.cards = cards;
-    req.defaultCard = defaultCard;
-    req.customer = customer;
+
     next();
   } catch (err) {
     Raven.captureException(err);

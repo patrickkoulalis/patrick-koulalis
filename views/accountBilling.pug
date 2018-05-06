@@ -19,9 +19,8 @@ block content
 			.section.dashboard-section#payments
 				.max-width-wrapper
 					h3 Billing
-
-					h4 Default Payment Method
 					if defaultCard
+						h4 Default Payment Method
 						div.r-table
 							//- div.r-table-row.r-table-row--header
 							//- 	div.r-table-cell Card
@@ -31,9 +30,9 @@ block content
 								div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{defaultCard.last4}
 								div.r-table-cell #{defaultCard.exp_month}/#{defaultCard.exp_year}
 								div.r-table-cell #{defaultCard.brand}
-					h4 Your Cards
-					p To update your default payment method please select one of the cards below.
-					if cards
+					if cards.data.length > 0
+						h4 Your Cards
+						p To update your default payment method please select one of the cards below.
 						div.r-table
 							//- div.r-table-row.r-table-row--header
 							//- 	div.r-table-cell Card
@@ -41,23 +40,25 @@ block content
 							//- 	div.r-table-cell Type
 							//- 	div.r-table-cell
 							each card in cards.data
-								if card.id != defaultCard.id
-									div.r-table-row
-										div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{card.last4}
-										div.r-table-cell #{card.exp_month}/#{card.exp_year}
-										div.r-table-cell #{card.brand}
-										div.r-table-cell
-											a(href=`/account/remove-payment-method?c=${card.id}` style="color: red;") Remove Card
-										div.r-table-cell
+								div.r-table-row
+									div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{card.last4}
+									div.r-table-cell #{card.exp_month}/#{card.exp_year}
+									div.r-table-cell #{card.brand}
+									div.r-table-cell
+										a(href=`/account/remove-payment-method?c=${card.id}` style="color: red;") Remove Card
+									div.r-table-cell
+										if card.id != defaultCard.id
 											a(href=`/account/update-payment-method?c=${card.id}`).button.button--green Make Default
-						h4 Add a new payment method
-						form(action="/account/billing" method='POST' id='add-card' class="add-card")
-							div.formErrors
-								//- Used to display Element errors. -->
-								#card-errors(role="alert")
-							#card-element
-							.button-group.button-group--center
-								button.button.button--green Add Card
-								div.add-card__set-wrap
-									span Set as default
-									input(type="checkbox" name="setDefault")
+										else
+											p Primary Card
+					h4 Add a new payment method
+					form(action="/account/billing" method='POST' id='add-card' class="add-card")
+						div.formErrors
+							//- Used to display Element errors. -->
+							#card-errors(role="alert")
+						#card-element
+						.button-group.button-group--center
+							button.button.button--green Add Card
+							div.add-card__set-wrap
+								span Set as default
+								input(type="checkbox" name="setDefault")

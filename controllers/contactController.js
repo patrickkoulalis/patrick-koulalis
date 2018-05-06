@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
-const Raven = require('raven');
+const Raven = require("raven");
+const h = require("../helpers.js");
 
 exports.contactPage = (req, res) => {
   res.render("contact.pug", {
@@ -9,17 +10,20 @@ exports.contactPage = (req, res) => {
 };
 
 exports.contactPost = (req, res) => {
-	if (req.err) {
-		Raven.captureException(err);;
-		req.flash('error', h.flashes.error);
-		res.redirect('back');
-	}
-	req.flash('success', 'Thanks for reaching out! We will get back to you shortly.');
-	res.redirect("back");
+  if (req.err) {
+    Raven.captureException(err);
+    req.flash("error", h.flashes.error);
+    res.redirect("back");
+  }
+  req.flash(
+    "success",
+    "Thanks for reaching out! We will get back to you shortly."
+  );
+  res.redirect("back");
 };
 
 exports.handleMail = (req, res, next) => {
-	// create reusable transporter object using the default SMTP transport
+  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
@@ -43,8 +47,8 @@ exports.handleMail = (req, res, next) => {
       `<p>Company Name: ${req.body.contactCompanyName}</p>` +
       `<p>Website URL: ${req.body.contactWebsiteUrl}</p>` +
       `<p>Phone Number: ${req.body.contactPhoneNumber}</p>` +
-			`<p>${req.body.contactMsg}</p>`
-	};
+      `<p>${req.body.contactMsg}</p>`
+  };
   transporter.sendMail(mailOptions, err => {
     if (err) {
       req.err = err;
