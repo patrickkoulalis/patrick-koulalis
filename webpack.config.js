@@ -37,9 +37,9 @@ const fonts = {
 const styles = {
   test: /\.scss$/,
   use: ExtractTextPlugin.extract([
-    "css-loader?sourceMap?minimize",
+    { loader: "css-loader", options: { minimize: true } },
     postcss,
-    "sass-loader?sourceMap"
+    { loader: "sass-loader" }
   ])
 };
 
