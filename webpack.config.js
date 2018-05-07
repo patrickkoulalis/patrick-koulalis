@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const javascript = {
   test: /\.js$/,
@@ -27,7 +28,7 @@ const fonts = {
       loader: "url-loader",
       options: {
         limit: 8192,
-				fallback: "file-loader"
+        fallback: "file-loader"
       }
     }
   ]
@@ -35,7 +36,11 @@ const fonts = {
 
 const styles = {
   test: /\.scss$/,
-  use: ExtractTextPlugin.extract(["css-loader?sourceMap", postcss, "sass-loader"])
+  use: ExtractTextPlugin.extract([
+    "css-loader?sourceMap?minimize",
+    postcss,
+    "sass-loader?sourceMap"
+  ])
 };
 
 const images = {
@@ -47,8 +52,6 @@ const images = {
     }
   ]
 };
-
-const uglify = new webpack.optimize.UglifyJsPlugin();
 
 const config = {
   entry: {
@@ -62,7 +65,14 @@ const config = {
   module: {
     rules: [javascript, styles, images, fonts]
   },
-  plugins: [uglify, new ExtractTextPlugin("styles.css")]
+  plugins: [
+    new UglifyJsPlugin({
+      test: /\.js($|\?)/i,
+      sourceMap: true
+    }),
+    new ExtractTextPlugin("styles.css"),
+    new webpack.optimize.CommonsChunkPlugin({ name: "common" })
+  ]
 };
 
 module.exports = config;

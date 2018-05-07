@@ -13,7 +13,7 @@ block content
 			h2.super__title
 				| Sh*t Happens, Are you prepared?
 			div.super__content
-				p Signing up for one of our support plans is the best way to keeping your site up and running at it's very best.
+				p Signing up for one of our support plans is the best way to keeping your site up and running at it's very best. Support plans offer a variety of benefits such as daily site backups, security checks, uptime monitoring, and website reports.
 				a(href="#help") Having a website emergency?
 	.max-width-wrapper.products
 		each product in h.products
@@ -110,7 +110,7 @@ block content
 
 	section.section.faqs#faqs
 		.max-width-wrapper
-			h2.faqs__title Support Packages FAQs
+			h2.faqs__title Frequently Asked Questions
 			div.faq
 				h3 Do site backups, performance audits, or site monitoring use my monthly hours?
 				p No. These features are part of the package and are sepreate from any development or design hours that you have.
@@ -124,3 +124,6 @@ block content
 				h3 How do I manage my subscription?
 				p To manage your subscriptions please log into your <a href="/account/">account</a>.
 	+popupPaymentForm('/subscribe/')
+
+block scripts
+	script(src="https://js.stripe.com/v3/" defer)
