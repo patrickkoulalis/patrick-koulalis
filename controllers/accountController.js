@@ -167,7 +167,6 @@ exports.removePaymentMethod = async (req, res) => {
     res.redirect("back");
   }
 };
-
 // Subscription Management
 exports.checkSubscriptionOwner = async (req, res, next) => {
   try {
