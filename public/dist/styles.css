@@ -3835,9 +3835,16 @@ select, input, textarea {
       -ms-flex: 0 1 75%;
           flex: 0 1 75%; }
 
+.dashboard-title {
+  padding: 4vh 20px;
+  background: #1aabed;
+  margin: 0;
+  color: white; }
+
 .dashboard-section {
   border-radius: 2px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  padding: 20px; }
   .dashboard-section:nth-of-type(even) {
     background: #f9f9f9; }
   .dashboard-section__title {

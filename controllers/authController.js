@@ -160,3 +160,55 @@ exports.updatePassword = async (req, res) => {
     res.redirect("back");
   }
 };
+
+// Validate user signup info
+exports.validateSignup = async (req, res, next) => {
+  // check to see if the email address is already in use
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    req.flash(
+      "error",
+      'An account with that email address already exsists, please <a href="/account/login/">log in</a> and try again or <a href="/account/signup/">signup</a> for a new account.'
+    );
+    return res.redirect("back");
+  }
+  req.sanitizeBody("name");
+  req.checkBody("name", "Name cannot be blank!").notEmpty();
+  req.checkBody("email", "Invalid Email!").isEmail();
+  req.sanitizeBody("email").normalizeEmail({
+    remove_dots: false,
+    remove_extension: false,
+    gmail_remove_subaddress: false
+  });
+  req.checkBody("password", "The password can not be blank!").notEmpty();
+  req
+    .checkBody("confirmPassword", "Confirm password can not be blank!")
+    .notEmpty();
+  req
+    .checkBody("confirmPassword", "Your passwords do not match!")
+    .equals(req.body.password);
+
+  const errors = req.validationErrors();
+  if (errors) {
+    console.log(errors.map(err => err.msg));
+    return res.render("accountSignup.pug", { body: req.body });
+  }
+  next();
+};
+// Add User to the database
+exports.registerUser = async (req, res, next) => {
+  try {
+    const customer = await stripe.customers.create({ email: req.body.email });
+    const user = new User({
+      email: req.body.email,
+      name: req.body.name,
+      customer_id: customer.id
+    });
+    const register = await User.register(user, req.body.password);
+    next();
+  } catch (err) {
+    Raven.captureException(err);
+    req.flash("error", h.flashes.error);
+    res.redirect("back");
+  }
+};

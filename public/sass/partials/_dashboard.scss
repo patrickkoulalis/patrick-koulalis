@@ -18,9 +18,17 @@
 	flex: 0 1 75%;
 }
 
+.dashboard-title {
+	padding: 4vh 20px;
+	background: #1aabed;
+	margin: 0;
+	color: white;
+}
+
 .dashboard-section {
 	border-radius: 2px;
 	margin-bottom: 10px;
+	padding: 20px;
 	&:nth-of-type(even) {
 		background: $lightGray;
 	}

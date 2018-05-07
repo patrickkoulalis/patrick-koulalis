@@ -16,11 +16,12 @@ block content
 				p #{user.customer_id}
 
 		.dashboard-content
-			.section.dashboard-section#payments
+			h1.dashboard-title Billing
+			.dashboard-section
 				.max-width-wrapper
-					h3 Billing
 					if defaultCard
-						h4 Default Payment Method
+						h2 Default Payment Method
+						p This is the payment method that will be used for all current subscriptions and future payments.
 						div.r-table
 							//- div.r-table-row.r-table-row--header
 							//- 	div.r-table-cell Card
@@ -30,8 +31,8 @@ block content
 								div.r-table-cell &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; #{defaultCard.last4}
 								div.r-table-cell #{defaultCard.exp_month}/#{defaultCard.exp_year}
 								div.r-table-cell #{defaultCard.brand}
-					if cards.data.length > 0
-						h4 Your Cards
+					if cards
+						h2 Your Cards
 						p To update your default payment method please select one of the cards below.
 						div.r-table
 							//- div.r-table-row.r-table-row--header
@@ -51,7 +52,7 @@ block content
 											a(href=`/account/update-payment-method?c=${card.id}`).button.button--green Make Default
 										else
 											p Primary Card
-					h4 Add a new payment method
+					h4(style="text-align: center;") Add a new payment method
 					form(action="/account/billing" method='POST' id='add-card' class="add-card")
 						div.formErrors
 							//- Used to display Element errors. -->
@@ -60,5 +61,5 @@ block content
 						.button-group.button-group--center
 							button.button.button--green Add Card
 							div.add-card__set-wrap
-								span Set as default
+								span Make Default
 								input(type="checkbox" name="setDefault")

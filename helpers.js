@@ -74,7 +74,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$45/month (optional)"
+        value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 2 Hours" }
@@ -128,7 +128,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$45/month (optional)"
+        value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 3 Hours" }
@@ -182,7 +182,7 @@ exports.products = {
       },
       {
         title: "Website Hosting (Fast, Secure, Reliable)",
-        value: "$45/month (optional)"
+        value: "$95/month (optional)"
       },
       { title: "Site Backup & Security", value: "Included with Web Hosting" },
       { title: "Website Training", value: "Up to 5 Hours" }
@@ -237,13 +237,13 @@ exports.products = {
         icon: ""
       },
       {
-        title: "Additonal Hours Discount",
+        title: "Additional Hours Discount",
         value: "15% Off",
         icon: ""
       }
     ],
     product_id: "SP1",
-    plan_id: "plan_CnhDLqAUbRhaAw",
+    plan_id: "SP1",
     category: "Support Plans"
   },
   SP2: {
@@ -293,13 +293,13 @@ exports.products = {
         icon: ""
       },
       {
-        title: "Additonal Hours Discount",
+        title: "Additional Hours Discount",
         value: "25% Off",
         icon: ""
       }
     ],
     product_id: "SP2",
-    plan_id: "plan_CnfG4OxNsobM5N",
+    plan_id: "SP2",
     category: "Support Plans"
   },
   SP3: {
@@ -349,13 +349,13 @@ exports.products = {
         icon: ""
       },
       {
-        title: "Additonal Hours Discount",
+        title: "Additional Hours Discount",
         value: "35% Off",
         icon: ""
       }
     ],
     product_id: "SP3",
-    plan_id: "plan_CnhCgEa0RKgTGA",
+    plan_id: "SP3",
     category: "Support Plans"
   }
 };

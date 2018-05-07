@@ -7,7 +7,7 @@ const authController = require("../controllers/authController.js");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
-const Raven = require('raven');
+const Raven = require("raven");
 const h = require("../helpers");
 
 // Homepage
@@ -54,11 +54,14 @@ router.get("/solutions", (req, res) => {
 // Support Plans Routes
 router.get("/support-plans", async (req, res) => {
   try {
-		if (!req.user) {
-			return res.render("supportPlans.pug");
-		}
+    if (!req.user) {
+      return res.render("supportPlans.pug");
+    }
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("supportPlans.pug", { customer: customer });
+    res.render("supportPlans.pug", {
+      pageTitle: "Website Support Plans - Boston Web Design & Development",
+      customer: customer
+    });
   } catch (err) {
     Raven.captureException(err);
     req.flash("error", "An error has occurred please try again.");
@@ -69,11 +72,14 @@ router.get("/support-plans", async (req, res) => {
 // Web Development Packages Routes
 router.get("/website-packages", async (req, res) => {
   try {
-		if (!req.user) {
-			return res.render("website-packages.pug");
-		}
+    if (!req.user) {
+      return res.render("website-packages.pug");
+    }
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("website-packages.pug", { customer: customer });
+    res.render("website-packages.pug", {
+      pageTitle: "Website Packages - Boston Web Design & Development",
+      customer: customer
+    });
   } catch (err) {
     Raven.captureException(err);
     req.flash("error", "An error has occurred please try again.");
@@ -83,19 +89,22 @@ router.get("/website-packages", async (req, res) => {
 
 // Esitmates
 router.get("/estimates", (req, res) => {
-  res.render("estimates.pug");
+  res.render("estimates.pug", {
+    pageTitle: "Project Estimates - Boston Web Design & Development"
+  });
 });
 
 router.post(
   "/checkout",
   stripeController.checkAccount,
-  stripeController.addPaymentMethod,
+  stripeController.checkPaymentMethod,
+  stripeController.updatePaymentMethod,
   stripeController.stripeCharge
 );
 router.post(
   "/subscribe",
   stripeController.checkAccount,
-  stripeController.addPaymentMethod,
+  stripeController.checkPaymentMethod,
   stripeController.stripeSubscription
 );
 
@@ -105,8 +114,8 @@ router.post(
 router.get("/account/signup", accountController.signupPage);
 router.post(
   "/account/signup",
-  accountController.validateSignup,
-  accountController.registerUser,
+  authController.validateSignup,
+  authController.registerUser,
   authController.login
 );
 router.get("/account/login", accountController.loginPage);
@@ -114,8 +123,17 @@ router.post("/account/login", authController.login);
 router.get("/account/logout", authController.isLoggedIn, authController.logout);
 router.get("/account/forgot", accountController.forgotPasswordPage);
 router.post("/account/forgot", authController.forgotPassword);
-router.get("/account/update-password", authController.isLoggedIn, accountController.updatePassword);
-router.post("/account/update-password", authController.isLoggedIn, authController.checkPasswords, authController.updatePassword);
+router.get(
+  "/account/update-password",
+  authController.isLoggedIn,
+  accountController.updatePassword
+);
+router.post(
+  "/account/update-password",
+  authController.isLoggedIn,
+  authController.checkPasswords,
+  authController.updatePassword
+);
 router.get("/account/reset/:token", authController.reset);
 router.post(
   "/account/reset/:token",
@@ -143,13 +161,14 @@ router.get(
 router.post(
   "/account/billing",
   authController.isLoggedIn,
-  accountController.addCard
+  accountController.addPaymentMethod
 );
 // _ATT _@EVERYONE _@PATRICK
 // MAKE SURE THAT PEOPLE ARE ASSOCIATED WITH THE SUB BEFORE IT CANCELS
 router.get(
-  "/account/cancel-subscription",
-  authController.isLoggedIn,
+	"/account/cancel-subscription",
+	authController.isLoggedIn,
+  accountController.checkSubscriptionOwner,
   accountController.cancelSubscription
 );
 router.get(
@@ -174,7 +193,7 @@ router.get("/customers", async (req, res) => {
 });
 
 router.get("/flash", (req, res) => {
-  req.flash('error', h.flashes.error);
+  req.flash("error", h.flashes.error);
   req.flash("error", "Error 2");
   req.flash("error", "Error 3");
   req.flash("success", "Success 1");
