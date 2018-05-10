@@ -13,7 +13,7 @@ const h = require("../helpers");
 // Homepage
 router.get("/", (req, res) => {
   res.render("index.pug", {
-    pageTitle: "Patrick Koulalis - Boston Web Design & Development",
+    pageTitle: "Web Design Boston | Patrick Koulalis",
     canonical: "",
     pageClass: "home"
   });
@@ -30,7 +30,7 @@ router.post(
 // Work Routes
 router.get("/work", (req, res) => {
   res.render("work.pug", {
-    pageTitle: "Web Design & Development Work | Patrick Koulalis",
+    pageTitle: "Web Design & Development Boston | Patrick Koulalis",
     canonical: "work/"
   });
 });
@@ -38,7 +38,7 @@ router.get("/work", (req, res) => {
 // About Routes
 router.get("/about", (req, res) => {
   res.render("about.pug", {
-    pageTitle: "About | Patrick Koulalis",
+    pageTitle: "Web Design & Development Boston | About",
     canonical: "about/"
   });
 });
@@ -46,20 +46,20 @@ router.get("/about", (req, res) => {
 // Solutions Routes
 router.get("/solutions", (req, res) => {
   res.render("solutions.pug", {
-    pageTitle: "Web Design & Development Services | Patrick Koulalis",
+    pageTitle: "Web Design & Development Boston | Solutions",
     canonical: "services/"
   });
 });
 
-// Support Plans Routes
-router.get("/support-plans", async (req, res) => {
+// Maintenance Plans Routes
+router.get("/maintenance-plans", async (req, res) => {
   try {
     if (!req.user) {
-      return res.render("supportPlans.pug");
+      return res.render("maintenance-plans.pug");
     }
     const customer = await stripe.customers.listCards(req.user.customer_id);
-    res.render("supportPlans.pug", {
-      pageTitle: "Website Support Plans - Boston Web Design & Development",
+    res.render("maintenance-plans.pug", {
+      pageTitle: "Web Design & Development Boston | Website Maintenance Plans",
       customer: customer
     });
   } catch (err) {
@@ -77,7 +77,7 @@ router.get("/website-packages", async (req, res) => {
     }
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("website-packages.pug", {
-      pageTitle: "Website Packages - Boston Web Design & Development",
+      pageTitle: "Web Design & Development Boston | Website Packages",
       customer: customer
     });
   } catch (err) {
@@ -90,7 +90,7 @@ router.get("/website-packages", async (req, res) => {
 // Esitmates
 router.get("/estimates", (req, res) => {
   res.render("estimates.pug", {
-    pageTitle: "Project Estimates - Boston Web Design & Development"
+    pageTitle: "Web Design & Development Boston | Project Estimates"
   });
 });
 

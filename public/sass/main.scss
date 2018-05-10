@@ -38,6 +38,14 @@
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
+	}
+	&--blue {
+		background: $blue;
+    color: white;
+	}
+	&--gray {
+		background: white;
 	}
 	&--col2 .feature-card {
 		flex: 0 1 50%;
@@ -47,6 +55,9 @@
 	}
 	&--col4 .feature-card {
 		flex: 0 1 25%;
+		@media all and (max-width: 640px) {
+			flex: 0 1 100%;
+		}
 	}
 	&--col5 .feature-card {
 		flex: 0 1 20%;
@@ -59,6 +70,10 @@
 .feature-card {
 	text-align: center;
 	margin-bottom: 20px;
+	padding: 0 20px;
+	& svg {
+		fill: $blue;
+	}
 }
 
 .faqs {

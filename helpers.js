@@ -36,13 +36,17 @@ exports.products = {
     features: [
       { title: "Number of Pages", value: "Up to 5" },
       { title: "Additional Pages", value: "$150" },
+			{
+				title: "Design Customizations",
+				value: "Limited ",
+			},
       {
         title: "Homepage Image or Video Slider",
         value: "",
         icon: "/images/icons/check-green.svg"
       },
       { title: "Included Stock Images", value: "3" },
-      {
+			{
         title: "Integrated Contact Forms w/ Captcha",
         value: "",
         icon: "/images/icons/check-green.svg"
@@ -89,7 +93,11 @@ exports.products = {
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 10" },
-      { title: "Additional Pages", value: "$150" },
+			{ title: "Additional Pages", value: "$150" },
+			{
+				title: "Design Customizations",
+				value: "Semi Custom",
+			},
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -143,7 +151,11 @@ exports.products = {
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 15" },
-      { title: "Additional Pages", value: "$150" },
+			{ title: "Additional Pages", value: "$150" },
+			{
+				title: "Design Customizations",
+				value: "Full",
+			},
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -244,7 +256,7 @@ exports.products = {
     ],
     product_id: "SP1",
     plan_id: "SP1",
-    category: "Support Plans"
+    category: "Maintenance Plans"
   },
   SP2: {
     name: "Small Business",
@@ -300,7 +312,7 @@ exports.products = {
     ],
     product_id: "SP2",
     plan_id: "SP2",
-    category: "Support Plans"
+    category: "Maintenance Plans"
   },
   SP3: {
     name: "Enterprise",
@@ -356,7 +368,7 @@ exports.products = {
     ],
     product_id: "SP3",
     plan_id: "SP3",
-    category: "Support Plans"
+    category: "Maintenance Plans"
   }
 };
 

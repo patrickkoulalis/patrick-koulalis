@@ -9,13 +9,18 @@
   &__title {
     text-align: center;
     display: block;
-    width: 100%;
+		width: 100%;
     &--small {
       font-size: 2em;
     }
     &--white {
       color: white;
-    }
+		}
+		@media all and (max-width: 640px) {
+			& br {
+				display: none;
+			}
+		}
   }
   &__content {
     text-align: center;

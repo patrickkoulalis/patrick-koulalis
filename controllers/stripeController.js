@@ -106,7 +106,8 @@ exports.stripeSubscription = async (req, res) => {
     const charge = await stripe.subscriptions.create(
       {
         customer: customer.id,
-        items: [{ plan: productId }],
+				items: [{ plan: productId }],
+				coupon: coupon,
         metadata: {
           address: req.body.address,
           country: req.body.country,
@@ -140,8 +141,8 @@ exports.stripeSubscription = async (req, res) => {
     const siteURL = `http://${req.headers.host}`;
     mail.send({
       user,
-      subject: `Welcome to the ${productName} Support Plan`,
-      filename: "thank-you-support-plan",
+      subject: `Welcome to the ${productName} Maintenance Plan`,
+      filename: "thank-you-maintenance-plan",
       siteURL,
       loginURL,
       productName

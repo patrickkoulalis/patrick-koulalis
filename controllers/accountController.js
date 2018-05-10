@@ -35,7 +35,7 @@ exports.getAccountOverviewData = async (req, res, next) => {
       customer: req.user.customer_id,
       status: "all"
     });
-    const [charges, subs, cards, defaultCard] = await Promise.all([
+    const [charges, subs] = await Promise.all([
       chargesPromise,
       subsPromise
     ]);
@@ -81,20 +81,14 @@ exports.displayPaymentHistory = async (req, res, next) => {
 exports.getBilling = async (req, res, next) => {
   try {
     // Get customer object for current user
-    const customer = await stripe.customers.retrieve(req.user.customer_id);
-    req.customer = customer;
-
-    // If the customer has a default source
-    if (customer.default_source) {
-      // Get the customers default card ID
-      const defaultCardId = customer.default_source;
+    const { id, sources: { data: cards }, default_source } = await stripe.customers.retrieve(req.user.customer_id);
+		req.cards = cards;
+		// If the customer has a default source
+    if (default_source) {
       const defaultCard = await stripe.customers.retrieveCard(
-        customer.id,
-        defaultCardId
+        id,
+        default_source
       );
-      // Get a list of the customers cards
-      const cards = await stripe.customers.listCards(customer.id);
-      req.cards = cards;
       req.defaultCard = defaultCard;
     }
     next();
@@ -104,11 +98,11 @@ exports.getBilling = async (req, res, next) => {
     res.redirect("back");
   }
 };
+
 exports.displayBilling = async (req, res, next) => {
   res.render("accountBilling.pug", {
     defaultCard: req.defaultCard,
-    cards: req.cards,
-    customer: req.customer
+    cards: req.cards
   });
 };
 
