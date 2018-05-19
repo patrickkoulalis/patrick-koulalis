@@ -29,17 +29,13 @@ exports.clients = [
 
 exports.products = {
   WP1: {
-    name: "Basic",
-    price: 75000,
+    name: "Starter Site",
+    price: 250000,
     discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 5" },
-      { title: "Additional Pages", value: "$150" },
-			{
-				title: "Design Customizations",
-				value: "Limited ",
-			},
+      { title: "Additional Pages", value: "$200" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -87,17 +83,13 @@ exports.products = {
     category: "Website Packages"
   },
   WP2: {
-    name: "Enhanced",
-    price: 150000,
+    name: "Semi-Custom",
+    price: 500000,
     discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 10" },
-			{ title: "Additional Pages", value: "$150" },
-			{
-				title: "Design Customizations",
-				value: "Semi Custom",
-			},
+			{ title: "Additional Pages", value: "$200" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
@@ -145,17 +137,13 @@ exports.products = {
     category: "Website Packages"
   },
   WP3: {
-    name: "Ultimate",
-    price: 300000,
+    name: "Custom WordPress",
+    price: 1000000,
     discount: 0,
     callout_text: "",
     features: [
       { title: "Number of Pages", value: "Up to 15" },
-			{ title: "Additional Pages", value: "$150" },
-			{
-				title: "Design Customizations",
-				value: "Full",
-			},
+			{ title: "Additional Pages", value: "$200" },
       {
         title: "Homepage Image or Video Slider",
         value: "",
