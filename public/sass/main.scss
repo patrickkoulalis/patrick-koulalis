@@ -3,7 +3,7 @@
 @import 'partials/typography';
 @import 'partials/layout';
 @import 'partials/header';
-@import 'partials/masthead';
+@import 'partials/hero';
 @import 'partials/buttons';
 @import 'partials/super';
 @import 'partials/flashes';
@@ -25,6 +25,16 @@
 @import 'partials/footer';
 @import 'partials/credits';
 
+.main-content {
+	grid-column: auto / span 7;
+}
+.sidebar {
+	grid-column: auto / span 5;
+	&__left{
+	}
+	&__right {
+	 }
+}
 
 .feature-row {
 	padding: 8vh 0;
@@ -45,7 +55,7 @@
     color: white;
 	}
 	&--gray {
-		background: white;
+		background: whitesmoke;
 	}
 	&--col2 .feature-card {
 		flex: 0 1 50%;

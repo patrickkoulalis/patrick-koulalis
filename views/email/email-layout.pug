@@ -1,30 +1,35 @@
 //- Handy mixin for making buttons
 mixin button(url, text)
-  table.btn.btn-primary(border='0', cellpadding='0', cellspacing='0')
-    tbody
-      tr
-        td(align='center')
-          table(border='0', cellpadding='0', cellspacing='0')
-            tbody: tr: td: a(href=url, target='_blank')= text
+	table.btn.btn-primary(border='0', cellpadding='0', cellspacing='0')
+		tbody
+			tr
+				td(align='center')
+					table(border='0', cellpadding='0', cellspacing='0')
+						tbody: tr: td: a(href=url, target='_blank')= text
 
 //- The Email
 doctype html
 html
-  head
-    meta(name='viewport', content='width=device-width')
-    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
-    style
-      include styles.css
-  body
-    table.body(border='0', cellpadding='0', cellspacing='0')
-      tr
-        td  
-        td.container
-          .content
-            table.main
-              tr
-                td.wrapper
-                  table(border='0', cellpadding='0', cellspacing='0')
-                    tr
-                      td
-                        block content
+	head
+		meta(name='viewport', content='width=device-width')
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		style
+			include styles.css
+	body
+		table.body(border='0', cellpadding='0', cellspacing='0')
+			tr
+				td  
+				td.container
+					.content
+						table.main
+							tr
+								td.wrapper
+									table(border='0', cellpadding='0', cellspacing='0')
+										tr
+											td.strip
+												img(class="logo" src="//www.patrickkoulalis.com/images/logo.svg", alt="Patrick Koulalis")
+										tr
+											td
+												block content
+
+													p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis cupiditate culpa excepturi deserunt quisquam suscipit tenetur accusantium quaerat repudiandae sunt labore quo illum eum architecto veritatis, incidunt, provident saepe illo! Voluptatibus, reprehenderit culpa delectus unde accusantium optio ipsum porro, quas sapiente vero libero dolor debitis voluptatum deserunt a perferendis. Libero, laboriosam. Delectus cupiditate hic natus temporibus sunt quaerat perspiciatis perferendis! Facilis possimus cupiditate officia doloribus? Distinctio aperiam cupiditate assumenda facere minima obcaecati ad autem at! Magnam unde, nihil laborum commodi repellendus, est dolor, ipsa possimus reiciendis sit explicabo neque voluptas voluptate ut sed adipisci at distinctio consequatur? Aliquam totam temporibus nihil praesentium error, laborum, quam cupiditate quo alias eaque vitae at dignissimos nemo consequatur ullam in ipsa eius unde, dolorum ab! Voluptas eos sit, eaque adipisci, ratione molestias accusamus dignissimos autem quas eveniet, cum hic nemo deleniti optio nisi cumque? Praesentium tempora cum cupiditate quibusdam veniam expedita voluptatem quam quos ipsum. Iste hic numquam, excepturi accusantium labore cupiditate voluptatem eos cum saepe quam officiis, harum autem, tenetur laudantium nostrum laboriosam impedit dolore ab architecto explicabo ea sequi maiores. Assumenda temporibus aliquam non eveniet error sequi tenetur fugiat pariatur molestias, earum reiciendis dolorem delectus nulla ipsum velit accusantium nobis sunt praesentium?

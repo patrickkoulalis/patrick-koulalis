@@ -9,6 +9,7 @@ const User = mongoose.model("User");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const Raven = require("raven");
 const h = require("../helpers");
+const mail = require("../handlers/mail");
 
 // Homepage
 router.get("/", (req, res) => {
@@ -183,6 +184,12 @@ router.get(
 );
 
 // Utility Routes
+router.get('/mail', (req, res) => {
+	const user = req.user;
+	mail.send({user, subject: `testing`, filename: "email-layout"});
+	res.redirect("/account");
+});
+
 router.get("/info", (req, res) => {
   res.json({ user: req.user, Session: req.session, Cookies: req.cookies });
 });

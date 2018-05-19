@@ -1,8 +1,8 @@
 .section {
+	width: 100%;
+	max-width: 100%;
 	padding: $sectionPadding;
-	&--no-padding {
-		padding: 0 2vw;
-	}
+	background: white;
 	&--blue {
 		background: $blue;
 	}

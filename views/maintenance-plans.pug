@@ -1,7 +1,7 @@
 extends layout.pug
 include mixins/_popupPaymentForm
-block masthead
-	div.masthead.masthead--support-plans
+block hero
+	div.hero.hero--support-plans
 		.masthead__inner
 			h1.masthead__title Website Maintenance Plans
 			div.masthead__cta.button-group
@@ -13,8 +13,8 @@ block content
 				| Sh*t Happens, Are you prepared?
 			div.super__content
 				p Regular website maintenance is the best way to keeping your site up and running at it's very best. Our maintenance plans offer a variety of benefits such as daily site backups, security checks, uptime monitoring, and website reports.
-				a(href="#help") Having a website emergency?
-	.max-width-wrapper.products
+				a(href="#features") Maintenance Plan Features
+	.max-width-wrapper.products#plans
 		each product in h.products
 			if product.category == "Maintenance Plans"
 				div.product-card
@@ -44,13 +44,13 @@ block content
 		//- 	a.product-card__interval.product-card__interval--active Monthly
 		//- 	a.product-card__interval Yearly
 
-	//- .feature-row.feature-row--col3.feature-row--gray
-	//- 		h2.feature-row__title Support Plan Features Overview
+	//- .feature-row.feature-row--col3.feature-row--gray#features
+	//- 		h2.feature-row__title Features Overview
 	//- 		.feature-row__inner.max-width-wrapper
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Site Backups
-	//- 				p Stop worrying about your data it's protect with daily backups. So now you can so now you can find something else to worry about.
+	//- 				p Website data protected with daily cloud backups. So now you can can find something else to worry about.
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Security Check
@@ -58,7 +58,7 @@ block content
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Website Updates
-	//- 				p Stop wondering if your site is using the latest and greatest. Everything on your site is kept up to date.
+	//- 				p Updates are critical to the security of your site. Monthly updates without the fear of breaking anything.
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Uptime Monitoring
@@ -74,17 +74,17 @@ block content
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Website Report
-	//- 				p Stay in the loop with your monthly website report.
+	//- 				p Stay informed on the status of your website and on top of any problems that may need to be addressed.
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Dedicated Hours
-	//- 				p Deticated team of experts at your disposial. No more wasting your time searching for someone that might be able to help.
+	//- 				p Use your hours however you want. With a deticated team of experts at your disposial. No more wasting your time searching for someone that might be able to help.
 	//- 			.feature-card
 	//- 				include ../public/images/icons/code.svg
 	//- 				h4 Additional Hours Discount
-	//- 				p Pay now save later. Save on work when you already have a support plan.
-	//- 		.button-group.button-group--center
-	//- 			a.button.button--green Get Started
+	//- 				p Never worry out going over your hours. Any additinoal hours are discounted so you can save some money.
+			//- .button-group.button-group--center
+			//- 	a(href="#plans").button.button--green Sign up for a plan today!
 
 	//- _ATT @EVERYONE @PATRICK
 	//- .overview
@@ -104,17 +104,17 @@ block content
 	//- 			p The worst thing about malware is that it could be on your website for months without you even noticing. You need to be vigilant, proactive, and check regularly for malware and known vulnerabilities. That’s where our Security Check comes in.
 
 
-	section.super.super--red#help
-		div.super__inner
-			div.super__content
-				.overview.overview--help
-					.overview__inner.max-width-wrapper
-						div.overview__content
-							h2.overview__title.overview__title--help Website Emergency?
-							p When your site is down it can feel like everything is on fire. Let's get your site back up and running.
-							a(href="/contact/").button.button--green Contact Us
-						div.overview__image
-							img(src="/images/everything-is-fine.jpg", alt="Comic strip of a Dog in a room on fire claming this is fine.")
+	//- section.super.super--red#help
+	//- 	div.super__inner
+	//- 		div.super__content
+	//- 			.overview.overview--help
+	//- 				.overview__inner.max-width-wrapper
+	//- 					div.overview__content
+	//- 						h2.overview__title.overview__title--help Website Emergency?
+	//- 						p When your site is down it can feel like everything is on fire. Let's get your site back up and running.
+	//- 						a(href="/contact/").button.button--green Contact Us
+	//- 					div.overview__image
+	//- 						img(src="/images/everything-is-fine.jpg", alt="Comic strip of a Dog in a room on fire claming this is fine.")
 						//- _ATT @EVERYONE @PATRICK
 						//- div.product-card.product-card--help
 						//- 	span.product-card__title Emergency!

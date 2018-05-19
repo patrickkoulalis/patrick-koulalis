@@ -6,8 +6,8 @@ block header
 		.top__inner
 			+topNavHome()
 
-block masthead
-	div.masthead.masthead--home
+block hero
+	div.hero.hero--home
 		.masthead__inner
 			span.masthead__title Hello.
 			span.masthead__text We're a group of awesome people making equally awesome websites.
@@ -20,7 +20,7 @@ block content
 		section.super.super--white
 			div.super__inner
 				h1.super__title
-					| Web Design &amp; Digital Marketing Agency <br>Dedicated to Clients Success
+					| Web Design &amp; Digital Marketing Agency <br>Dedicated to Client Success
 				div.super__content
 					a(href="/solutions/").button.button--blue Explore All Solutions
 		.max-width-wrapper.products
@@ -76,5 +76,5 @@ block content
 				|Contact Us
 			//- p.contact__text
 			//- 	|Send us a message below. If that's not your thing you can always email us directly at #[a(href="mailto:hello@patrickkoulalis.com") hello@patrickkoulalis.com]
-			div.grid
+			div.max-width-wrapper
 				+contactForm()

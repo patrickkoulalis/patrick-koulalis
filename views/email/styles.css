@@ -62,7 +62,11 @@ table {
 
 .wrapper {
   box-sizing: border-box;
-  padding: 20px; }
+	padding: 20px; }
+
+.strip {
+	box-sizing: border-box;
+	padding: 0 0 20px 0; }
 
 .footer {
   clear: both;
@@ -166,6 +170,13 @@ a {
 /* -------------------------------------
     OTHER STYLES THAT MIGHT BE USEFUL
 ------------------------------------- */
+
+.logo {
+	margin: 0 auto;
+	display: block;
+	width: 100px;
+}
+
 .last {
   margin-bottom: 0; }
 

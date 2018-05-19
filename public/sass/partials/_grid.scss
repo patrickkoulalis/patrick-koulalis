@@ -1,8 +1,45 @@
-.grid {
+.grid-row {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 10px;
-  margin: 0 auto;
-	max-width: $innerWidth;
 	width: 100%;
+}
+
+.col__span1 {
+	grid-column: auto / span 1;
+}
+.col__span2 {
+	grid-column: auto / span 2;
+}
+.col__span3 {
+	grid-column: auto / span 3;
+}
+.col__span4 {
+	grid-column: auto / span 4;
+}
+.col__span5 {
+	grid-column: auto / span 5;
+}
+.col__span6 {
+	grid-column: auto / span 6;
+}
+.col__span7 {
+	grid-column: auto / span 7;
+}
+.col__span8 {
+	grid-column: auto / span 8;
+}
+.col__span9 {
+	grid-column: auto / span 9;
+}
+.col__span10 {
+	grid-column: auto / span 10;
+}
+.col__span11 {
+	grid-column: auto / span 11;
+}
+.col__span12 {
+	grid-column: auto / span 12;
 }

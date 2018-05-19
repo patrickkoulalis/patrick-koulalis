@@ -1,11 +1,10 @@
 extends layout.pug
 include mixins/_contactForm
-block masthead
-	div.masthead
+block hero
+	div.hero
 		.masthead__inner
 			h1.masthead__title Contact Us
 			h2.masthead__text We craft the web one awesome website at a time.
-
 block content
 	section.super.super--white
 		div.super__inner
@@ -13,6 +12,23 @@ block content
 				| Let's Talk
 			div.super__content
 				p Want to get in touch? Great, we would love to hear from you! Fill out the form below and we will get back to you very soon!
+
+	//- .section.max-width-wrapper
+	//- 	.grid-row
+	//- 		.col__span7
+	//- 			h2 Let's Talk
+	//- 			p Want to get in touch? Great, we would love to hear from you! Fill out the form below and we will get back to you very soon!
+	//- 			div.grid
+	//- 				+contactForm()
+	//- 		aside.col__span5
+	//- 			h2 Stalk Us
+	//- 			p Call Us: <a href="">508-367-1837</a>
+	//- 			p Email: <a href="">hello@patrickkoulalis.com</a>
+	//- 			p Call Us: 508-367-1837
+	//- 			img(src="https://picsum.photos/800/400", alt="")
+	//- 			img(src="https://picsum.photos/800/401", alt="")
+	//- 			img(src="https://picsum.photos/800/402", alt="")
+
 	.section.contact
-		div.grid
+		div.max-width-wrapper
 			+contactForm()

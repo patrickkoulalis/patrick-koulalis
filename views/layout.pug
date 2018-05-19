@@ -21,7 +21,7 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		link(rel="icon" type="image/png" sizes="16x16" href="/images/favicon16x16.png")
 		link(rel="icon" type="image/png" sizes="32x32" href="/images/favicon32x32.png")
 		link(rel="icon" type="image/png" sizes="96x96" href="/images/favicon96x96.png")
-		meta(name="description" content="Creatively awesome web design company offering custom website design, web development, SEO, website packages, and support plans.")
+		meta(name="description" content="Creatively awesome web design company offering custom website design, web development, SEO, website packages, and maintenance plans.")
 		block keywords
 			meta(name="keywords" content="Boston Web Design, Boston Web Design Company, Web Design, Website Design, Webdesign, Web Development, WordPress Websites, Custom Websites, Custom Web Design, Web Designer, Web Design Company, Boston Web Development, Ecommerce Website Design, Metrowest Web Design, Natick Web Design, Website Packages, Website Support, website maintenance")
 		meta(name="robots"                content="index, follow")
@@ -43,13 +43,13 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		meta(property="article:author"    content="")
 
 	body(class=`${pageClass}`)
-		div.site-wrap.site-wrap--no-padding
-			block uodates
+		div.site-wrap
+			block updates
 			block header
 				header(class="top" role="banner" aria-label="Header")
 					.top__inner
 						+topNav()
-			block masthead
+			block hero
 
 			block messages
 				if locals.flashes
@@ -62,6 +62,7 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 									p!= message
 
 			block content
+
 
 			block footer
 				footer.footer-links

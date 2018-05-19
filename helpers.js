@@ -204,7 +204,7 @@ exports.products = {
   },
   SP1: {
     name: "Start Up",
-    price: 45000,
+    price: 17500,
     discount: 0,
     callout_text: "",
     features: [
@@ -226,7 +226,7 @@ exports.products = {
       {
         title: "Uptime Monitoring",
         value: "",
-        icon: "/images/icons/times-red.svg"
+        icon: "/images/icons/check-green.svg"
       },
       {
         title: "Performance Audit",
@@ -260,7 +260,7 @@ exports.products = {
   },
   SP2: {
     name: "Small Business",
-    price: 75000,
+    price: 35000,
     discount: 0,
     callout_text: "",
     features: [
@@ -316,7 +316,7 @@ exports.products = {
   },
   SP3: {
     name: "Enterprise",
-    price: 150000,
+    price: 75000,
     discount: 0,
     callout_text: "",
     features: [
