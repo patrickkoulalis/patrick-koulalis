@@ -6,55 +6,48 @@ block hero
 			h1.hero__title Solutions
 			h2.hero__text Find a solution that works best for your business.
 			div.hero__cta.button-group
-				a(href="/estimates/").button.button--green Get your FREE Estimate
+				a(href="/contact/").button.button--green Get your FREE Estimate
 
 block content
-	//- section.super
-	//- 	div.super__inner
-	//- 		h2.super__title
-	//- 			| Solutions for every kind of budget
-	//- 		div.super__content
-	//- 			p When something goes wrong you can sleep soundly knowing that you're covered when you sign up with one of our support plans.
+	.section
+		.overview-callout
+			.overview-callout__inner
+				div.overview-callout__content
+					h2.overview-callout__title Full Service Web Design &amp; Digital Marketing Agency
+					p We are a results-driven, Web Design &amp; Digital Marketing Agency dedicated to helping your business grow. We turn "clicks" into customers with expertly-designed websites and marketing campaigns. We strive to provide a convenient, hassle-free experience from start to finish.
+				div.overview-callout__image
+					img(src="/images/screens.svg" alt="Web Design")
+		.overview.overview--blue
+			.overview__inner
+				div.overview__content
+					h2.overview__title Web Design &amp; Developement
+					p When you choose to have a custom site developed you have complete control of how your site will look and function. From the first phone call with us to the day your site is launched you will feel like part of our team.
+					a(href="/web-design-development/").button.button--white Let's Get Started
+				div.overview__image
+					img(src="/images/close-up-design-wireframe-640.jpg" alt="Web Design")
+		.overview.overview--pink
+			.overview__inner
+				div.overview__image
+					img(src="/images/support-plans-640.jpg"  alt="Maintenance Plans")
+				div.overview__content
+					h2.overview__title Website Maintenance
+					p Sh*t happens don't wait till it's too late. Our maintenance plans offer a variety of benefits such a Daily Site Backups, Sucuri Security Checks, Uptime Monitoring, Site Maintenance, Performance Audits, and Website Reports. When something does go wrong you can sleep soundly knowing that you're covered.
+					a(href="/maintenance-plans/").button.button--white Website Maintenance Pricing
 
-	.overview
-		.overview__inner.max-width-wrapper
-			div.overview__image
-				img(src="/images/close-up-design-wireframe-640.jpg" alt="Web Design")
-			div.overview__content
-				h2.overview__title Custom Web Design
-				p When you choose to have a custom site developed you have complete control of how your site will look and function. From the first phone call with us to the day your site is launched you will feel like part of our team.
-				a(href="/estimates/").button.button--blue Let's Get Started
-
-	.overview.overview--gray
-		.overview__inner.max-width-wrapper
-			div.overview__content
-				h2.overview__title Maintenance Plans
-				p Sh*t happens don't wait till it's to late. Our maintenance plans offer a variety of benefits such a Daily Site Backups, Sucuri Security Checks, Uptime Monitoring, Site Maintenance, Performance Audits, and Website Reports. When something does go wrong you can sleep soundly knowing that you're covered.
-				a(href="/maintenance-plans/").button.button--blue Explore Maintenance plans
-			div.overview__image
-				img(src="/images/support-plans-640.jpg"  alt="Maintenance Plans")
-
-	.overview
-		.overview__inner.max-width-wrapper
-			div.overview__image
-				img(src="/images/website-packages-640.jpg" alt="Web Development Packages")
-			div.overview__content
-				h2.overview__title Website Packages
-				p Website Packages are great for small businesses and startups looking for a quick and cost effective solution with professional results. We help you choose a design that we will then customize for you to make it unique and to reach all of your goals.
-				a(href="/website-packages/").button.button--blue Explore Website packages
-
-	//- section.super.super--blue
-	//- 	div.super__inner
-	//- 		h2.super__title.super__title--white
-	//- 			| Looking for more of a custom solution?
-	//- 		div.super__content
-	//- 			a(href="/estimates/").button.button--green Get your FREE estimate
+		.overview.overview--green
+			.overview__inner
+				div.overview__content
+					h2.overview__title SEO &amp; Digital Marketing
+					p As technologies evolve so should your business. Stay relevant and continue to attract customers with comprehensive internet marketing campaigns. Your business can't afford not to.
+					a(href="/seo-digital-marketing/").button.button--white Let's Get Started
+				div.overview__image
+					img(src="/images/achievement-agreement-arms-640.jpg" alt="Web Development Packages")
 
 
 	section.super.super--blue
 		div.super__inner
 			h2.super__title.super__title--white
-				| On a super tight budget?
+				| Any Questions?
 			div.super__content
-				p Let us show you what options can work best for you without breaking the bank.
-				a(href="/contact/").button.button--green Contact us today!
+				p We’re here to help! Call us at #[a(href="tel:508-367-1837") 508-367-1837] for a Free Consultation.
+				a(href="/contact/").button.button--green Contact Us

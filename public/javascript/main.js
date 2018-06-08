@@ -39,7 +39,7 @@ function topNavToggle() {
 function getStartedScroll() {
 	if (window.location.pathname === "/") {
 		const mainContent = document.querySelector("main");
-		const getStartedButton = document.querySelector(".masthead__cta");
+		const getStartedButton = document.querySelector(".hero__cta");
 		const nav = document.querySelector(".nav");
 		let mainContentHeight = mainContent.offsetTop - nav.offsetHeight;
 		getStartedButton.addEventListener("click", () => {

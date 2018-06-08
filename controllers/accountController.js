@@ -6,19 +6,23 @@ const User = mongoose.model("User");
 const h = require("../helpers.js");
 
 exports.loginPage = (req, res) => {
-  res.render("accountLogin.pug");
+  res.render("accountLogin.pug", {
+		pageTitle: "Web Design & Development Boston | Login"
+	});
 };
 
 exports.signupPage = (req, res) => {
-  res.render("accountSignup.pug");
+	res.render("accountSignup.pug", {
+		pageTitle: "Web Design & Development Boston | Account Signup"
+	});
 };
 
 // Password Management
 exports.forgotPasswordPage = (req, res) => {
-  res.render("forgotPassword");
+  res.render("forgotPassword", {pageTitle: "Web Design & Development Boston | Forgot Password"} );
 };
 exports.updatePassword = (req, res) => {
-  res.render("update-password.pug");
+  res.render("update-password.pug", {pageTitle: "Web Design & Development Boston | Update Password"});
 };
 
 // Account Page
@@ -54,7 +58,8 @@ exports.getAccountOverviewData = async (req, res, next) => {
 exports.accountPage = (req, res) => {
   res.render("account.pug", {
     charges: req.charges,
-    subs: req.subs
+		subs: req.subs,
+		pageTitle: "Web Design & Development Boston | Account"
   });
 };
 
@@ -74,7 +79,7 @@ exports.getPaymentHistory = async (req, res, next) => {
   }
 };
 exports.displayPaymentHistory = async (req, res, next) => {
-  res.render("paymentHistory.pug", { charges: req.charges });
+  res.render("paymentHistory.pug", { charges: req.charges, pageTitle: "Web Design & Development Boston | Payment History" });
 };
 
 // Account Billing Page
@@ -102,7 +107,8 @@ exports.getBilling = async (req, res, next) => {
 exports.displayBilling = async (req, res, next) => {
   res.render("accountBilling.pug", {
     defaultCard: req.defaultCard,
-    cards: req.cards
+		cards: req.cards,
+		pageTitle: "Web Design & Development Boston | Billing"
   });
 };
 

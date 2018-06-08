@@ -11,6 +11,7 @@
 	display: inline-block;
 	padding: 1rem 1.5rem;
 	border-radius: 3px;
+	color: #484848;
 	// height: 45px;
 	// line-height: 45px;
 	text-align: center;
@@ -36,6 +37,9 @@
 	&--red {
 		background: $red;
 		color: white;
+	}
+	&--white{
+		background: white;
 	}
 	&:hover {
 		transform: scale(1.1);

@@ -1,0 +1,44 @@
+extends layout.pug
+
+block hero
+	div.hero
+		.hero__inner
+			h1.hero__title Web Design &amp; Development
+			div.hero__cta.button-group
+				a(href="/estimates/").button.button--green Get your FREE Estimate
+
+block content
+	.section
+		.overview-callout
+			.overview-callout__inner
+				div.overview-callout__content
+					h2.overview-callout__title Websites Designed to Work For You
+					p In today’s digital world, a website is the most vital part of any business. It becomes the leading mechanism for generating new business. A good website will communicate what your business is all about. But, a great website will be able to turn clicks into a new leads.
+				div.overview-callout__image
+					img(src="/images/screens.svg" alt="Web Design")
+		.overview.overview--blue
+			.overview__inner
+				div.overview__content
+					h2.overview__title Custom Web Design
+					p When you choose to have a custom site developed you have complete control of how your site will look and function. From the first phone call with us to the day your site is launched you will feel like part of our team.
+					a(href="/estimates/").button.button--white Let's Get Started
+				div.overview__image
+					img(src="/images/close-up-design-wireframe-640.jpg" alt="Web Design")
+
+		.overview.overview--pink
+			.overview__inner
+				div.overview__content
+					h2.overview__title Website Packages
+					p Website Packages are great for small businesses and startups looking for a quick and cost effective solution with professional results. We help you choose a design that we will then customize for you to make it unique and to reach all of your goals.
+					a(href="/website-packages/").button.button--white Website Package Pricing
+				div.overview__image
+					img(src="/images/website-packages-640.jpg" alt="Web Development Packages")
+
+
+	section.super.super--blue
+		div.super__inner
+			h2.super__title.super__title--white
+				| Any Questions?
+			div.super__content
+				p We’re here to help! Call us at #[a(href="tel:508-367-1837") 508-367-1837] for a Free Consultation.
+				a(href="/contact/").button.button--green Contact Us

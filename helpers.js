@@ -41,7 +41,7 @@ exports.products = {
         value: "",
         icon: "/images/icons/check-green.svg"
       },
-      { title: "Included Stock Images", value: "3" },
+      { title: "Premium Stock Images", value: "5" },
 			{
         title: "Integrated Contact Forms w/ Captcha",
         value: "",
@@ -95,7 +95,7 @@ exports.products = {
         value: "",
         icon: "/images/icons/check-green.svg"
       },
-      { title: "Included Stock Images", value: "5" },
+      { title: "Premium Stock Images", value: "10" },
       {
         title: "Integrated Contact Forms w/ Captcha",
         value: "",
@@ -149,7 +149,7 @@ exports.products = {
         value: "",
         icon: "/images/icons/check-green.svg"
       },
-      { title: "Included Stock Images", value: "10" },
+      { title: "Premium Stock Images", value: "20" },
       {
         title: "Integrated Contact Forms w/ Captcha",
         value: "",
