@@ -2,7 +2,7 @@ extends layout.pug
 include mixins/_contactForm
 include mixins/_topNavHome
 block header
-	header(class="top top--float" role="banner" aria-label="Header")
+	header(class="top top--float" aria-label="Header")
 		.top__inner
 			+topNavHome()
 
@@ -68,7 +68,7 @@ block content
 		.max-width-wrapper.clients
 			each client in h.clients
 				div.client-card
-					img(class="client-card__logo" src=`/images/clients/${client.logo}`)
+					img(class="client-card__logo" src=`/images/clients/${client.logo}` alt=`${client.name}`)
 
 		//- Contact
 		section.contact.section
