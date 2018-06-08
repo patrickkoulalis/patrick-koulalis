@@ -1,5 +1,5 @@
 mixin estimateForm()
-	form(class="skinny-form" action="/contact" method="POST" role="form")
+	form(class="skinny-form" action="/contact" method="POST")
 		.form-header
 			h3.form-header__title Project Estimate Form
 		.form-inner
@@ -12,11 +12,11 @@ mixin estimateForm()
 						input(id="contactEmail" type="email" name="contactEmail" placeholder="Your Email" required)
 				.form-element
 					label(for="contactPhoneNumber")
-						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number" required)
+						input(id="contactPhoneNumber" type="tel" name="contactPhoneNumber" placeholder="Phone Number" required)
 			.form-group
 				.form-element
 					label(for="contactBudget")
-						select(id="contactBudget" type="text" name="contactBudget" required)
+						select(id="contactBudget" name="contactBudget" required)
 							option(disabled selected) Rough budget estimate
 							option Less than $1000
 							option $1000 - $5000

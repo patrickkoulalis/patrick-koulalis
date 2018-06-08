@@ -1,5 +1,5 @@
 mixin contactForm()
-	form(class="contact-form" action="/contact" method="POST" role="form")
+	form(class="contact-form" action="/contact" method="POST")
 		div.contact-form__section
 			.form-header.form-header--contact
 				h3.form-header__title The Basics
@@ -19,7 +19,7 @@ mixin contactForm()
 			.form-group
 				div.form-element
 					label(for="contactBudget")
-						select(id="contactBudget" type="text" name="contactBudget" required)
+						select(id="contactBudget" name="contactBudget" required)
 							option(disabled selected) Rough budget estimate
 							option Less than $1000
 							option $1000 - $5000
@@ -39,5 +39,5 @@ mixin contactForm()
 						input(id="contactWebsiteUrl" type="text" name="contactWebsiteUrl" placeholder="Website URL")
 				div.form-element
 					label(for="contactPhoneNumber")
-						input(id="contactPhoneNumber" type="phone" name="contactPhoneNumber" placeholder="Phone Number")
+						input(id="contactPhoneNumber" type="tel" name="contactPhoneNumber" placeholder="Phone Number")
 			button.button.contact-form__send Ready. Set. Send!

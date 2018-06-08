@@ -13,8 +13,8 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 			script
 				include ../public/javascript/heap-dev.js
 		meta(charset="UTF-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(name="viewport" content="width=device-width, initial-scale=1" )
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		link( rel="canonical" href="http://patrickkoulalis.com/" + canonical + "/")
 		title= pageTitle
 		link(rel="stylesheet" href="/dist/styles.css")
@@ -46,7 +46,7 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		div.site-wrap
 			block updates
 			block header
-				header(class="top" role="banner" aria-label="Header")
+				header(class="top" aria-label="Header")
 					.top__inner
 						+topNav()
 			block hero
