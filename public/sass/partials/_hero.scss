@@ -5,13 +5,10 @@
 		linear-gradient(120deg, rgba(0, 0, 0, .75), rgba(red($blue), green($blue), blue($blue), .75), 75%, rgba(red($pink), green($pink), blue($pink), .75)),
 		url(../images/laptop.jpg);
 	background-size: cover;
-	background-attachment: fixed;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	height: auto;
 	padding: 8.5rem 0rem;
   overflow: hidden;
 
@@ -23,8 +20,8 @@
 		background:
 			linear-gradient(120deg, rgba(0, 0, 0, .75), rgba(red($blue), green($blue), blue($blue), .65), 75%, rgba(red($pink), green($pink), blue($pink), .55)),
 			url(../images/adult-chill-computer-1280.jpg);
-			background-size: cover;
-			background-attachment: fixed;
+		background-size: cover;
+		background-attachment: fixed;
 		height: 85vh;
 	}
 
@@ -33,7 +30,6 @@
 		linear-gradient(120deg, rgba(0, 0, 0, .65), rgba(red($blue), green($blue), blue($blue), .65), 75%, rgba(red($pink), green($pink), blue($pink), .65)),
 		url(../images/support-plans-1280.jpg);
 		background-size: cover;
-		background-attachment: fixed;
 	}
 
 	&__inner {

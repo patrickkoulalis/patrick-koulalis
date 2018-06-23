@@ -5,7 +5,8 @@ const h = require("../helpers.js");
 exports.contactPage = (req, res) => {
   res.render("contact.pug", {
     pageTitle: "Contact | Patrick Koulalis",
-    canonical: "contact/"
+		canonical: req.headers.host + '/contact/',
+		pageClass: ""
   });
 };
 

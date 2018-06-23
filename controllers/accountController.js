@@ -7,22 +7,34 @@ const h = require("../helpers.js");
 
 exports.loginPage = (req, res) => {
   res.render("accountLogin.pug", {
-		pageTitle: "Web Design & Development Boston | Login"
+		pageTitle: "Web Design & Development Boston | Login",
+		canonical: req.headers.host + '/account/login/',
+		pageClass: ""
 	});
 };
 
 exports.signupPage = (req, res) => {
 	res.render("accountSignup.pug", {
-		pageTitle: "Web Design & Development Boston | Account Signup"
+		pageTitle: "Web Design & Development Boston | Account Signup",
+		canonical: req.headers.host + '/account/signup/',
+		pageClass: ""
 	});
 };
 
 // Password Management
 exports.forgotPasswordPage = (req, res) => {
-  res.render("forgotPassword", {pageTitle: "Web Design & Development Boston | Forgot Password"} );
+  res.render("forgotPassword", {
+		pageTitle: "Web Design & Development Boston | Forgot Password",
+		canonical: req.headers.host + '/account/billing/',
+		pageClass: ""
+	});
 };
 exports.updatePassword = (req, res) => {
-  res.render("update-password.pug", {pageTitle: "Web Design & Development Boston | Update Password"});
+  res.render("update-password.pug", {
+		pageTitle: "Web Design & Development Boston | Update Password",
+		canonical: req.headers.host + '/account/forgot/',
+		pageClass: ""
+	});
 };
 
 // Account Page
@@ -59,7 +71,9 @@ exports.accountPage = (req, res) => {
   res.render("account.pug", {
     charges: req.charges,
 		subs: req.subs,
-		pageTitle: "Web Design & Development Boston | Account"
+		pageTitle: "Web Design & Development Boston | Account",
+		canonical: req.headers.host + '/account',
+		pageClass: ""
   });
 };
 
@@ -79,7 +93,12 @@ exports.getPaymentHistory = async (req, res, next) => {
   }
 };
 exports.displayPaymentHistory = async (req, res, next) => {
-  res.render("paymentHistory.pug", { charges: req.charges, pageTitle: "Web Design & Development Boston | Payment History" });
+  res.render("paymentHistory.pug", {
+		charges: req.charges,
+		pageTitle: "Web Design & Development Boston | Payment History",
+		canonical: req.headers.host + '/account/payments/',
+		pageClass: ""
+	});
 };
 
 // Account Billing Page
@@ -108,7 +127,9 @@ exports.displayBilling = async (req, res, next) => {
   res.render("accountBilling.pug", {
     defaultCard: req.defaultCard,
 		cards: req.cards,
-		pageTitle: "Web Design & Development Boston | Billing"
+		pageTitle: "Web Design & Development Boston | Billing",
+		canonical: req.headers.host + '/account/billing/',
+		pageClass: ""
   });
 };
 

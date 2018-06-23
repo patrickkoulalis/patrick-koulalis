@@ -15,7 +15,7 @@ const mail = require("../handlers/mail");
 router.get("/", (req, res) => {
   res.render("index.pug", {
     pageTitle: "Web Design Boston | Patrick Koulalis",
-    canonical: "",
+    canonical: req.headers.host,
     pageClass: "home"
   });
 });
@@ -32,7 +32,8 @@ router.post(
 router.get("/work", (req, res) => {
   res.render("work.pug", {
     pageTitle: "Web Design & Development Boston | Patrick Koulalis",
-    canonical: "work"
+		canonical: req.headers.host + '/work/',
+		pageClass: "work"
   });
 });
 
@@ -40,7 +41,8 @@ router.get("/work", (req, res) => {
 router.get("/about", (req, res) => {
   res.render("about.pug", {
     pageTitle: "Web Design & Development Boston | About",
-    canonical: "about"
+		canonical: req.headers.host + '/about/',
+		pageClass: ""
   });
 });
 
@@ -48,25 +50,32 @@ router.get("/about", (req, res) => {
 router.get("/solutions", (req, res) => {
   res.render("solutions.pug", {
     pageTitle: "Web Design & Development Boston | Patrick Koulalis",
-    canonical: "solutions"
+		canonical: req.headers.host + '/solutions/',
+		pageClass: ""
   });
 });
 
 router.get("/web-design-development", (req, res) => {
-	res.render('web-design-development.pug');
+	res.render('web-design-development.pug', {
+		pageTitle: "Web Design & Development Boston | Patrick Koulalis",
+		canonical: req.headers.host + '/web-design-development/',
+		pageClass: ""
+	});
 });
 
 router.get("/seo-digital-marketing", (req, res) => {
 	res.render('seo-digital-marketing.pug', {
 		pageTitle: "SEO & Digital Marketing Boston | Patrick Koulalis",
-    canonical: "seo-digital-marketing"
+		canonical: req.headers.host + '/seo-digital-marketing/',
+		pageClass: ""
 	});
 });
 
 router.get('/search-engine-optimization', (req, res) => {
 	res.render('search-engine-optimization.pug', {
 		pageTitle: "Search Engine Optimization Boston | Patrick Koulalis",
-    canonical: "search-engine-optimization"
+		canonical: req.headers.host + '/search-engine-optimization/',
+		pageClass: ""
 	});
 });
 
@@ -74,13 +83,19 @@ router.get('/search-engine-optimization', (req, res) => {
 router.get("/maintenance-plans", async (req, res) => {
   try {
     if (!req.user) {
-      return res.render("maintenance-plans.pug");
+      return res.render("maintenance-plans.pug", {
+				pageTitle: "Web Design & Development Boston | Website Maintenance Plans",
+				customer: customer,
+				canonical: req.headers.host + '/maintenance-plans/',
+				pageClass: ""
+			});
     }
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("maintenance-plans.pug", {
       pageTitle: "Web Design & Development Boston | Website Maintenance Plans",
 			customer: customer,
-			canonical: "maintenance-plans"
+			canonical: req.headers.host + '/maintenance-plans/',
+			pageClass: ""
     });
   } catch (err) {
     Raven.captureException(err);
@@ -93,13 +108,19 @@ router.get("/maintenance-plans", async (req, res) => {
 router.get("/website-packages", async (req, res) => {
   try {
     if (!req.user) {
-      return res.render("website-packages.pug");
+      return res.render("website-packages.pug", {
+				pageTitle: "Web Design & Development Boston | Website Packages",
+				customer: customer,
+				canonical: req.headers.host + '/website-packages/',
+				pageClass: ""
+			});
     }
     const customer = await stripe.customers.listCards(req.user.customer_id);
     res.render("website-packages.pug", {
       pageTitle: "Web Design & Development Boston | Website Packages",
 			customer: customer,
-			canonical: "website-packages"
+			canonical: req.headers.host + '/website-packages/',
+			pageClass: ""
     });
   } catch (err) {
     Raven.captureException(err);
@@ -112,7 +133,8 @@ router.get("/website-packages", async (req, res) => {
 router.get("/estimates", (req, res) => {
   res.render("estimates.pug", {
 		pageTitle: "Web Design & Development Boston | Project Estimates",
-		canonical: "website-packages"
+		canonical: req.headers.host + '/estimates/',
+		pageClass: ""
   });
 });
 
@@ -236,7 +258,11 @@ router.get(
 
 // Catch all 404 Routes
 router.get("*", (req, res) => {
-  res.render("404.pug", { pageTitle: `404` });
+	res.render("404.pug", {
+		pageTitle: `404`,
+		canonical: req.headers.host + '/404/',
+		pageClass: "404"
+	});
 });
 
 module.exports = router;
