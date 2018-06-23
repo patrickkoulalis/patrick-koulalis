@@ -85,7 +85,6 @@ router.get("/maintenance-plans", async (req, res) => {
     if (!req.user) {
       return res.render("maintenance-plans.pug", {
 				pageTitle: "Web Design & Development Boston | Website Maintenance Plans",
-				customer: customer,
 				canonical: req.headers.host + '/maintenance-plans/',
 				pageClass: ""
 			});
@@ -110,7 +109,6 @@ router.get("/website-packages", async (req, res) => {
     if (!req.user) {
       return res.render("website-packages.pug", {
 				pageTitle: "Web Design & Development Boston | Website Packages",
-				customer: customer,
 				canonical: req.headers.host + '/website-packages/',
 				pageClass: ""
 			});
